@@ -1,0 +1,8 @@
+extends layouts/default.pug
+
+append variables
+	- let pageTitle = "О нас";
+	- description += pageTitle;
+block content
+	.container
+		h1= pageTitle

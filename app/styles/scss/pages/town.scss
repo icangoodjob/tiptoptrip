@@ -1,0 +1,98 @@
+@use "../scss/mixins/include-media" as *;
+@use "../base/mixins" as *;
+
+@use "../pages/town/town-common";
+
+.town-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.town-section {
+  @include media("<=md") {
+    padding: 0;
+  }
+  &--housing {
+    padding-top: 30px;
+  }
+  &--map {
+    padding: 21px 0px;
+  }
+  &--weather {
+    padding-top: 12px;
+  }
+  & .map {
+    height: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: var(--gray-color-gray);
+    margin-top: 20px;
+  }
+}
+
+.testimonials-section {
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  gap: 40px 10px;
+  @include media("<=md") {
+    margin-top: 56px;
+    grid-template-columns: 100%;
+    gap: 30px 10px;
+  }
+  &-offset-lg {
+    margin-top: 130px;
+    @include media("<=md") {
+      margin-top: 50px;
+    }
+  }
+  // .testimonials-section__title
+  &__title {
+    grid-column: 1 / -2;
+  }
+  & .btn {
+    padding: 15px 31px;
+    justify-self: end;
+    @include media("<=md") {
+      justify-self: stretch;
+      order: 1;
+    }
+  }
+}
+
+.testimonials-slider {
+  position: relative;
+  grid-column: 1 / -1;
+  & .swiper-scrollbar {
+    display: none;
+    @include media("<=vl") {
+      display: block;
+    }
+  }
+  & .slider-controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    @include media("<=vl") {
+      display: none;
+    }
+  }
+  & .slider-button-prev {
+    transform: translateX(calc(-100% - 23px));
+    @include media("<=xl") {
+      transform: translateX(calc(-50% - 10px));
+    }
+  }
+  & .slider-button-next {
+    transform: translateX(calc(100% + 23px));
+    @include media("<=xl") {
+      transform: translateX(calc(50% + 10px));
+    }
+  }
+}

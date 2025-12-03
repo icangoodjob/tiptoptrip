@@ -1,0 +1,40 @@
+@use "../../../base/mixins" as *;
+
+.favorite-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 2;
+  top: 20px;
+  right: 20px;
+  & svg {
+    pointer-events: none;
+  }
+  & svg rect {
+    transition: fill var(--time);
+  }
+  & svg path {
+    stroke: var(--universal-black);
+    transition: fill var(--time), stroke var(--time);
+  }
+  @include hover {
+    &:not(.favorite-button--active) {
+      & svg rect {
+        fill: var(--basic-orange-hover);
+      }
+      & svg path {
+        stroke: var(--universal-white);
+      }
+    }
+  }
+  &--active {
+    & svg path {
+      fill: var(--universal-white);
+      stroke: var(--universal-white);
+    }
+    & svg rect {
+      fill: var(--basic-orange);
+    }
+  }
+}

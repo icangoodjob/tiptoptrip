@@ -1,0 +1,20 @@
+extends layouts/default.pug
+
+append variables
+	- let pageTitle = "Отзывы о сайте";
+	- description += pageTitle;
+	- let breadCrumbsList = [{"title": "Главная", "link": "/"}];
+	- let currentPage = "Отзывы владельцев о работе сайта в сезоне 2024 года";
+
+block content
+	.page-header
+		.container
+			.page-title.title-h1= currentPage
+	.page-body
+		.site-feedback
+			.container 
+				+navigationProfile(0)
+				.site-feedback__main 
+					each item in testimonials.feedback
+						+testimonialsCard(item, null, 'testimonials-card-vertical')
+				include ./components/pagination

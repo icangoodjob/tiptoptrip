@@ -1,0 +1,43 @@
+extends layouts/default.pug
+
+append variables
+	- let pageTitle = "Добавление нового объекта";
+	- description += pageTitle;
+	- let breadCrumbsList = [{"title": "Главная", "link": "/"}];
+	- let currentPage = "Добавление нового объекта";
+
+block content
+	.page-header
+		.container
+			.page-title.title-h1 Добавить объект на сайт Tiptoptrip
+			.page-header__text.default-text--big Для того, чтобы разместить свой объект на сайте Tiptoptrip или узнать стоимость размещения объекта на сайте, заполните данную Заявку.
+	.page-body
+		.append-object
+			.container 
+				.append-object__body
+					form(action="#").append-object__form.object-form
+						.object-form__items 
+							+formItem("text", "object_name", "Название объекта")
+							.form-item
+								.form-item__caption.default-text--small-s Регион/Район
+								+customSelect(selects.appendObject, "Выберите нужный регион", "region")
+							+formItem("text", "city", "Город поселок", null, "Informative message holder")
+							+formItem("text", "address", "Адрес объекта")
+							+formItem("tel", "phone", "+7-900-000-00-00")
+							+formItem("text", "fio", "Ваше имя")
+							+formItem("email", "email", "Email")
+						.object-form__actions 
+							.object-form__actions-title.text-h5 Я понимаю*
+							.object-form__checkboxes 
+								each item, index in checkboxes.appendObject 
+									+baseCheckbox(item, index, item.name, null)
+							.form-buttons 
+								+btn("Применить", "btn--primary", "submit")
+								+btn("Сбросить", "btn--gray", "reset")
+							.form-text.default-text--small Нажимая кнопку “Отправить”, вы соглашаетесь с нашими #[a(href="#") Правилами и условиями] и #[a(href="#") Положением о конфиденциальности]
+					.append-object__info 
+						.append-object__text.default-text Телефон менеджера по вопросам размещения:
+						+sitePhone("+7 (978) 802 90 14", "text-h4")
+						.append-object__accent-block 
+							p.default-text Укажите свой телефон и e-mail, наш менеджер свяжется с Вами в ближайшее время и все Вам подробно расскажет.
+							p.default-text--m #[strong Размещение объектов на сайте платное. Цены в регионах отличаются.]

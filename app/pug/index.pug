@@ -1,0 +1,102 @@
+extends layouts/default.pug
+
+append variables
+	- let pageTitle = "Главная";
+	- description += pageTitle;
+	- bodyClass = "home";
+block content
+	.main-hero
+		.container 
+			.main-hero__body 
+				.main-hero__content
+					.main-hero__title.title-h1 Жилье для отдыха 2024
+					.main-hero__text.default-text Путеводитель TipTopTrip.ru - современный, наиболее полный каталог различных объектов туристической сферы. Найти жилье для отдыха, изучить карту проезда, подобрать развлечения на свой вкус теперь стало гораздо проще!
+					form.search-form
+						input(type="search" name="search" placeholder="Введите название курорта или отеля").search-form__input
+						button(type="submit").btn.btn--primary.search-form__btn #[span Найти]
+				.main-hero__image.image-ibg
+					picture
+						source(srcset="images/index/hero-img@2x.png" media="(min-width: 1024px)")
+						source(srcset="images/index/hero-img-mobile@2x.png" media="(min-width: 320px)")
+						img(src="images/index/hero-img@2x.png", alt="изображение")
+	.main-recreation
+		.container 
+			.main-recreation__wrapper 
+				each section in homeRecreations
+					.main-recreation__section.section-recreation
+						.section-recreation__heading 
+							h2.section-recreation__title.title-h2= section.caption
+							.section-recreation__sub-title.default-text--big= section.text
+						a(href="#").btn.btn-arrow.btn--gray Подробнее
+						.section-recreation__cards 
+							each card, indexCard in section.list
+								a(href="#" class=card.classes || '').recreation-card
+									.recreation-card__image 
+										img(src=`images/index/recreation-${card.img}@2x.jpg`, alt="")
+									.recreation-card__content 
+										.recreation-card__title.title-h4= card.title
+										.recreation-card__count.default-text= card.count
+	.recreation-features
+		.container
+			.recreation-features__body 
+				each card in homeRecreationFeatures
+					.recreation-features__card 
+						.recreation-features__card-image-wrap
+							.recreation-features__card-image
+								img(src=`images/index/recreation-features-${card.img}@2x.png`, alt=card.title)
+						.recreation-features__card-content 
+							.recreation-features__card-caption.title-h4= card.title
+							.recreation-features__card-text.default-text= card.text
+	.main-news
+		.container 
+			.main-news__body 
+				.main-news__heading.section-heading.section-heading-center
+					.main-news__title.title-h2 Новости
+					.slider-controls 
+						button(type="button").slider-button.slider-button-prev
+						button(type="button").slider-button.slider-button-next
+				.main-news__slider.swiper
+					.swiper-wrapper 
+						each item, index in [1, 2, 3, 1, 2, 3]
+							a(href="#").swiper-slide.news-card
+								.news-card__image.image-ibg
+									img(src=`images/index/news-img-${item}@2x.jpg`, alt="")
+								.news-card__content 
+									.news-card__title.title-underline.title-h5 Набережная Новороссийска
+									.news-card__text.default-text 
+										if item == 3
+											p Курорты Краснодарского края предлагают различные варианты отдыха на Черном море
+										else 
+											p Курорты Краснодарского края предлагают различные варианты отдыха на Черном море. Среди них Новороссийск занимает особое место
+									.news-card__info 
+										+date("21.06.24", "news-card__date")
+										+time("14 мин", "news-card__time")
+					.swiper-scrollbar
+	.main-hotels 
+		.container 
+			.main-hotels__body 
+				.main-hotels__title.title-h2 Последние добавленные&nbsp;отели
+				+btn("Все предложения", "btn--gray btn-arrow")
+				.main-hotels__cards 
+					each card in objectCards 
+						+objectCard(card)
+	.main-content 
+		.container 
+			.hidden-content
+				.hidden-content__wrap
+					.content 
+						h2 Как организовать отдых на море в 2024 году?
+						p Мягкий климат, большое количество развлечений, густая растительность и, конечно же, теплое море – это все те радости, которые ожидают гостей Краснодарского края, Абхазии и Крыма. Ежегодно огромное количество туристов отправляется на черноморское и азовское побережье в поисках ярких впечатлений, расслабляющего отдыха и гастрономических ощущений.
+						h3 Какой формат отдыха возможен на Черном и Азовском море?
+						p Если планируете отдых на море 2024, то прежде всего стоит определиться с маршрутом. За одну поездку на юга можно посетить сразу несколько городов и поселков. Стоит изучить, чем популярен тот или иной регион, чтоб оправдались ожидания.
+						h3 Наиболее популярные типы туров:
+						ul 
+							li Комфортный отдых по формату “все включено” с развлечениями на территории.
+							li Экономный вариант, возможно даже с проживанием в палатках на территории кемпингов на берегу.
+							li Гастротур по винодельням, сыроварням, горным пасекам и прочим местам с дегустациями.
+							li Экскурсионный по достопримечательностям. Особенно интересны дворцы на южном берегу Крыма.
+							li Максимально активный с пешими походами и экстрим-развлечениями.
+							li Пляжный: с релаксом у моря и неспешными прогулками по набережной.
+						p Курорты разнообразны, привлекательны и будут интересны для путешественников любого возраста.
+					.hidden-content__gradient 
+				+btn("Развернуть", "btn--gray btn-arrow")

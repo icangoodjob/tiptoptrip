@@ -1,0 +1,107 @@
+@use "../scss/mixins/include-media" as *;
+
+.append-testimonials {
+  // .append-testimonials__form
+  &__form {
+  }
+}
+.testimonials-form {
+  border: 1px solid var(--gray-color-gray-stroke);
+  border-radius: 20px;
+  padding: 40px;
+  @include media("<=md") {
+    border-radius: 0;
+    border: none;
+    padding: 0;
+  }
+  // .testimonials-form__groups
+  &__groups {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 30px;
+  }
+  // .testimonials-form__bottom
+  &__bottom {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    & .form-text {
+      flex: 1 1 auto;
+    }
+    & .form-buttons {
+      display: flex;
+      flex-direction: row;
+      flex-shrink: 0;
+      @include media("<=md") {
+        flex-shrink: 1;
+        flex-direction: column;
+      }
+    }
+    & .btn {
+      min-height: 40px;
+      padding: 8px 25px;
+      @include media("<=md") {
+        min-height: 49px;
+        padding: 13px 25px;
+      }
+    }
+    @include media("<=md") {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+  }
+}
+.testimonials-form-group {
+  display: grid;
+  align-items: start;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  @include media("<=md") {
+    gap: 15px;
+    grid-template-columns: 100%;
+  }
+  &.testimonials-form-group--rest {
+    gap: 20px 30px;
+    @include media("<=md") {
+      gap: 15px;
+    }
+    & .form-item {
+      grid-column: span 3;
+      @include media("<=md") {
+        grid-column: unset;
+      }
+    }
+  }
+  &.testimonials-form-group--estimate {
+    gap: 20px 30px;
+    @include media("<=md") {
+      gap: 15px;
+    }
+    & .form-item {
+      grid-column: span 3;
+      gap: 7px;
+      @include media("<=md") {
+        grid-column: unset;
+      }
+    }
+    & .form-item-textarea {
+      grid-column: 1 / -1;
+      margin-top: 10px;
+    }
+  }
+  // .testimonials-form-group__caption
+  &__caption {
+    grid-column: 1 / -1;
+    @include media("<=md") {
+      grid-column: unset;
+    }
+  }
+  & .form-item {
+    grid-column: span 2;
+    @include media("<=md") {
+      grid-column: unset;
+    }
+  }
+}

@@ -1,0 +1,245 @@
+@use "../scss/mixins/include-media" as *;
+@use "../base/mixins" as *;
+
+// стили всплывающего окна
+.popup {
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(#08151a, 0.7);
+  z-index: 20;
+  position: fixed;
+  inset: 0;
+  overflow-y: auto;
+  padding: 30px 15px;
+  pointer-events: none;
+  transition: opacity var(--time), visibility var(--time);
+  @include no-scroll;
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+  &.active &__window {
+    top: 0;
+  }
+  &__window {
+    max-width: 870px;
+    width: calc(100% - 20px);
+    margin: auto;
+    background-color: #fff;
+    position: relative;
+    top: -60px;
+    padding: 48px 60px 64px;
+    transition: top var(--time), bottom var(--time);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 2px 20px 0px rgba(13, 13, 13, 0.05);
+    // @media (max-width: $md) {
+    //   padding: 50px 30px;
+    // }
+    // @media (max-width: $xs) {
+    //   padding: 30px 20px;
+    // }
+  }
+
+  &__close {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--gray-color-gray-stroke);
+    position: absolute;
+    top: 25px;
+    right: 17px;
+    background-color: var(--white);
+    z-index: 10;
+    display: grid;
+    place-items: center;
+    &::before {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      @include mask-image(url("../images/icons/close.svg"), var(--black));
+    }
+    // &:hover:before,
+    // &:hover:after {
+    //   background-color: $orange;
+    // }
+    // &:before {
+    //   transform: rotate(45deg);
+    // }
+    // &:after {
+    //   transform: rotate(-45deg);
+    // }
+    // @media (any-hover: hover) {
+    //   &:hover {
+    //     cursor: pointer;
+    //   }
+    // }
+    .popup-room & {
+      top: 25px;
+      right: 25px;
+      width: 34px;
+      height: 34px;
+      background-color: transparent;
+      &::before,
+      &::after {
+        width: 25px;
+        // background-color: $gray-background;
+        height: 1px;
+      }
+    }
+  }
+}
+
+.popup-map {
+  height: 100%;
+  &__container {
+    width: 100%;
+    height: 100%;
+  }
+  & .popup__window {
+    padding: 0;
+    height: 100%;
+    // @media screen and (max-width: $xl) {
+    //   width: 100%;
+    //   border-radius: 10px 10px 0 0;
+    //   top: 0;
+    //   bottom: 0;
+    //   transform: translateY(100%);
+    //   transition: transform var(--time) * 2;
+    // }
+  }
+  //   @media screen and (max-width: $xl) {
+  //     padding-bottom: 0;
+  //     padding-right: 0;
+  //     padding-top: 50px;
+  //     right: 0;
+  //     &.active {
+  //       & .popup__window {
+  //         transform: translateY(0);
+  //       }
+  //     }
+  //   }
+  & .filter-button-mobile {
+    display: none;
+    position: absolute;
+    top: 15px;
+    left: 12px;
+    width: 124px;
+    min-height: 41px;
+    z-index: 10;
+    background-color: var(--white);
+    color: var(--black);
+    font-size: 14px;
+    line-height: 130%;
+    gap: 5px;
+    border-radius: 30px;
+    // @media screen and (max-width: $xl) {
+    //   display: flex;
+    // }
+  }
+}
+.popup-map {
+  & .map {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.popup-room {
+  & .popup__window {
+    padding: 0;
+    // @media screen and (max-width: $md) {
+    //   width: 100%;
+    //   border-radius: 0;
+    // }
+  }
+}
+
+// .popup {
+//   position: fixed;
+//   display: table;
+//   height: 100%;
+//   width: 100%;
+//   top: 0;
+//   left: 0;
+//   transform: scale(0);
+//   z-index: 1;
+//   &.open-popup {
+//     transform: scaleY(0.01) scaleX(0);
+//     animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+//     & .popup__content {
+//       transform: scale(0);
+//       animation: zoomIn 0.5s 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+//     }
+//     &.out {
+//       transform: scale(1);
+//       animation: unfoldOut 1s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+//       .popup__wrapper {
+//         .popup__content {
+//           animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+//         }
+//       }
+//     }
+//   }
+//   &__content {
+//     height: 200px;
+//     background: white;
+//     padding: 50px;
+//     display: inline-block;
+//     border-radius: 3px;
+//     font-weight: 300;
+//     position: relative;
+//   }
+//   &__wrapper {
+//     display: table-cell;
+//     background: rgba(0, 0, 0, 0.8);
+//     text-align: center;
+//     vertical-align: middle;
+//   }
+// }
+// @keyframes unfoldIn {
+//   0% {
+//     transform: scaleY(1) scaleX(1);
+//   }
+//   50% {
+//     transform: scaleY(0.005) scaleX(1);
+//   }
+//   100% {
+//     transform: scaleY(0.005) scaleX(0);
+//   }
+// }
+
+// @keyframes unfoldOut {
+//   0% {
+//     transform: scaleY(1) scaleX(1);
+//   }
+//   50% {
+//     transform: scaleY(0.005) scaleX(1);
+//   }
+//   100% {
+//     transform: scaleY(0.005) scaleX(0);
+//   }
+// }
+
+// @keyframes zoomIn {
+//   0% {
+//     transform: scale(0);
+//   }
+//   100% {
+//     transform: scale(1);
+//   }
+// }
+
+// @keyframes zoomOut {
+//   0% {
+//     transform: scale(1);
+//   }
+//   100% {
+//     transform: scale(0);
+//   }
+// }

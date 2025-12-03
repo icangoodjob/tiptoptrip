@@ -1,0 +1,71 @@
+@use "../../../../base/mixins" as *;
+
+.features-list {
+  @include reset-list;
+  display: flex;
+  align-items: center;
+  gap: 10px 15px;
+  flex-wrap: wrap;
+  .content & {
+    margin: 20px 0;
+    gap: 11px;
+  }
+  .apartments-card & {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+  }
+}
+.features-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  .apartments-card & {
+    background-color: var(--gray-color-gray-background);
+    border-radius: 5px;
+    padding: 10px 15px;
+  }
+  .content & {
+    background-color: var(--gray-color-gray-background);
+    border-radius: 5px;
+    padding: 6px 10px;
+    gap: 10px;
+  }
+  &::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-position: center center;
+  }
+  &--kitchen {
+    &::before {
+      background-repeat: no-repeat;
+      background-image: url("../images/icons/features/kitchen.svg");
+    }
+  }
+  &--wifi {
+    &::before {
+      background-image: url("../images/icons/features/wifi.svg");
+      background-repeat: no-repeat;
+    }
+  }
+  &--breakfast {
+    &::before {
+      background-image: url("../images/icons/features/breakfast.svg");
+      background-repeat: no-repeat;
+    }
+  }
+  &--building {
+    &::before {
+      background-image: url("../images/icons/features/building.svg");
+      background-repeat: no-repeat;
+    }
+  }
+  &--transfer {
+    &::before {
+      background-image: url("../images/icons/features/transfer.svg");
+      background-repeat: no-repeat;
+    }
+  }
+}

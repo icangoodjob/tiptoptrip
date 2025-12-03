@@ -1,0 +1,326 @@
+mixin breadCrumbs([...arr], currentPage)
+	.breadcrumbs
+		.container 
+			nav.breadcrumbs__navigation 
+				ul.breadcrumbs__list 
+					each item in arr
+						li.breadcrumbs__item 
+							a(href=item.link).breadcrumbs__link= item.title
+					li.breadcrumbs__item.active= currentPage
+
+mixin menu([...items])
+	ul.menu__list
+		each item, index in items
+			li.menu__item(class={active: item.title == pageTitle})
+				a.menu__link(href=item.link)= item.title
+				if item.submenu 
+					span.menu__arrow 
+					div.submenu
+						ul.submenu__list 
+							each submenuItem, submenuIndex in item.submenu 
+								li.submenu__item(class={active: submenuItem.title == pageTitle})
+									a.submenu__link(href=submenuItem.link)= submenuItem.title
+mixin svgsprite(name)
+	svg(class=`svg-svg-${name}-dims`)&attributes(attributes)
+		use(xlink:href=`./images/icons/icons.svg#svg-${name}`)
+
+mixin date(str, classNames)
+	.date.default-text--small(class=classNames) #{str}
+
+mixin time(str, classNames)
+	.time.default-text--small(class=classNames) #{str}
+
+mixin btn(text, classNames, btnType = 'button')
+	if btnType === 'button'
+		button.btn(type="button" class=classNames) #{text}
+	else if btnType === 'submit'
+		button.btn(type="submit" class=classNames) #{text}
+	else if btnType === 'reset'
+		button.btn(type="reset" class=classNames) #{text}
+	else
+		a.btn(href="#" class=classNames) #{text}
+
+
+mixin ratingBlue(num = "4,8", result = "142 отзыва")
+	.rating.rating-blue
+		.rating-value
+			.rating-value__number.default-text--small= num
+			.rating-value__result.default-text--small= result
+
+
+mixin objectCard(item, classNames, isRating)
+	a(href="#" class=classNames).object-card
+		.object-card__image-wrap 
+			+favoriteButton
+			.object-card__image.image-ibg
+				img(src=`images/objects/object-${item.img}@2x.jpg`, alt=item.title)
+		.object-card__content 
+			.object-card__title.title-underline.title-h5= item.title
+			.object-card__description.default-text--small!= item.descr
+			.object-card__bottom 
+				.object-card__prices
+					.object-card__price.title-h4= item.price
+					.object-card__price-caption.default-text--small #{item.subPrice || 'за чел. в сутки в июне'}
+				if isRating 
+					+ratingBlue
+
+mixin navigationTown(currentIndex)
+	nav.menu-navigation
+		each item, index in townNavigation
+			a(href=item.link class={'active': index === currentIndex}).menu-navigation__link.btn.btn--gray= item.title
+
+mixin navigationProfile(currentIndex)
+	nav.menu-navigation
+		each item, index in profileNavigation
+			a(href=item.link class={'active': index === currentIndex}).menu-navigation__link.btn.btn--gray= item.title
+
+mixin asideNavigation([...arr], caption = "Курорты рядом", classNames, activeIndex)
+	.aside-nav(class=classNames)
+		.aside-nav__caption.default-text(class=`${activeIndex >= 0 ? 'default-text--bold': 'default-text--semibold'}`)= caption 
+		nav.aside-menu
+			ul.aside-menu__list 
+				each item, index in arr
+					li.aside-menu__item 
+						a(href=item.link class=[{active: index === activeIndex}, `${activeIndex >= 0 ? 'default-text--small' : 'link-underline default-text'}`]).aside-menu__link= item.title
+
+mixin badges([...arrBadges])
+	.badges
+		ul.badges__list 
+			each badge in arrBadges
+				li.badges__item 
+					a(href=badge.link).badges__link.default-text--small= badge.title
+
+mixin facitiesWidget([...badges], isSlider = true, hasControls)
+	.facities-widget(class={'has-controls': hasControls})
+		if isSlider
+			.facities-widget__slider
+				.swiper
+					.swiper-wrapper 
+						if block 
+							block
+				.swiper-scrollbar
+				if hasControls
+					.slider-controls
+						button(type="button").slider-button.slider-button-prev 
+						button(type="button").slider-button.slider-button-next 
+		if badges.length 
+			+badges([...badges])
+
+mixin imagesWidget([...imagesArr], classNames)
+	.images-widget(class=classNames)
+		each image in imagesArr
+			.images-widget__image.image-ibg 
+				img(src=`images/town/images-widget/img-${image}@2x.jpg`, alt="изображение")
+
+mixin gameCard(item, classNames)
+	a(href="#" class=classNames).game-card
+		.game-card__image-wrap
+			+favoriteButton
+			.game-card__image.image-ibg
+				img(src=`images/town/games-widget/game-img-${item.img}@2x.jpg`, alt=item.caption)
+		.game-card__content 
+			.game-card__caption.default-text.default-text--semibold.title-underline= item.caption
+			.game-card__text.default-text--small!= item.text
+
+mixin photoCard(item)
+	a(href=`images/town/photos/photo-${item.img}@2x.jpg` data-fancybox="photo").photo-card
+		.photo-card__image.image-ibg
+			img(src=`images/town/photos/photo-${item.img}@2x.jpg`, alt=item.caption)
+		.photo-card__description.default-text= item.caption
+
+mixin pagination([...paginationPc], [...paginationMobile], activeIndex = 3, activeMobIndex = 2)
+	.pagination
+		nav.pagination-nav 
+			ul.pagination__list
+				li.pagination__item.pagination__item--prev
+					a(href="#").pagination__link
+				each item, index in paginationPc
+					li.pagination__item(class={active: index === activeIndex})
+						a(href="#").pagination__link= item
+				li.pagination__item.pagination__item--next
+					a(href="#").pagination__link
+		nav.pagination-nav-mobile
+			ul.pagination__list
+				each item, index in paginationMobile
+					li.pagination__item(class={active: index === activeMobIndex})
+						a(href="#").pagination__link= item
+
+mixin rating(num = "5,0", author, date = "12 августа 2024", result, isEmpty)
+	.rating 
+		.rating-value
+			if result
+				.rating-value__result.default-text--small= result
+			.rating-value__count
+				.rating-value__img 
+					img(src=`images/icons/${!isEmpty ? 'big-star' : 'star-gray'}.svg`, alt="рейтинг")
+				.rating-value__number.text-h5= num
+			if author
+				.rating-value__author.text-h5.default-text--bold= author
+		if date
+			+date(date)
+
+mixin testimonialsCard(item, indexImage, classNames, isShowMore = true)
+	.testimonials-card(class=classNames)
+		.testimonials-card__body 
+			.testimonials-card__image.image-ibg 
+				img(src=`images/testimonials/${item.img ? item.img : indexImage}@2x.jpg`, alt="фото")
+			.testimonials-card__place 
+				.testimonials-card__place-name.text-h4 #{item.place || 'Гостиница “Южный Берег”'}
+				address.testimonials-card__place-address.default-text--small !{item.address || 'Голубицкая, ул.&nbsp;Красная, д.&nbsp;178'}
+			+rating(`${item.count || '5,0'}`, `${item.author || 'Марина'}`, `${item.date}`)
+			.testimonials-card__content
+				if !item.longText
+					ul.testimonials-card__list 
+						li.testimonials-card__list-item 
+							span.default-text--semibold Достоинства:
+							span Расположен в центре, качественное питание
+						li.testimonials-card__list-item 
+							span.default-text--semibold Недостатки:
+							span Долгое оформление
+				.testimonials-card__text 
+					if item.longText
+						p Хочу вас поблагодарить за хорошую работу этого сезона! 😃😃😃 Ваш сайт куда на море мне очень, очень помог по заселению гостей. Начало сезона для меня было сложным и тяжёлым. Потом благодаря вам, было много звонков и также и гостей!!!!!! Всей вашей команде хочу пожелать карьерного роста, процветания и удачи во всех делах! Отдельное спасибо тем, кто работал со мной, с моим гостевым домом "Солнце"! Также буду продолжать с вами работать! И всем рассказываю , что хороший сайт Куда на море.ру! 🌊🌊🌊 Спасибо вам, я с вами!
+					else if item.text 
+						p #{item.text}
+						if isShowMore
+							| #[a(href="#").link-underline.link-underline--color-blue Подробнее] 
+					else
+						| Благодарю хозяев за такой прекрасный отдых! Море чистейшее и прекрасное! Дом хороший, светлый, добротный. Чисто и уютно. Прекрасная мини-столовая для своих. Место по истине райское, первый раз была в Вардане, теперь только туда!!!
+
+mixin postCard(item, image)
+	article.post-card
+		.post-card__image.image-ibg
+			img(src=`images/posts/post-img-${item.img || image}@2x.jpg`, alt=item.title)
+		.post-card__main 
+			+date(item.date || "21.06.24")
+			a(href="#").post-card__title.title-h5= item.title
+			.post-card__content.default-text--small-s
+				if item.text
+					p= item.text
+				else 
+					p Заведений со всеми удобствами на курорте пока мало, поэтому, если вы планируете арендовать домик или комнату с горячей водой, поступающей круглосуточно, телевизором, кондиционером, кухней, детской площадкой и прочими удобствами, бронировать лучше заранее (не забыв изучить отзывы с фото). А вот жилье эконом класса, сдающееся по минимальной цене, найти можно даже...
+			.post-card__bottom 
+				+btn("Читать", "btn--gray btn-arrow", "link")
+				+time("14 мин")
+
+mixin fieldGroup(caption)
+	.form-group
+		.form-group__caption.default-text.default-text--semibold= caption
+		if block 
+			block
+
+mixin baseCheckbox(item, idx, name, image)
+	.base-checkbox 
+		label(for=`${name}-${idx}`).base-checkbox__label.default-text--small-s
+			input(type="checkbox" name=name id=`${name}-${idx}` checked=item.checked).base-checkbox__real-input.visuallyHidden
+			.base-checkbox__custom-input 
+			| #{item.title}
+			if name === 'object'
+				span.base-checkbox__img 
+					img(src=`images/icons/map-objects/${image}.svg`, alt=image)
+			if name == 'section'
+				span.base-checkbox__count= item.count
+
+mixin customSelect([...selectList], currentValue, inputName, classNames)
+	.custom-select(class=classNames)
+		button(type="button").custom-select__btn= currentValue
+		ul.custom-select__list.select-list
+			each item in selectList
+				li.select-list__item(data-value=item.value)= item.value
+		input(type="hidden" name=inputName value="").custom-select__input
+
+mixin btnShowMore 
+	button(type="button").btn-show-more.default-text--small Показать еще (10) 
+
+mixin favoriteButton(classNames)
+	button.favorite-button(type="button" class=classNames)
+		<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<rect width="40" height="40" rx="20" fill="white" />
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M20.9033 15.2001C21.6826 14.4319 22.74 14 23.843 14C24.946 14 26.0034 14.4319 26.7828 15.2002C27.5623 15.968 28 17.0093 28 18.0948C28 19.1804 27.5622 20.2218 26.7826 20.9896L20.8123 26.8726C20.7295 26.9542 20.6171 27 20.4998 27C20.3826 27 20.2701 26.9542 20.1874 26.8726L14.217 20.9895C12.5943 19.3907 12.5943 16.799 14.217 15.2001C15.8404 13.6004 18.473 13.6004 20.0964 15.2001L20.4998 15.5976L20.9033 15.2001Z" fill="transparent" />
+		</svg>
+
+mixin hotelCard(item, imageIndex, isActive)
+	.hotel-card
+		.hotel-card__image.image-ibg 
+			img(src=`images/hotels/hotel-img-${item.img || imageIndex}@2x.jpg`, alt=`${item.title}`)
+			+favoriteButton(`${isActive ? 'favorite-button--active': ''}`)
+		.hotel-card__main 
+			.hotel-card__content 
+				.star-rating
+					ul.star-rating__list.r-5
+						- for (var i = 0; i < 5; i++)
+							li.star-rating__item 
+				a(href="#").hotel-card__title.title-h5.title-underline= item.title
+				.hotel-card__address.default-text--small= item.address
+				a(href="#").hotel-card__link.link-underline.link-underline--color-blue.default-text--xs Показать на карте
+				ul.hotel-card__features.features-list
+					each feature in features.hotel
+						li.default-text--caption.features-item(class=`features-item--${feature.key}`)= feature.caption
+				.hotel-card__description 
+					p.default-text Апартаменты полулюкс двухкомнатные с террасой
+					.hotel-card__options.card-options.color-gray
+						each option in options.hotel
+							.card-option.default-text--small= option
+			.hotel-card__info
+				+rating("5,0", null, null, "124 отзыва")
+				.hotel-card__prices
+					.hotel-card__price.text-h4= item.price
+					.hotel-card__price-old!= item.priceOld
+
+mixin comfortCard(item, imagePath, imageIndex)
+	.comfort-card 
+		.comfort-card__image-wrap 
+			+favoriteButton
+			.comfort-card__image.image-ibg 
+				img(src=`images/${imagePath}/img-${item.img || imageIndex}@2x.jpg`, alt=item.title)
+		.comfort-card__main
+			.comfort-card__header 
+				a(href="#").comfort-card__title.title-h5.title-underline= item.title
+				.comfort-card__sub-title.default-text--small!= item.subTitle
+				+rating("5,0", null, null, null)
+			.comfort-card__content.default-text--small
+				| #{item.text}
+				a(href="#").link-underline.link-underline--color-blue Подробнее
+			.comfort-card__details.card-details
+				each detail in item.details
+					.card-detail
+						.card-detail__caption.default-text--small=detail.caption
+						if detail.key === 'phone'
+							+sitePhone(detail.value, "card-detail__value default-text")
+						else 
+							card-detail__value.default-text.default-text--bold= detail.value
+
+
+mixin sitePhone(str, classNames)
+	a.site-phone(href=`tel:${str.replace(/[^\d\+]/g, "")}` class=classNames) #{str}
+
+mixin siteEmail(str, classNames)
+	a.site-email(href=`mailto:${str}` class=classNames) #{str}
+
+mixin formItem(formType, formName, helpText, caption, isError)
+	.form-item(class={error: isError})
+		if caption
+			.form-item__caption= caption
+		if formType === 'tel'
+			.form-item__field.form-item__field-phone
+				input(type=formType name=formName placeholder=helpText).form-input
+		else 
+			.form-item__field
+				input(type=formType name=formName id=formName placeholder=helpText).form-input
+				label(for=formName).form-label= helpText
+		if isError
+			span.error-message= isError
+
+mixin customRadio(item, idx, inputName)
+	.custom-radio 
+		input(type="radio" name=inputName id=`${inputName}-${idx}` checked=item.checked).custom-radio__input.visuallyHidden
+		label(for=`${inputName}-${idx}`).custom-radio__label.default-text #{item.title}
+
+mixin btnMap(classNames)
+	button.btn-map(type="button" data-popup-button="popup-map" class=classNames)
+		| На карте
+		<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M13.0435 17.8418C12.6852 17.8418 12.3268 17.7668 12.0352 17.6251L7.66016 15.4335C7.41016 15.3085 6.91849 15.3168 6.67682 15.4585L4.71016 16.5835C3.86016 17.0668 2.98516 17.1335 2.32682 16.7418C1.66016 16.3585 1.28516 15.5751 1.28516 14.5918V6.4918C1.28516 5.73346 1.78516 4.87513 2.44349 4.50013L6.05182 2.43346C6.66016 2.08346 7.58516 2.05846 8.21016 2.37513L12.5852 4.5668C12.8352 4.6918 13.3185 4.67513 13.5685 4.5418L15.5268 3.42513C16.3768 2.9418 17.2518 2.87513 17.9102 3.2668C18.5768 3.65013 18.9518 4.43346 18.9518 5.4168V13.5251C18.9518 14.2835 18.4518 15.1418 17.7935 15.5168L14.1852 17.5835C13.8685 17.7501 13.4518 17.8418 13.0435 17.8418ZM7.20182 14.1001C7.56016 14.1001 7.91849 14.1751 8.21016 14.3168L12.5852 16.5085C12.8352 16.6335 13.3185 16.6168 13.5685 16.4835L17.1768 14.4168C17.4435 14.2668 17.7018 13.8168 17.7018 13.5168V5.40846C17.7018 4.88346 17.5518 4.4918 17.2768 4.3418C17.0102 4.1918 16.5935 4.25013 16.1435 4.50846L14.1852 5.62513C13.5768 5.97513 12.6518 6.00013 12.0268 5.68346L7.65182 3.4918C7.40182 3.3668 6.91849 3.38346 6.66849 3.5168L3.06016 5.58346C2.79349 5.73346 2.53516 6.18346 2.53516 6.4918V14.6001C2.53516 15.1251 2.68516 15.5168 2.95182 15.6668C3.21849 15.8251 3.63516 15.7585 4.09349 15.5001L6.05182 14.3835C6.37682 14.1918 6.79349 14.1001 7.20182 14.1001Z" fill="#08151A" />
+			<path d="M7.13281 14.7918C6.79115 14.7918 6.50781 14.5085 6.50781 14.1668V3.3335C6.50781 2.99183 6.79115 2.7085 7.13281 2.7085C7.47448 2.7085 7.75781 2.99183 7.75781 3.3335V14.1668C7.75781 14.5085 7.47448 14.7918 7.13281 14.7918Z" fill="#08151A" />
+			<path d="M13.1094 17.2916C12.7677 17.2916 12.4844 17.0083 12.4844 16.6666V5.5166C12.4844 5.17493 12.7677 4.8916 13.1094 4.8916C13.451 4.8916 13.7344 5.17493 13.7344 5.5166V16.6666C13.7344 17.0083 13.451 17.2916 13.1094 17.2916Z" fill="#08151A" />
+		</svg>

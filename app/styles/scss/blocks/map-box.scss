@@ -1,0 +1,24 @@
+@use "../scss/mixins/include-media" as *;
+@use "../base/mixins" as *;
+
+.map-box {
+  border: 1px solid var(--gray-color-stroke-secondary);
+  border-radius: 10px;
+  overflow: hidden;
+  display: grid;
+  background-image: url("../images/icons/map-bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 15px;
+  min-height: 150px;
+  &--size-lg {
+    place-items: center;
+  }
+  &--size--xs {
+    place-items: end start;
+  }
+  & .btn {
+    box-shadow: 0 4px 15px 0 rgba(55, 87, 117, 0.15);
+    border-radius: 10px;
+  }
+}

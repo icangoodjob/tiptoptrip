@@ -1,0 +1,37 @@
+extends layouts/default.pug
+
+append variables
+	- let pageTitle = "Карта";
+	- description += pageTitle;
+	- let breadCrumbsList = [{"title": "Главная", "link": "/"}, {"title": "Крым", "link": "/"}];
+	- let currentPage = "Алушта"
+
+block content
+	.page-header
+		.container
+			.page-title.title-h1= currentPage
+	.page-body
+		.town
+			.container 
+				.town__heading 
+					.town__heading-image.image-ibg
+						img(src="images/town/preview-img@2x.jpg", alt=currentPage)
+					+navigationTown(4)
+				.section-heading 
+					.title-h4 Выберите тип объекта для отображения на карте
+				+btn("Фильтр", "btn--gray btn-filter")
+				.map-section
+					.map-section__body
+						.map-section__map#mapObjects
+						.map-section__object-box 
+							button(type="button").close-button.jsObjectBoxClose
+							+objectCard(mapSectionObjectCard, "", true)
+						.filter
+							.filter__wrapper
+								.filter__header
+									.filter__caption.default-text--m.default-text--bold Выбрать тип объекта
+									button(type="button").filter__close.default-text Закрыть
+								form(action="#").form
+									each item, index in checkboxes.mapObjects 
+										+baseCheckbox(item, index, "object", item.image)
+									include ./components/filter-actions

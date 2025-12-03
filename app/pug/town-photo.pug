@@ -1,0 +1,32 @@
+extends layouts/default.pug
+
+append variables
+	- let pageTitle = "Фото";
+	- description += pageTitle;
+	- let breadCrumbsList = [{"title": "Главная", "link": "/"}, {"title": "Крым", "link": "/"}];
+	- let currentPage = "Алушта"
+
+block content
+	.page-header
+		.container
+			.page-title.title-h2= currentPage
+	.page-body 
+		.town-photos
+			.container 
+				.town__heading 
+					.town__heading-image.image-ibg
+						img(src="images/town/preview-img@2x.jpg", alt=currentPage)
+					+navigationTown(3)
+				.section-heading 
+					.title-h4 Фотографии Алушты
+				.town-photos__cards
+					each card in photoCards
+						+photoCard(card)
+				include ./components/pagination
+				.facities-sections.facities-sections--offset-lg
+					.facities-section 
+						.section-heading
+							.facities-section__title.title-h2 Где остановится в Алуште
+						+facitiesWidget([...badges], true, true)
+							each card in objectCards 
+								+objectCard(card, 'swiper-slide')

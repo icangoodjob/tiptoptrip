@@ -1,0 +1,17 @@
+extends layouts/default.pug
+
+append variables
+	- let pageTitle = "Заявка на бронирование";
+	- let breadCrumbsList = [{"title": "Главная", "link": "/"}, {"title": "Крым", "link": "/"}, {"title": "Алушта", "link": "/"}, {"title": "Развлечения", "link": "/"}];
+	- description += pageTitle;
+	- let currentPage = "Заявка на бронирование"
+
+block content
+	.page-header
+		.container
+			.page-title.title-h2!= currentPage
+	.page-body
+		.container
+				.booking
+					p.default-text--m Спасибо! Ваша заявка принята, ожидайте, с вами свяжется владелец для подтверждения заявки
+

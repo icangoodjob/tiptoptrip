@@ -1,0 +1,70 @@
+@use "sass:math";
+@use "../scss/mixins/include-media" as *;
+@use "../../../../base/mixins" as *;
+@use "../../../../base/extends" as *;
+
+.base-checkbox {
+  // .base-checkbox__label
+  &__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    @include hover {
+      cursor: pointer;
+      &:not(:has(.base-checkbox__real-input:checked)) .base-checkbox__custom-input {
+        background-color: var(--basic-orange-hover-opacity-80);
+        border-color: var(--basic-orange-hover-opacity-80);
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  // .base-checkbox__real-input
+  &__real-input {
+    @extend %visuallyHidden;
+    &:checked ~ .base-checkbox__custom-input {
+      background-color: var(--basic-orange);
+      border-color: var(--basic-orange);
+    }
+    &:checked ~ .base-checkbox__custom-input::before {
+      opacity: 1;
+    }
+    &:checked ~ .base-checkbox__count {
+      color: var(--basic-orange);
+    }
+  }
+  // .base-checkbox__custom-input
+  &__custom-input {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    border-radius: 3px;
+    border: 1px solid var(--gray-color-gray-text);
+    display: grid;
+    place-items: center;
+    transition: border-color var(--time), background-color var(--time);
+    &::before {
+      content: "";
+      display: block;
+      width: 10px;
+      height: 10px;
+      @include mask-image(url("../images/icons/check.svg"), var(--universal-white), 9px 9px, center);
+      opacity: 0;
+      transition: opacity var(--time);
+    }
+  }
+
+  // .base-checkbox__img
+  &__img {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+  // .base-checkbox__count
+  &__count {
+    transition: color var(--time);
+    margin-left: auto;
+  }
+}

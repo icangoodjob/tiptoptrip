@@ -1,0 +1,45 @@
+@use "../scss/mixins/include-media" as *;
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  @include media("<=md") {
+    margin-bottom: 20px;
+  }
+  &-start {
+    align-items: flex-start;
+  }
+  &-center {
+    align-items: center;
+  }
+  &-column {
+    flex-direction: column;
+  }
+
+  &__actions {
+    margin-top: 30px;
+    @include media("<=lg") {
+      order: -1;
+      border-bottom: 1px solid var(--gray-color-stroke-secondary);
+      border-top: 1px solid var(--gray-color-stroke-secondary);
+      padding: 10px 0px;
+      margin-left: auto;
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      margin: 0 0 30px;
+    }
+  }
+  &__actions-buttons {
+    @include media("<=lg") {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      max-width: 339px;
+      width: 100%;
+    }
+  }
+}

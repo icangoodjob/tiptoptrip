@@ -1,0 +1,50 @@
+extends layouts/default.pug
+
+append variables
+	- let pageTitle = "Заявка на бронирование";
+	- let breadCrumbsList = [{"title": "Главная", "link": "/"}, {"title": "Крым", "link": "/"}, {"title": "Алушта", "link": "/"}, {"title": "Развлечения", "link": "/"}];
+	- description += pageTitle;
+	- let currentPage = "Заявка на бронирование"
+
+block content
+	.page-header
+		.container
+			.page-title.title-h2!= currentPage
+	.page-body
+		.container
+			.booking
+				.booking__body 
+					.booking__main.main-booking
+						.main-booking__header 
+							.main-booking__content
+								.main-booking__title.title-h4 Двухместный номер с 1 кроватью стандарт класс (широкая кровать+ кондиционер+ чайник)
+								.main-booking__options
+									.card-options.has-icons
+										each option in cardOptions
+											.default-text--caption.card-option(class=`card-option--${option.key}`)= option.caption
+							.main-booking__image.image-ibg
+								img(src="images/main-card/apartment-img-1@2x.jpg", alt="превью")
+						.main-booking__groups 
+							.main-booking__group.group-booking
+								| form items
+							.main-booking__group.group-booking.group-booking.group-booking--contacts
+								.group-booking__title.title-h5 Укажите контакты, по которым с вами можно связаться
+								.group-booking__fields
+									+formItem("text", "booking_name", "Ваше имя")
+									+formItem("email", "booking_email", "Email")
+									+formItem("tel", "booking_phone", "+7-900-000-00-00")
+									.form-item.form-item-textarea
+										.form-item__field
+											textarea(name="booking_message" id="booking_message" placeholder="Сообщение владельцу").form-input.form-textarea
+											label(for="booking_message").form-label Сообщение владельцу 
+					.booking__result.result-booking
+						.result-booking__text.default-text--small-s Стоимость ориентировочная. Окончательная стоимость определяется владельцем после подтверждения заявки
+						.result-booking__cost.title-h4
+							.result-booking__cost-caption Итого
+							.result-booking__cost-price
+								| 15 044 ₽ 
+								span.default-text--small-s.color-gray 3 ночи
+						.form-buttons
+							+btn("Оставить заявку", "btn--primary", "submit")
+							+btn("Отменить", "btn--border", "reset")
+						.form-text.default-text--small-s Отправляя заявку, вы даете согласие на обработку своих персональных данных и принимаете условия #[a(href="#").link-underline.link-underline--color-blue Политики конфидециальности] и #[a(href="#").link-underline.link-underline--color-blue Пользовательского соглашения]

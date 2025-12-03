@@ -1,0 +1,59 @@
+extends layouts/default.pug
+
+append variables
+	- let pageTitle = "Новый отзыв";
+	- description += pageTitle;
+	- let breadCrumbsList = [{"title": "Главная", "link": "/"}, {"title": "Крым", "link": "/"}, {"title": "Алушта", "link": "/"}, {"title": "Жилье", "link": "/"}];
+	- let currentPage = "Отзыв"
+	- let title = "Новый отзыв";
+
+block content
+	.page-header
+		.container
+			.page-title.title-h2= title
+	.page-body 
+		.append-testimonials
+			.container 
+				form(action="#").append-testimonials__form.testimonials-form
+					.testimonials-form__groups 
+						.testimonials-form-group
+							.testimonials-form-group__caption.title-h5 О вас
+							+formItem("text", "about_name", "Как вас зовут?*")
+							+formItem("text", "about_from", "Откуда вы?*")
+							+formItem("email", "about_email", "Email")
+						.testimonials-form-group.testimonials-form-group--rest
+							.testimonials-form-group__caption.title-h5 Когда вы здесь отдыхали?
+							.form-item
+								.form-item__caption.default-text--small-s Месяц проживания
+								+customSelect([...selects.months], "Выберите месяц", "about_month")
+								//- .custom-select.custom-select-calendar
+								//- 	button(type="button")#button-calendar-month.custom-select__btn Выберите месяц
+								//- 	input(type="hidden", name="calendar_month")#input-calendar-month
+								//- 	.select-list.calendar-select-list
+								//- 		#calendar-month
+							.form-item
+								.form-item__caption.default-text--small-s Год проживания
+								+customSelect([...selects.years], "Выберите год", "about_years")
+								//- .custom-select.custom-select-calendar
+								//- 	button(type="button")#button-calendar-year.custom-select__btn Выберите год
+								//- 	input(type="hidden", name="calendar_year")#input-calendar-year
+								//- 	.select-list.calendar-select-list
+								//- 		#calendar-year
+						.testimonials-form-group.testimonials-form-group--estimate
+							.testimonials-form-group__caption.title-h5 Дайте оценку этому объекту
+							each groupItem, groupIndex in testimonialsRadios
+								.form-item
+									.form-item__caption.default-text--small-s= groupItem.caption
+									.form-item__buttons 
+										each item, index in radioButtons[groupItem.key]
+											+customRadio(item, index+1, `estimate_${groupItem.key}`)
+							.form-item.form-item-textarea
+								.form-item__field
+									textarea(name="message" id="message" placeholder="Текст отзыва*").form-input.form-textarea
+									label(for="message").form-label Текст отзыва* 
+					.testimonials-form__bottom 
+						.form-text.default-text--small-s
+							| Нажимая кнопку “Отправить отзыв”, вы даете согласие на обработку своих персональных данных и принимаете условия #[a(href="#").link-underline.link-underline--color-blue Политики конфидециальности] и #[a(href="#").link-underline.link-underline--color-blue Пользовательского соглашения]
+						.form-buttons 
+							+btn("Отправить отзыв", "btn--primary", "submit")
+							+btn("Отменить", "btn--gray", "reset")

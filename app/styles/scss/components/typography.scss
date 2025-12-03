@@ -1,0 +1,112 @@
+@use "../functions/fluid" as *;
+@use "../scss/mixins/include-media" as *;
+
+.title-h1,
+.title-h2 {
+  font-weight: 800;
+}
+
+.text-h3,
+.text-h4,
+.text-h5,
+.title-h3,
+.title-h4,
+.title-h5 {
+  font-weight: 700;
+}
+
+.title-h1 {
+  font-size: fluid-clamp(
+    (
+      xs: 38px,
+      hd: 46px,
+    )
+  );
+  line-height: 120%;
+}
+.title-h2 {
+  font-size: 40px;
+  line-height: 120%;
+  @include media("<=md") {
+    font-size: 32px;
+    line-height: 130%;
+  }
+}
+.text-h3,
+.title-h3 {
+  font-size: 32px;
+  line-height: 120%;
+  @include media("<=md") {
+    font-size: 26px;
+    line-height: 130%;
+  }
+}
+.text-h4,
+.title-h4 {
+  font-size: 24px;
+  line-height: 120%;
+  @include media("<=md") {
+    font-size: 20px;
+    line-height: 130%;
+  }
+}
+.text-h5,
+.title-h5 {
+  font-size: 20px;
+  line-height: 130%;
+  @include media("<=md") {
+    font-size: 18px;
+    line-height: 130%;
+  }
+}
+
+.default-text {
+  font-size: 16px;
+  line-height: 130%;
+  &--big {
+    font-size: 22px;
+    line-height: 140%;
+    @include media("<=md") {
+      font-size: 18px;
+      line-height: 130%;
+    }
+  }
+  &--bold {
+    font-weight: 700;
+  }
+  &--semibold {
+    font-weight: 600;
+  }
+  &--m {
+    font-size: 18px;
+    line-height: 120%;
+  }
+  &--small {
+    font-size: 14px;
+    line-height: 130%;
+  }
+  &--small-s {
+    line-height: 140%;
+    font-size: 14px;
+  }
+  &--xs {
+    font-size: 12px;
+    line-height: 167%;
+  }
+  &--caption {
+    font-size: 13px;
+    line-height: 120%;
+    @include media("<=md") {
+      font-size: 12px;
+    }
+  }
+}
+
+a.title-underline,
+.title-underline {
+  transition: color var(--time), text-decoration-color var(--time);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+}

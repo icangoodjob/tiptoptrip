@@ -1,0 +1,29 @@
+extends layouts/default.pug
+
+append variables
+	- let pageTitle = "Статьи";
+	- description += pageTitle;
+	- let breadCrumbsList = [{"title": "Главная", "link": "/"}, {"title": "Крым", "link": "/"}];
+	- let currentPage = "Алушта"
+
+block content
+	.page-header
+		.container
+			.page-title.title-h2= currentPage
+	.page-body
+		.town-posts
+			.container 
+				.town__heading 
+					.town__heading-image.image-ibg
+						img(src="images/town/preview-img@2x.jpg", alt=currentPage)
+					+navigationTown(6)
+				.section-heading 
+					.title-h4 Статьи
+				+customSelect([...selects.postsMobile], "Все (112)", "posts_category", "custom-select-mobile")
+				.default-grid-wrapper 
+					+asideNavigation(categoryAsideMenu, "Категории", 'aside-nav-category', 0)
+					.town-posts__wrapper
+						.town-posts__cards
+							- for (var i = 0; i < 10; i++)
+								+postCard(postCards[0], `${i+1}`)
+						include ./components/pagination

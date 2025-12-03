@@ -1,0 +1,122 @@
+@use "sass:math";
+@use "../scss/mixins/include-media" as *;
+@use "../../../base/mixins" as *;
+
+.hotel-card {
+  display: grid;
+  grid-template-columns: 269px 1fr;
+  gap: 20px;
+  border: 1px solid var(--gray-color-gray-stroke);
+  border-radius: 20px;
+  overflow: hidden;
+  @include media("<=md") {
+    grid-template-columns: 100%;
+    gap: 20px;
+  }
+  // .hotel-card__image
+  &__image {
+    padding-bottom: math.div(250, 269) * 100%;
+    @include media("<=md") {
+      padding-bottom: math.div(271, 339) * 100%;
+    }
+  }
+  // .hotel-card__main
+  &__main {
+    padding: 30px;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    justify-content: space-between;
+    gap: 8px;
+    @include media("<=md") {
+      padding: 0 20px 30px;
+    }
+    @include media("<=m") {
+      grid-template-columns: 100%;
+      gap: 20px;
+    }
+  }
+  // .hotel-card__content
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-bottom: 5px;
+    @include media("<=md") {
+      padding: 0;
+    }
+  }
+  // .hotel-card__title
+  &__title {
+    align-self: start;
+    @include hover {
+      color: var(--basic-orange);
+      text-decoration-color: currentColor;
+    }
+  }
+  // .hotel-card__address
+  &__address {
+    color: var(--gray-color-gray-text);
+  }
+  // .hotel-card__link
+  &__link {
+  }
+  // .hotel-card__features
+  &__features {
+    margin: 6px 0 9px;
+    @include media("<=md") {
+      margin: 6px 0 0;
+    }
+  }
+  // .hotel-card__description
+  &__description {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    @include media("<=md") {
+      display: none;
+    }
+  }
+  // .hotel-card__options
+  &__options {
+  }
+  // .hotel-card__info
+  &__info {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px 20px;
+    @include media("<=m") {
+      flex-direction: row-reverse;
+      flex-wrap: wrap;
+    }
+  }
+  // .hotel-card__prices
+  &__prices {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    gap: 5px;
+  }
+  // .hotel-card__price
+  &__price {
+  }
+  // .hotel-card__price-old
+  &__price-old {
+    font-size: 14px;
+    line-height: 143%;
+    text-decoration: line-through;
+    color: var(--gray-color-gray-text);
+    & span {
+      font-weight: 700;
+    }
+  }
+  & .rating-value {
+    @include media("<=md") {
+      align-items: flex-end;
+      flex-direction: column-reverse;
+    }
+  }
+}

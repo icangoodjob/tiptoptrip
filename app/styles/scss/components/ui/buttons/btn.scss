@@ -1,0 +1,206 @@
+@use "../../../base/mixins.scss" as *;
+@use "../scss/mixins/include-media" as *;
+
+.btn {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 130%;
+  text-align: center;
+  border-radius: 30px;
+  min-height: 51px;
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--time) ease-out, color var(--time) ease-out, border-color var(--time) ease-out;
+  &--primary {
+    color: var(--universal-white);
+    background-color: var(--basic-orange);
+    @include hover(true) {
+      background-color: var(--basic-orange-hover);
+      &:active {
+        background-color: var(--basic-orange-active);
+      }
+    }
+  }
+  &--secondary {
+    background-color: var(--basic-blue);
+    color: var(--universal-white);
+    @include hover(true) {
+      background-color: var(--color-blue-hover);
+      &:active {
+        background-color: var(--basic-blue);
+      }
+    }
+  }
+  &--border {
+    border: 1px solid var(--gray-color-gray-stroke);
+    background-color: transparent;
+    @include hover(true) {
+      background-color: var(--basic-orange-hover);
+      border-color: var(--basic-orange-hover);
+      color: var(--universal-white);
+      &:active {
+        background-color: var(--basic-orange-active);
+        border-color: var(--basic-orange-active);
+      }
+    }
+  }
+  &--gray {
+    background-color: var(--gray-color-gray);
+    @include hover(true) {
+      background-color: var(--basic-orange-hover);
+      color: var(--universal-white);
+      &:active {
+        background-color: var(--basic-orange-active);
+      }
+    }
+    @include media("<=md") {
+      min-height: 45px;
+      padding: 11px 25px;
+      gap: 10px;
+    }
+  }
+  &--white {
+    background-color: var(--universal-white);
+    @include hover(true) {
+      background-color: var(--basic-orange-hover);
+      color: var(--universal-white);
+      &:active {
+        background-color: var(--basic-orange-active);
+      }
+    }
+  }
+  // .btn-arrow
+  &-arrow {
+    gap: 5px;
+    &::after {
+      content: "";
+      display: block;
+      width: 18px;
+      height: 18px;
+      @include mask-image(url("../images/icons/arrow-right.svg"), currentColor, 10px 10px);
+      transition: transform var(--time) ease-in-out;
+    }
+    @include hover {
+      &::after {
+        transform: translateX(5px);
+      }
+    }
+  }
+  //  .btn-append
+  &-append {
+    gap: 5px;
+    &::after {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      @include mask-image(url("../images/icons/plus.svg"), currentColor, 14px 14px);
+      transform: rotate(90deg);
+    }
+    @include hover {
+      &::after {
+        background-color: currentColor;
+      }
+    }
+  }
+}
+
+.btn-filter {
+  gap: 10px;
+  width: 100%;
+  min-height: 45px;
+  padding: 11px 20px;
+  display: flex;
+  align-items: center;
+  display: none;
+  @include media("<=lg") {
+    display: flex;
+  }
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  &::after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    @include mask-image(url("../images/icons/filter.svg"), currentColor);
+  }
+  &-transparent {
+    width: auto;
+    padding: 0;
+    min-height: auto;
+    gap: 5px;
+  }
+}
+
+.btn-map {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 15px 0 rgba(55, 87, 117, 0.15);
+  background-color: var(--universal-white);
+  border-radius: 7px;
+  &-transparent {
+    box-shadow: none;
+    padding: 0;
+    background-color: none;
+    border-radius: 0;
+  }
+  & svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+}
+
+.btn-map-mobile {
+  display: none;
+  @include media("<=lg") {
+    display: flex;
+    &.btn--gray {
+      border-radius: 30px;
+      padding: 10px 25px;
+      min-height: 45px;
+      width: 100%;
+      box-shadow: none;
+      justify-content: center;
+      background-color: var(--gray-color-gray);
+    }
+  }
+}
+
+.btn-edit {
+  gap: 5px;
+  font-size: 14px;
+  line-height: 130%;
+  min-height: 40px;
+  padding: 8px 24px;
+  &::after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    @include mask-image(url("../images/icons/edit.svg"), currentColor);
+  }
+  @include media("<=md") {
+    font-size: 0;
+    display: block;
+    width: 40px;
+    height: 40px;
+    min-height: auto;
+    padding: 5px;
+    border-radius: 50%;
+    &::after {
+      width: 100%;
+      height: 100%;
+      mask-size: 20px 20px;
+    }
+  }
+}

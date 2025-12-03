@@ -1,0 +1,29 @@
+extends layouts/default.pug
+
+append variables
+	- let pageTitle = "Услуги и тарифы сайта “На Юга”";
+	- description += pageTitle;
+	- let breadCrumbsList = [{"title": "Главная", "link": "/"}];
+	- let currentPage = "Тарифы";
+
+block content
+	.page-header
+		.container
+			.page-title.title-h1 Услуги и тарифы сайта
+			.page-header__text.default-text--big Размещение информации об объектах размещения на сайте платное, стоимость размещения зависит от курорта. Цена указана в рублях, срок действия услуги 1 год.
+	.page-body
+		.services
+			.container 
+				.services__body
+					table.services__table 
+						thead.thead
+							tr
+								each item in servicesPage.table.head
+									th= item
+						tbody 
+							each item in servicesPage.table.row
+								tr 
+									td.td-resort= item.resort
+									td.td-price(data-price=servicesPage.table.head[1])= item.hotelPrice
+									td.td-price(data-price=servicesPage.table.head[2])= item.roomPrice
+				include ./components/pagination

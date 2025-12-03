@@ -1,0 +1,81 @@
+@use "sass:math";
+@use "../scss/mixins/include-media" as *;
+
+.images-widget {
+  display: grid;
+  gap: 16px 30px;
+  margin: 20px 0;
+  // .images-widget__image
+  &__image {
+    padding-bottom: 63.83%;
+    border-radius: 20px;
+    overflow: hidden;
+    @include media("<=md") {
+      border-radius: 16px;
+      padding-bottom: math.div(275, 339) * 100%;
+    }
+  }
+  .town-section--housing & {
+    margin-top: 30px;
+    @include media("<=md") {
+      margin-top: 20px;
+    }
+  }
+  .town-section--beaches & {
+    margin-bottom: 40px;
+    @include media("<=md") {
+      margin-bottom: 20px;
+    }
+  }
+  @include media("<=md") {
+    margin: 20px 0;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.images1-widget {
+  grid-template-columns: 100%;
+  & .images-widget__image {
+    padding-bottom: math.div(300, 870) * 100%;
+  }
+}
+
+.images2-widget {
+  grid-template-columns: 0.79fr 1fr;
+  @include media("<=md") {
+    grid-template-columns: 100%;
+    & .images-widget__image:nth-child(2) {
+      padding-bottom: math.div(216, 339) * 100%;
+    }
+  }
+  &-small {
+    grid-template-columns: 1fr 0.75fr;
+    & .images-widget__image {
+      padding-bottom: 47.92%;
+      @include media("<=md") {
+        &:first-child {
+          padding-bottom: math.div(163, 339) * 100%;
+        }
+        &:last-child {
+          padding-bottom: math.div(230, 339) * 100%;
+        }
+      }
+    }
+  }
+  &-small-reverse {
+    grid-template-columns: 0.75fr 1fr;
+    & .images-widget__image {
+      padding-bottom: 47.92%;
+      @include media("<=md") {
+        &:first-child {
+          padding-bottom: math.div(217, 339) * 100%;
+        }
+        &:last-child {
+          padding-bottom: math.div(163, 339) * 100%;
+        }
+      }
+    }
+  }
+}

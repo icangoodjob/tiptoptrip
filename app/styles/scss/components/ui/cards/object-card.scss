@@ -1,0 +1,61 @@
+@use "sass:math";
+@use "../../../base/mixins" as *;
+
+.object-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  @include hover {
+    & .object-card__title {
+      color: var(--basic-orange);
+      text-decoration-color: currentColor;
+    }
+  }
+  // .object-card__image-wrap
+  &__image-wrap {
+    position: relative;
+  }
+  // .object-card__image
+  &__image {
+    padding-bottom: math.div(216, 270) * 100%;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  // .object-card__content
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1 1 auto;
+  }
+  // .object-card__title
+  &__title {
+  }
+  // .object-card__description
+  &__description {
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+  // .object-card__bottom
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: auto;
+  }
+  &__prices {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  // .object-card__price
+  &__price {
+  }
+  // .object-card__price-caption
+  &__price-caption {
+    color: var(--gray-color-gray-text);
+  }
+}

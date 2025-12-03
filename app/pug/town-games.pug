@@ -1,0 +1,49 @@
+extends layouts/default.pug
+
+append variables
+	- let pageTitle = "Развлечения";
+	- description += pageTitle;
+	- let breadCrumbsList = [{"title": "Главная", "link": "/"}, {"title": "Крым", "link": "/"}];
+	- let currentPage = "Алушта"
+
+block content
+	.page-header
+		.container
+			.page-title.title-h2= currentPage
+	.page-body
+		.town.town-games
+			.container 
+				.town__heading 
+					.town__heading-image.image-ibg
+						img(src="images/town/preview-img@2x.jpg", alt=currentPage)
+					+navigationTown(9)
+				.section-heading 
+					.title-h4 Развлечения в Алуште
+				+btn("Фильтр", "btn--gray btn-filter")
+				.default-grid-wrapper 
+					.filter
+						.filter__wrapper
+							.filter__header
+								.filter__caption.default-text--m.default-text--bold Фильтры
+								button(type="button").filter__close.default-text Закрыть
+							form(action="#", method="post").form
+								.form-groups
+									+fieldGroup("Регион, город")
+										.form-group__items
+											+customSelect([...selects.region], "Крым", "region")
+											+customSelect([...selects.city], "Алушта", "city")
+									+fieldGroup("Раздел")
+										.form-group__items
+											+customSelect([...selects.section], pageTitle, "section")
+									+fieldGroup("Категория")
+										.form-group__items
+											each item, index in checkboxes.categoriesGame
+												+baseCheckbox(item, index, "category")
+									include ./components/filter-actions
+					.default-grid-wrapper__main 
+						.games-cards 
+							each card in gameCards
+								+gameCard(card)
+							each card in gameCards
+								+gameCard(card)
+						include ./components/pagination

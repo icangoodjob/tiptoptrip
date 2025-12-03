@@ -1,0 +1,39 @@
+extends layouts/default.pug
+
+append variables
+	- let pageTitle = "Регистрация";
+	- description += pageTitle;
+	- let currentPage = "Зарегистрируйтесь и&nbsp;добавьте объявление!"
+
+block content
+	.auth
+		.page-header
+			.container
+				.page-title.title-h1!= currentPage
+		.page-body
+			.container
+				.auth__body
+					form(action="#", method="post").auth-form
+						.auth-form__items 
+							+formItem("text", "auth_name", "Имя")
+							+formItem("tel", "auth_phone", "+7-900-000-00-00")
+							+formItem("email", "auth_email", "Email")
+							.form-item 
+								.form-item__field.field-password 
+									input(type="password" name="auth_password" id="auth_password" placeholder="Пароль").form-input
+									label(for="auth_password").form-label Пароль
+									button(type="button").btn-password 
+										span
+							.form-item-captcha
+									img(src="images/auth/captcha.png", alt="captcha")
+						.auth-form__actions 
+							+btn("Зарегистрироваться", "btn--primary", "submit")
+							a(href="auth-login.html").auth-form__link.default-text--small Уже зарегистрированы?
+							+btn("Войти в личный кабинет", "btn--border", "link")
+							.form-text.default-text--small Регистрируясь на сайте, вы даете согласие на обработку своих персональных данных и принимаете условия #[a(href="#").link-underline.link-underline--color-blue Политики конфиденциальности ]и #[a(href="#").link-underline.link-underline--color-blue Пользовательского соглашения]
+					.auth__info 
+						.auth__info-content.content
+							p Реклама гостиницы на нашем сайте — это простой и выгодный способ найти новых клиентов. 8556&nbsp;гостиниц и гостевых домов&nbsp;уже выбрали нас и зарабатывают вместе с нами.
+							p Присоединяйтесь!
+						.auth__info-image
+							img(src="images/auth/register-img.svg", alt="иконка")

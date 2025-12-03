@@ -1,0 +1,30 @@
+extends layouts/default.pug
+
+append variables
+	- let pageTitle = "Страница юзера с объявлениями";
+	- description += pageTitle;
+	- let breadCrumbsList = [{"title": "Главная", "link": "/"}];
+	- let currentPage = "Профиль";
+	- let title = "Здравствуйте, меня зовут Михаил";
+
+block content
+	.page-header
+		.container
+			.page-title.title-h1= title
+	.page-body
+		.profile
+			.container 
+				.default-grid-wrapper
+					include ./components/profile-info-card
+					.profile__sections 
+						.profile__section.section-profle
+							.section-profle__heading
+								.section-profle__title.title-h3 Мои объявления
+								.section-profle__sub-title.default-text Здесь нет ни одного обьявления
+						.profile__section.section-profle
+							.section-profle__heading
+								.section-profle__title.title-h3 Отзывы гостей
+							.default-grid-cards
+								each item in testimonials.profile
+									+testimonialsCard(item, null, null, false)
+							+btn("Загрузить еще", "btn--gray btn-arrow")

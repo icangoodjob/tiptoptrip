@@ -1,0 +1,256 @@
+extends layouts/default.pug
+
+append variables
+	- let pageTitle = "Детальная карточка отеля";
+	- description += pageTitle;
+	- let breadCrumbsList = [{"title": "Главная", "link": "/"}, {"title": "Крым", "link": "/"}, {"title": "Алушта", "link": "/"}, {"title": "Жилье", "link": "/"}];
+	- let currentPage = "Отель “Море удачи”"
+
+block content
+	.page-body
+		.container
+			.main-card
+				.main-card__header 
+					.main-card__title.title-h1
+						span.main-card__header-rating 4
+						|  #{currentPage}
+					.main-card__sub-title.default-text--small Россия, Краснодарский край, Сочи, Адлер, улица Просвещения 155/2&nbsp;Море ~ 50 м
+					.main-card__actions 
+						.main-card__actions-buttons
+							button(type="button").main-card__favorite-btn.default-text.default-text--semibold
+								<svg width="26" height="23" viewBox="0 0 26 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path class="svg-bg" fill-rule="evenodd" clip-rule="evenodd" d="M22.8994 2.60655C21.715 1.41785 20.1084 0.75 18.4331 0.75C16.7577 0.75 15.1511 1.41785 13.9667 2.60655L12.7497 3.82749L11.5326 2.60655C9.06597 0.13197 5.06669 0.131971 2.60001 2.60655C0.13333 5.08113 0.13333 9.09322 2.60001 11.5678L12.7497 21.75L22.8994 11.5678C24.0843 10.3797 24.75 8.76786 24.75 7.08718C24.75 5.4065 24.0843 3.79469 22.8994 2.60655Z" fill="#08151A" />
+									<path class="svg-border" fill-rule="evenodd" clip-rule="evenodd" d="M13.4356 2.07707C14.7604 0.747456 16.558 0 18.4331 0C20.3081 0 22.1059 0.747503 23.4307 2.0772C24.7559 3.40616 25.5 5.20841 25.5 7.08718C25.5 8.96606 24.7558 10.7684 23.4304 12.0974L13.2809 22.2795C13.1402 22.4207 12.949 22.5 12.7497 22.5C12.5504 22.5 12.3592 22.4207 12.2185 22.2795L2.06883 12.0973C-0.689611 9.33001 -0.689611 4.84435 2.06883 2.07707C4.8286 -0.691535 9.30406 -0.691536 12.0638 2.07707L12.7497 2.76513L13.4356 2.07707ZM18.4331 1.5C16.9575 1.5 15.5419 2.0882 14.498 3.13591L13.2809 4.35698C13.1402 4.49815 12.949 4.57749 12.7497 4.57749C12.5504 4.57749 12.3592 4.49815 12.2185 4.35698L11.0015 3.13603C8.82788 0.955477 5.30478 0.955477 3.13119 3.13603C0.956271 5.31792 0.956271 8.85644 3.13119 11.0383L12.7497 20.6876L22.3682 11.0383C23.4126 9.99103 24 8.56966 24 7.08718C24 5.6047 23.4128 4.18345 22.3683 3.13616C21.3244 2.08845 19.9086 1.5 18.4331 1.5Z" fill="#08151A" />
+								</svg>
+								span В избранное
+							button(type="button").main-card__share-btn.default-text.default-text--semibold
+								<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M14.434 15.9253L7.07644 12.2466M7.06599 9.25867L14.4305 5.57641M20.75 17.4167C20.75 19.2576 19.2576 20.75 17.4167 20.75C15.5757 20.75 14.0833 19.2576 14.0833 17.4167C14.0833 15.5757 15.5757 14.0833 17.4167 14.0833C19.2576 14.0833 20.75 15.5757 20.75 17.4167ZM20.75 4.08333C20.75 5.92428 19.2576 7.41667 17.4167 7.41667C15.5757 7.41667 14.0833 5.92428 14.0833 4.08333C14.0833 2.24238 15.5757 0.75 17.4167 0.75C19.2576 0.75 20.75 2.24238 20.75 4.08333ZM7.41667 10.75C7.41667 12.5909 5.92428 14.0833 4.08333 14.0833C2.24238 14.0833 0.75 12.5909 0.75 10.75C0.75 8.90905 2.24238 7.41667 4.08333 7.41667C5.92428 7.41667 7.41667 8.90905 7.41667 10.75Z" stroke="#08151A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+								</svg>
+								span Поделиться
+				.main-card__wrapper 
+					.profile-info-card(data-da=".main-card__content-sections, 1024, 1")
+						.profile-info-card__image
+							img(src="images/icons/profile-icon-orange.svg", alt="иконка")
+						.profile-info-card__description 
+							.profile-info-card__name.title-h5
+								| Эльвира
+								.profile-info-card__status
+							+date("На сайте с 2024 г.")
+						.profile-info-card__contacts
+							.profile-info-card__contacts-item
+								.profile-info-card__contacts-item-caption.default-text--small Эльвира
+								+sitePhone("+7 (903) 561-91-19", "text-h5")
+								.social-links 
+									a(href="#").social-link.social-link--whatsapp.default-text--small.color-gray WhatsApp
+									a(href="#").social-link.social-link--viber.default-text--small.color-gray Viber
+							.profile-info-card__contacts-item 
+								a(href="http://more-udachi.ru/" target="_blank").default-text--small.profile-info-card__link.profile-info-card__link--site http://more-udachi.ru/
+							.profile-info-card__contacts-item 
+								a(href="mailto:more-udachi@mail.ru").default-text--small.profile-info-card__link.profile-info-card__link--email more-udachi@mail.ru
+							p.profile-info-card__text.default-text--small-s Сообщите владельцу, что нашли объявление на сервисе #[a(href="#" target="_blank").default-text--semibold.link-underline tiptoptrip.ru] 
+					.main-card__body
+						.main-card-gallery
+							.main-card-gallery__slider.swiper 
+								.swiper-wrapper 
+									- for (var i = 0; i < 4; i++)
+										.swiper-slide
+											.main-card-gallery__image
+												img(src="images/main-card/big-img@2x.jpg", alt="изображение")
+								.slider-pagination.swiper-pagination
+							+btnMap("btn btn--gray btn-map-mobile")
+							.main-card-gallery__body 
+								.main-card-gallery__item.main-card-gallery__item--lg
+									img(src="images/main-card/big-img@2x.jpg", alt="изображение")
+									.btn-map.default-text--small(data-da=".main-card__actions, 1024, 0")
+										+rating("5,0", "", "", "158 отзывов")
+								.main-card-gallery__item 
+									.map-box
+										button(type="button" data-popup-button="popup-map").btn-map.default-text--small
+											<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M13.0435 17.8418C12.6852 17.8418 12.3268 17.7668 12.0352 17.6251L7.66016 15.4335C7.41016 15.3085 6.91849 15.3168 6.67682 15.4585L4.71016 16.5835C3.86016 17.0668 2.98516 17.1335 2.32682 16.7418C1.66016 16.3585 1.28516 15.5751 1.28516 14.5918V6.4918C1.28516 5.73346 1.78516 4.87513 2.44349 4.50013L6.05182 2.43346C6.66016 2.08346 7.58516 2.05846 8.21016 2.37513L12.5852 4.5668C12.8352 4.6918 13.3185 4.67513 13.5685 4.5418L15.5268 3.42513C16.3768 2.9418 17.2518 2.87513 17.9102 3.2668C18.5768 3.65013 18.9518 4.43346 18.9518 5.4168V13.5251C18.9518 14.2835 18.4518 15.1418 17.7935 15.5168L14.1852 17.5835C13.8685 17.7501 13.4518 17.8418 13.0435 17.8418ZM7.20182 14.1001C7.56016 14.1001 7.91849 14.1751 8.21016 14.3168L12.5852 16.5085C12.8352 16.6335 13.3185 16.6168 13.5685 16.4835L17.1768 14.4168C17.4435 14.2668 17.7018 13.8168 17.7018 13.5168V5.40846C17.7018 4.88346 17.5518 4.4918 17.2768 4.3418C17.0102 4.1918 16.5935 4.25013 16.1435 4.50846L14.1852 5.62513C13.5768 5.97513 12.6518 6.00013 12.0268 5.68346L7.65182 3.4918C7.40182 3.3668 6.91849 3.38346 6.66849 3.5168L3.06016 5.58346C2.79349 5.73346 2.53516 6.18346 2.53516 6.4918V14.6001C2.53516 15.1251 2.68516 15.5168 2.95182 15.6668C3.21849 15.8251 3.63516 15.7585 4.09349 15.5001L6.05182 14.3835C6.37682 14.1918 6.79349 14.1001 7.20182 14.1001Z" fill="#08151A" />
+												<path d="M7.13281 14.7918C6.79115 14.7918 6.50781 14.5085 6.50781 14.1668V3.3335C6.50781 2.99183 6.79115 2.7085 7.13281 2.7085C7.47448 2.7085 7.75781 2.99183 7.75781 3.3335V14.1668C7.75781 14.5085 7.47448 14.7918 7.13281 14.7918Z" fill="#08151A" />
+												<path d="M13.1094 17.2916C12.7677 17.2916 12.4844 17.0083 12.4844 16.6666V5.5166C12.4844 5.17493 12.7677 4.8916 13.1094 4.8916C13.451 4.8916 13.7344 5.17493 13.7344 5.5166V16.6666C13.7344 17.0083 13.451 17.2916 13.1094 17.2916Z" fill="#08151A" />
+											</svg>
+											| На карте
+								.main-card-gallery__item 
+									img(src="images/main-card/big-img@2x.jpg", alt="изображение")
+								.main-card-gallery__item
+									img(src="images/main-card/big-img@2x.jpg", alt="изображение")
+									button(type="button").btn-map.default-text--small 
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M12.5013 18.9582H7.5013C2.9763 18.9582 1.04297 17.0248 1.04297 12.4998V7.49984C1.04297 2.97484 2.9763 1.0415 7.5013 1.0415H12.5013C17.0263 1.0415 18.9596 2.97484 18.9596 7.49984V12.4998C18.9596 17.0248 17.0263 18.9582 12.5013 18.9582ZM7.5013 2.2915C3.65964 2.2915 2.29297 3.65817 2.29297 7.49984V12.4998C2.29297 16.3415 3.65964 17.7082 7.5013 17.7082H12.5013C16.343 17.7082 17.7096 16.3415 17.7096 12.4998V7.49984C17.7096 3.65817 16.343 2.2915 12.5013 2.2915H7.5013Z" fill="#08151A" />
+											<path d="M7.4987 8.95833C6.23203 8.95833 5.20703 7.93333 5.20703 6.66667C5.20703 5.4 6.23203 4.375 7.4987 4.375C8.76536 4.375 9.79036 5.4 9.79036 6.66667C9.79036 7.93333 8.76536 8.95833 7.4987 8.95833ZM7.4987 5.625C6.9237 5.625 6.45703 6.09167 6.45703 6.66667C6.45703 7.24167 6.9237 7.70833 7.4987 7.70833C8.0737 7.70833 8.54036 7.24167 8.54036 6.66667C8.54036 6.09167 8.0737 5.625 7.4987 5.625Z" fill="#08151A" />
+											<path d="M2.224 16.4168C2.024 16.4168 1.824 16.3168 1.70733 16.1418C1.51566 15.8585 1.59066 15.4668 1.88233 15.2751L5.99066 12.5168C6.89066 11.9085 8.13233 11.9835 8.949 12.6751L9.224 12.9168C9.64066 13.2751 10.349 13.2751 10.7573 12.9168L14.224 9.9418C15.1073 9.18346 16.499 9.18346 17.3907 9.9418L18.749 11.1085C19.0073 11.3335 19.0407 11.7251 18.8157 11.9918C18.5907 12.2501 18.199 12.2835 17.9323 12.0585L16.574 10.8918C16.1573 10.5335 15.449 10.5335 15.0323 10.8918L11.5657 13.8668C10.6823 14.6251 9.29066 14.6251 8.399 13.8668L8.124 13.6251C7.74066 13.3001 7.10733 13.2668 6.68233 13.5585L2.574 16.3168C2.46566 16.3835 2.34066 16.4168 2.224 16.4168Z" fill="#08151A" />
+										</svg>
+										| 58 фото
+						.main-card__content-sections(data-spollers data-one-spoller)
+							.main-card__content-section.accordion
+								button(type="button" data-spoller).accordion__button.title-h5._active Описание отеля
+								.accordion__content.content 
+									ul.features-list
+										each feature in mainCardPage.features
+											li.default-text--small.features-item(class=`features-item--${feature.key}`)= feature.caption
+									p Мы очень признательны Вам, что Вы обратили внимание на наш гостевой дом На Победе. Удобное место расположение его выгодно отличает от других мест отдыха, находясь в центре поселка Лазаревское.
+									p В шаговой доступности находится центральный рынок, аквапарк «Наутилус», экскурсионные бюро, концертный зал ЦНК и места отдыха. И главное — до моря 5 — 10 минут спокойным шагом! Фонового шума в ночное время от кафе и дискотек с центральной набережной не слышно.
+									p Территория гостевого дома На Победе облагорожена: газоны, высажены тропические растения и пальмы. Для отдыхающих обустроена площадка для отдыха.
+									p Номерной фонд состоит из 2 и 3 местных номеров со всеми удобствами. В каждом номере: телевизор, кондиционер, холодильник, душ, санузел). Производится ежедневная уборка.
+							.main-card__content-section.accordion
+								button(type="button" data-spoller).accordion__button.title-h5 Правила проживания
+								.accordion__content.content 
+									p Мы очень признательны Вам, что Вы обратили внимание на наш гостевой дом На Победе. Удобное место расположение его выгодно отличает от других мест отдыха, находясь в центре поселка Лазаревское.
+							.main-card__content-section.accordion
+								button(type="button" data-spoller).accordion__button.title-h5 Цены на 2024 год
+								.accordion__content.content 
+									.accordion-mobile(data-spollers data-one-spoller)
+										- for (var x = 0; x < 3; x++)
+											.accordion
+												button(type="button" data-spoller).accordion__button.default-text--small.default-text--semibold
+													span 
+														| Двухместный «Эконом» (2-й этаж)
+														if x == 0
+															span  за&nbsp;комнату
+													span.accordion__button-icon
+												.accordion__content.content 
+													table.table-price
+														- for (var i = 0; i < 5; i++)
+															tr 
+																td.td-date 21.05 - 30.06
+																td.td-price 1000
+									.table-price-wrap
+										.table-price
+											table 
+												thead
+													tr 	
+														th Название
+														th за комнату
+														- for (var x = 0; x < 8; x++)
+															th 21.05 - 30.06
+												tbody
+													- for (var i = 0; i < 5; i++)
+														tr 
+															td Двухместный «Эконом» (2-й этаж)
+															td за комнату
+															- for (var x = 0; x < 8; x++)
+																td 1000
+							.main-card__content-section
+								.main-card__content-info 
+									.main-card__content-info-caption.title-h5 
+										span Заселение, после 15:00
+										span Выезд, до 12:00
+									.main-card__content-info-payment.default-text.default-text--semibold Отмена / предоплата
+									p.default-text--small Правила отмены бронирования и предоплаты зависят от типа выбранного варианта. Проверьте #[a(href="#").color-blue условия бронирования] каждого варианта, прежде чем сделать выбор.
+							.main-card__apartments.apartments 
+								.apartments__title.title-h3 Выбор номера
+								.apartments__body
+									each card in apartmentsCards
+										.apartments-card
+											.apartments-card__slider.hover-slider
+												.swiper 
+													.swiper-wrapper 
+														each img in card.images
+															.swiper-slide.hover-slider__item 
+																.hover-slider__image
+																	img(src=`images/main-card/apartment-img-${img}@2x.jpg`, alt=card.title)
+													.slider-pagination.swiper-pagination
+											.apartments-card__content 
+												.apartments-card__main 
+													.apartments-card__title.title-h5= card.title
+													.card-options.has-icons
+														each option in cardOptions
+															.default-text--caption.card-option(class=`card-option--${option.key}`)= option.caption
+												.apartments-card__info
+													ul.features-list
+														li.default-text--small.features-item(class=`features-item--wifi`) Бесплатный Wi-Fi
+													.apartments-card__prices 
+														.apartments-card__price.text-h4=card.price
+														.apartments-card__sub-price.default-text--small= card.subPrice
+														button(type="button" data-popup-button="apartment-popup").btn.btn--primary Забронировать
+							.main-card__content-section
+								.title-h5 Россия, Краснодарский край, Сочи, Адлер, улица Просвещения 155/2
+								.main-card__map 
+									.map#map
+									.main-card__map-places
+										each place in mainCardPage.mapPlaces
+											.main-card__map-place
+												.main-card__map-place-caption.default-text.default-text--semibold= place.caption
+												ul.main-card__map-place-list
+													- for (var x = 0; x < 3; x++)
+														li.main-card__map-place-item.default-text--small-s
+															| Ayasofya Hurrem Sultan Hamam
+															span.color-blue ~ 1,3 км
+							.main-card-reviews 
+								.main-card-reviews__header 
+									.main-card-reviews__title.title-h3 Отзывы об отеле  “Море удачи” 4 *
+									+rating("5,0", null, null, "158 отзывов")
+								.main-card-reviews__feedback.reviews-feedback
+									.reviews-feedback__info 
+										.reviews-feedback__title.title-h5.color-blue Были в этом отеле?
+										.reviews-feedback__sub-title.default-text--small.color-gray Оставьте отзыв на  TipTopTrip и помогите другим туристам выбрать лучшее место для отдыха
+									+btn("Оставить отзыв", "btn--secondary")
+								.main-card-reviews__progressbar
+									.main-card-reviews__progressbar-title.title-h5 Категории оценки 
+									each progress in mainCardPage.progressBars
+										.progressbar__item.default-text--small-s
+											.progressbar__item-caption= progress.caption
+											.progress
+												.progress-fill(style={width: `${parseFloat(progress.value) * 20}%`})
+											.progressbar__item-value= progress.value
+								.main-card-reviews__cards
+									each item in mainCardPage.testimonials
+										.testimonials-card.testimonials-card--short
+											.testimonials-card__author.default-text
+												.testimonials-card__icon= item.img
+												.testimonials-card__author-data
+													.text-h5 #{item.author}
+													+date("12.08.22")
+											+rating(item.count, null, null, null)
+											.testimonials-card__content
+												if item.isNegative || item.isPositive
+													ul.testimonials-card__list 
+														if item.isNegative
+															li.testimonials-card__list-item 
+																span.default-text.default-text--semibold Недостатки:
+																span Долгое оформление
+														if item.isPositive
+															li.testimonials-card__list-item 
+																span.default-text.default-text--semibold Достоинства:
+																span Расположен в центре, качественное питание
+												.testimonials-card__text
+													p Шикарное расположение, прямо в самом-самом центре. Рядом остановка есть, до парка Краснодар удобно добираться. В хостеле есть разделение на женские и мужские номера. Контингент приличный. Белье чистое и в помещении для хостела тоже довольно чисто. 
+													a(href="#").link-underline.link-underline--color-blue Подробнее 
+								+btn("Читать все отзывы", "btn--gray btn-arrow")
+						.main-card__content-section.section-faq
+							.content
+								h5 Популярные вопросы
+								.accordions(data-spollers data-one-spoller).accordions-small
+									each spoller in mainCardPage.accordions
+										.accordion
+											button(type="button" data-spoller).accordion__button.default-text.default-text--semibold
+												| #{spoller.caption}
+												span.accordion__button-icon
+											.accordion__content.content 
+												| Цены на проживание в Гостевой дом «MolodezhnyyHouse» начинаются от 1 000 руб. за человека в сутки в июне. Окончательная стоимость зависит от дат поездки. Чтобы увидеть цены, введите нужные даты.
+				.facities-sections.facities-sections--offset-md
+					.facities-section 
+						.section-heading
+							.facities-section__title.title-h2 Другие объекты в Алуште рядом
+						+facitiesWidget([...badges], true, true)
+							each card in objectCards 
+								+objectCard(card, 'swiper-slide')
+					.facities-section 
+						.section-heading
+							.facities-section__title.title-h2 Алушта
+						+facitiesWidget([...badges], false, false)
+							each card in objectCards 
+								+objectCard(card, 'swiper-slide')
+					.facities-section 
+						.section-heading
+							.facities-section__title.title-h2 Курорты
+						+facitiesWidget([...badges], false, false)
+
+
+
+
+
+

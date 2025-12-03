@@ -1,0 +1,104 @@
+@use "../scss/mixins/include-media" as *;
+@use "../../base/mixins" as *;
+
+.sorting {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 30px;
+  position: relative;
+  @include media("<=lg") {
+    &.active {
+      & .sorting__list {
+        pointer-events: all;
+        opacity: 1;
+        transform: scale(1, 1);
+      }
+    }
+  }
+  // .sorting__caption
+  &__caption {
+    color: var(--gray-color-gray-text);
+    @include media("<=lg") {
+      display: none;
+    }
+  }
+  // .sorting__list
+  &__list {
+    @include reset-list;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    @include media("<=lg") {
+      position: absolute;
+      z-index: 5;
+      left: 0;
+      top: calc(100% + 5px);
+      width: 200px;
+      box-shadow: 5px 5px 30px 0 rgba(132, 143, 183, 0.2);
+      background: var(--universal-white);
+      padding: 10px 0;
+      overflow-y: auto;
+      @include no-scroll;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      transform-origin: top left;
+      transform: scale(1, 0);
+      pointer-events: none;
+      transition: opacity var(--time), transform var(--time);
+    }
+  }
+  // .sorting__item
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    @include media("<=lg") {
+      padding: 8px 20px;
+      width: 100%;
+    }
+    &::after {
+      content: none;
+      display: block;
+      width: 12px;
+      height: 12px;
+      flex-shrink: 0;
+      @include mask-image(url("../images/icons/arrow-up.svg"), currentColor, 10px 12px);
+      opacity: 0;
+      transition: opacity var(--time);
+    }
+    @include hover {
+      cursor: pointer;
+    }
+    &.active {
+      color: var(--basic-orange);
+      &::after {
+        content: "";
+        opacity: 1;
+      }
+    }
+    &[data-sort="DESC"] {
+      &::after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+.sorting-button {
+  display: none;
+  @include media("<=lg") {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    &::after {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      @include mask-image(url("../images/icons/sort-arrow.svg"), currentColor);
+    }
+  }
+}

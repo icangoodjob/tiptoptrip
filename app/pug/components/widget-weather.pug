@@ -1,0 +1,27 @@
+.weather-widget
+	.card-weather
+		.card-weather__header 
+			.card-weather__main
+				.card-weather__image 
+					img(src="images/town/weather-widget/weather-1.svg", alt="Погода")
+				.card-weather__degrees
+					.card-weather__value= weather.header.degrees
+					.card-weather__sup-value.default-text °C / °F
+				.card-weather__info.default-text--small
+					each info in weather.header.info
+						span= info
+			.card-weather__today.today-weather
+				.today-weather__title.default-text--bold.text-h5 Погода сегодня
+				.today-weather__values.default-text--small
+					each res in weather.header.today
+						.today-weather__value= res
+		.card-weather__week-wrap
+			.card-weather__week
+				each item, index in weather.week
+					.card-weather__item.default-text--small(class={active: index === 0})
+						.card-weather__caption= item.caption
+						.card-weather__image 
+							img(src=`images/town/weather-widget/weather-${item.image}.svg`, alt=item.caption)
+						.card-weather__temp.temp-weather
+							each temp in item.range
+								.temp-weather__value= temp

@@ -1,0 +1,31 @@
+@use "sass:math";
+@use "../scss/mixins/include-media" as *;
+@use "../../../../base/mixins" as *;
+@use "../../../../base/extends" as *;
+
+.custom-radio {
+  // .custom-radio__input
+  &__input {
+    @extend %visuallyHidden;
+    &:checked ~ label {
+      background-color: var(--basic-blue);
+      color: var(--universal-white);
+    }
+  }
+  // .custom-radio__label
+  &__label {
+    background: var(--gray-color-gray-background);
+    border: 1px solid var(--gray-color-gray-background);
+    border-radius: 10px;
+    padding: 5px;
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    transition: background-color var(--time), color var(--time);
+    @include hover {
+      cursor: pointer;
+    }
+  }
+}

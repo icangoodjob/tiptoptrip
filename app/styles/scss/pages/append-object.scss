@@ -1,0 +1,115 @@
+@use "sass:math";
+@use "../scss/mixins/include-media" as *;
+@use "../base/mixins" as *;
+
+.append-object {
+  // .append-object__body
+  &__body {
+    display: grid;
+    align-items: start;
+    grid-template-columns: 0.965fr 1fr;
+    gap: 50px;
+    @include media("<=lg") {
+      grid-template-columns: 1fr 0.7fr;
+      gap: 30px;
+    }
+    @include media("<=md") {
+      grid-template-columns: 100%;
+    }
+  }
+  // .append-object__form
+  &__form {
+  }
+  // .append-object__info
+  &__info {
+    max-width: 405px;
+    position: sticky;
+    top: 20px;
+    @include media("<=md") {
+      max-width: 100%;
+      order: -1;
+      position: static;
+    }
+  }
+  // .append-object__text
+  &__text {
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+  // .append-object__accent-block
+  &__accent-block {
+    margin-top: 30px;
+    border-radius: 10px;
+    padding: 30px;
+    background: var(--basic-orange);
+    color: var(--universal-white);
+    & p {
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+      &:last-child {
+        line-height: 130%;
+      }
+    }
+    @include media("<=md") {
+      margin-top: 20px;
+      padding: 20px;
+    }
+  }
+}
+.object-form {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 20px;
+  border: 1px solid var(--basic-orange);
+  border-radius: 20px;
+  padding: 40px;
+  @include media("<=md") {
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    gap: 30px;
+  }
+  // .object-form__items
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  // .object-form__actions
+  &__actions {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 20px;
+    @include media("<=md") {
+      gap: 10px;
+    }
+  }
+  // .object-form__actions-title
+  &__actions-title {
+  }
+  // .object-form__checkboxes
+  &__checkboxes {
+    & .base-checkbox {
+      &__label {
+        font-size: 16px;
+        line-height: 130%;
+      }
+    }
+    @include media("<=md") {
+      margin: 10px 0;
+    }
+  }
+  & .base-checkbox {
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+    &__label {
+      align-items: flex-start;
+    }
+    &__custom-input {
+      margin-top: 4px;
+    }
+  }
+}

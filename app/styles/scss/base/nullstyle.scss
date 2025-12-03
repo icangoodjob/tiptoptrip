@@ -1,0 +1,145 @@
+@use "./global" as *;
+@use "./mixins" as *;
+@use "../functions/rem" as *;
+@use "../functions/fluid" as *;
+
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:focus,
+:active {
+  outline: none;
+}
+html,
+body {
+  height: 100%;
+  min-width: $minWidth + px;
+}
+body {
+  color: var(--text-primary);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  font-family: var(--font-family);
+  background-color: var(--bg-primary);
+  line-height: 1;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  touch-action: pan-x pan-y;
+}
+aside,
+nav,
+footer,
+header,
+section,
+main {
+  display: block;
+}
+button {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+  -o-tap-highlight-color: rgba(0, 0, 0, 0);
+  -ms-tap-highlight-color: rgba(0, 0, 0, 0);
+  -tap-highlight-color: rgba(0, 0, 0, 0);
+  &:focus,
+  &:active {
+    outline: 0px solid transparent;
+  }
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+}
+input:focus {
+  outline: 0px solid transparent;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input::-ms-clear {
+  display: none;
+}
+button,
+input,
+textarea {
+  font-family: var(--font-family);
+  font-size: inherit;
+}
+button {
+  color: inherit;
+  background-color: inherit;
+}
+button,
+input[type="submit"] {
+  cursor: default;
+  @include hover {
+    cursor: pointer;
+  }
+}
+a {
+  color: inherit;
+  cursor: default;
+  @include hover {
+    cursor: pointer;
+  }
+}
+a:link,
+a:visited {
+  text-decoration: none;
+}
+address {
+  font-style: normal;
+}
+img {
+  border: none;
+  max-height: 100%;
+  vertical-align: top;
+  object-fit: cover;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+// h1, h2, h3, h4, h5, h6 {
+// 	overflow-wrap: break-word;
+// 	hyphens: auto;
+// }
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+th {
+  font-weight: bold;
+  vertical-align: bottom;
+}
+td {
+  font-weight: normal;
+  vertical-align: top;
+}
+[inert] > * {
+  opacity: 0.5;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}

@@ -1,0 +1,25 @@
+extends layouts/default.pug
+
+append variables
+	- let pageTitle = "Отзывы";
+	- description += pageTitle;
+	- let breadCrumbsList = [{"title": "Главная", "link": "/"}, {"title": "Крым", "link": "/"}];
+	- let currentPage = "Алушта"
+
+block content
+	.page-header
+		.container
+			.page-title.title-h2= currentPage
+	.page-body
+		.testimonials 
+			.container 
+				.town__heading 
+					.town__heading-image.image-ibg
+						img(src="images/town/preview-img@2x.jpg", alt=currentPage)
+					+navigationTown(2)
+				.section-heading 
+					.title-h4 Отзывы на отели Алушты
+				.testimonials__cards
+					- for (var i = 0; i < 10; i++)
+						+testimonialsCard(testimonials.townBig[0], `img-${i+1}`, 'testimonials-card--size-big')
+				include ./components/pagination

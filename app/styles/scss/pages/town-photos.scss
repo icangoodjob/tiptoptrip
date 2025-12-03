@@ -1,0 +1,19 @@
+@use "sass:math";
+@use "../scss/mixins/include-media" as *;
+@use "../base/mixins" as *;
+
+.town-photos {
+  // .town-photos__cards
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    @include media("<=lg") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include media("<=md") {
+      grid-template-columns: 100%;
+      gap: 20px;
+    }
+  }
+}

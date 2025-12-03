@@ -1,0 +1,35 @@
+extends layouts/default.pug
+
+append variables
+	- let pageTitle = "Вход в Личный кабинет";
+	- description += pageTitle;
+	- let currentPage = "Вход в Личный кабинет"
+
+block content
+	.auth
+		.page-header
+			.container
+				.page-title.title-h1!= currentPage
+		.page-body
+			.container
+				.auth__body
+					form(action="#", method="post").auth-form
+						.auth-form__items 
+							+formItem("email", "auth_email", "Email")
+							.form-item 
+								.form-item__field.field-password 
+									input(type="password" name="auth_password" id="auth_password" placeholder="Пароль").form-input
+									label(for="auth_password").form-label Пароль
+									button(type="button").btn-password 
+										span
+						.auth-form__actions 
+							+btn("Войти", "btn--primary", "submit")
+							.auth-form__links
+								a(href="auth-login.html").auth-form__link.default-text--small Не помните пароль?
+								a(href="auth-password.html").default-text.default-text--semibold.color-blue Восстановить
+							.auth-form__text.default-text--small Еще не зарегистрированы? Это очень просто!
+							+btn("Зарегистрироваться", "btn--border")
+							.form-text.default-text--small Регистрируясь на сайте, вы даете согласие на обработку своих персональных данных и принимаете условия #[a(href="#").link-underline.link-underline--color-blue Политики конфиденциальности ]и #[a(href="#").link-underline.link-underline--color-blue Пользовательского соглашения]
+					.auth__info 
+						.auth__info-image
+							img(src="images/auth/login-img.svg", alt="иконка")

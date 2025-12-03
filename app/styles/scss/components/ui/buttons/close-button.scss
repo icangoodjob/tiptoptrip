@@ -1,0 +1,24 @@
+@use "../../../base/mixins" as *;
+
+.close-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--basic-orange);
+  display: grid;
+  place-items: center;
+  transition: background-color var(--time);
+  &::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    @include mask-image(url("../images/icons/close.svg"), var(--universal-white));
+  }
+  @include hover(true) {
+    background-color: var(--basic-orange-hover);
+    &:active {
+      background-color: var(--basic-orange-active);
+    }
+  }
+}

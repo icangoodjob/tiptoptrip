@@ -1,0 +1,97 @@
+@forward "functions/rem";
+
+@use "base/fonts.scss";
+@use "base/vars.scss";
+@use "base/nullstyle.scss";
+@use "base/keyframes.scss";
+@use "base/extends.scss";
+@use "base/common.scss";
+
+// Библиотеки
+@use "libs/swiper-bundle";
+@use "libs/fancybox";
+@use "libs/nouislider.min.scss";
+@use "libs/vanilla-calendar-pro.min.scss";
+@use "libs/simplebar";
+
+@use "components/header";
+@use "components/footer";
+@use "components/typography";
+@use "components/breadcrumbs";
+@use "components/pagination";
+@use "components/popup";
+
+@use "components/section-common";
+@use "components/ui/numbers";
+@use "components/ui/badges";
+@use "components/ui/rating";
+
+// Модули слайдера swiper
+@use "components/sliders/slider-modules/module-scrollbar";
+@use "components/sliders/slider-modules/module-pagination";
+
+// Кнопки
+@use "components/ui/buttons/btn";
+@use "components/ui/buttons/slider-button";
+@use "components/ui/buttons/favorite-button";
+@use "components/ui/buttons/show-more-button";
+@use "components/ui/buttons/close-button";
+
+@use "components/ui/cards/components/card-options";
+@use "components/ui/cards/components/card-features";
+
+// Карточки
+@use "components/ui/cards/news-card";
+@use "components/ui/cards/recreation-card";
+@use "components/ui/cards/object-card";
+@use "components/ui/cards/game-card";
+@use "components/ui/cards/photo-card";
+@use "components/ui/cards/testimonials-card";
+@use "components/ui/cards/post-card";
+@use "components/ui/cards/hotel-card";
+@use "components/ui/cards/comfort-card";
+@use "components/ui/cards/apartments-card";
+
+// Слайдеры
+@use "components/sliders/hover-slider";
+
+// Контент блоки
+@use "components/ui/contents/content";
+@use "components/ui/contents/hidden-content";
+
+// Элементы форм, фильтры
+@use "components/ui/filter";
+@use "components/ui/sorting";
+@use "components/ui/form/input/base-checkbox";
+@use "components/ui/form/input/custom-radio";
+@use "components/ui/form/select";
+@use "components/ui/form/range-slider";
+@use "components/ui/form/base-styles";
+
+// Отдельные блоки
+@use "blocks/map-box";
+
+// Ссылки
+@use "components/ui/links/common-styles";
+
+// Виджеты
+@use "components/widgets/facities-widget";
+@use "components/widgets/images-widget";
+@use "components/widgets/games-widget";
+@use "components/widgets/weather-widget";
+
+// Страницы
+@use "pages/index";
+@use "pages/town";
+@use "pages/town-photos";
+@use "pages/town-map";
+@use "pages/profile";
+@use "pages/contacts";
+@use "pages/services";
+@use "pages/append-object";
+@use "pages/append-testimonials";
+
+@use "pages/main-card";
+
+@use "pages/auth";
+@use "pages/booking";

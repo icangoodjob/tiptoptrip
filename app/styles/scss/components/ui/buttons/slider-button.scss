@@ -1,0 +1,54 @@
+@use "../../../base/mixins.scss" as *;
+@use "../scss/mixins/include-media" as *;
+
+.slider-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.slider-button {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background-color: var(--basic-orange);
+  transition: background-color var(--time);
+  &::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    @include mask-image(url("../images/icons/arrow-left.svg"), var(--universal-white));
+    transition: background-color var(--time);
+  }
+  &-next {
+    &::before {
+      transform: scaleX(-1);
+    }
+  }
+  &.disabled,
+  &.swiper-button-disabled {
+    cursor: default;
+    pointer-events: none;
+    background-color: var(--gray-color-gray);
+    &::before {
+      background-color: var(--universal-black);
+    }
+  }
+  @include hover(true) {
+    &:not(.swiper-button-disabled) {
+      background-color: var(--basic-orange-hover);
+    }
+    &:active {
+      background-color: var(--basic-orange-active);
+    }
+  }
+  @include media("<=vl") {
+    width: 40px;
+    height: 40px;
+  }
+}

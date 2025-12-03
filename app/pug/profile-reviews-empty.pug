@@ -1,0 +1,30 @@
+extends layouts/default.pug
+
+append variables
+	- let pageTitle = "Страница юзера без объявлений";
+	- description += pageTitle;
+	- let breadCrumbsList = [{"title": "Главная", "link": "/"}];
+	- let currentPage = "Профиль";
+	- let title = "Здравствуйте, меня зовут Михаил";
+
+block content
+	.page-header
+		.container
+			.page-title.title-h1= title
+	.page-body
+		.profile
+			.container 
+				.default-grid-wrapper
+					include ./components/profile-info-card
+					.profile__sections 
+						.profile__section.section-profle
+							.section-profle__heading
+								.section-profle__title.title-h3 Мои объявления
+							.default-grid-cards
+								- for (var i = 0; i < 4; i++)
+									+hotelCard(hotelCards[0], `${i+1}`)
+							+btn("Загрузить еще", "btn--gray btn-arrow")
+						.profile__section.section-profle
+							.section-profle__heading
+								.section-profle__title.title-h3 Отзывы гостей
+								.section-profle__sub-title.default-text Отзывов ещё нет, но ваш может стать первым. Напишите своё впечатление о местах в объявлениях этого продавца

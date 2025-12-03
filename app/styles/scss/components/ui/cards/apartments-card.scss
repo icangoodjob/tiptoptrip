@@ -1,0 +1,117 @@
+@use "sass:math";
+@use "../scss/mixins/include-media" as *;
+@use "../../../base/mixins" as *;
+
+.apartments-card {
+  display: grid;
+  grid-template-columns: 269px 1fr;
+  border: 1px solid var(--gray-color-gray-stroke);
+  border-radius: 20px;
+  overflow: hidden;
+  @include media("<=vl") {
+    grid-template-columns: 100%;
+  }
+  // .apartments-card__slider
+  &__slider {
+    height: 100%;
+    width: 100%;
+  }
+  // .apartments-card__content
+  &__content {
+    padding: 29px;
+    padding-left: 20px;
+    display: flex;
+    gap: 10px;
+    @include media("<=vl") {
+      padding: 20px;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+  // .apartments-card__main
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    @include media("<=vl") {
+      gap: 15px;
+    }
+  }
+  // .apartments-card__title
+  &__title {
+  }
+  // .apartments-card__info
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  // .apartments-card__prices
+  &__prices {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-end;
+    @include media("<=vl") {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+  }
+  // .apartments-card__price
+  &__price {
+  }
+  // .apartments-card__sub-price
+  &__sub-price {
+  }
+  & .card-options {
+    margin-top: auto;
+  }
+  & .card-option {
+  }
+  & .btn {
+    margin-top: 5px;
+    min-height: 41px;
+    padding: 9px 20px;
+    @include media("<=vl") {
+      min-height: 49px;
+      width: 100%;
+    }
+  }
+  & .features-list {
+    @include media("<=vl") {
+      display: none;
+    }
+  }
+}
+.title-h5 {
+}
+.card-options {
+}
+.default-text--caption {
+}
+.card-option {
+}
+.card-option--bed {
+}
+.card-option--area {
+}
+.card-option--guests {
+}
+.features-list {
+}
+.default-text--small {
+}
+.features-item {
+}
+.features-item--wifi {
+}
+.text-h4 {
+}
+.btn {
+}
+.btn--primary {
+}

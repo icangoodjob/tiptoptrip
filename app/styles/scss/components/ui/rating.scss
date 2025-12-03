@@ -1,0 +1,77 @@
+@use "../scss/mixins/include-media" as *;
+@use "../../base/mixins" as *;
+
+.rating {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: right;
+  & .rating-value {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    @include media("<=md") {
+      flex-direction: column;
+    }
+    // .rating-value__result
+    &__result {
+      margin-right: 15px;
+      color: var(--gray-color-gray-text);
+      @include media("<=md") {
+        margin: 0;
+      }
+    }
+    // .rating-value__count
+    &__count {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    // .rating-value__img
+    &__img {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+    // .rating-value__number
+    &__number {
+    }
+    // .rating-value__author
+    &__author {
+    }
+  }
+}
+
+.star-rating {
+  // .star-rating__list
+  &__list {
+    @include reset-list;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    &.r-1 li:nth-child(-n + 1) {
+      background-image: url("../images/icons/star.svg");
+    }
+    &.r-2 li:nth-child(-n + 2) {
+      background-image: url("../images/icons/star.svg");
+    }
+    &.r-3 li:nth-child(-n + 3) {
+      background-image: url("../images/icons/star.svg");
+    }
+    &.r-4 li:nth-child(-n + 4) {
+      background-image: url("../images/icons/star.svg");
+    }
+    &.r-5 li:nth-child(-n + 5) {
+      background-image: url("../images/icons/star.svg");
+    }
+  }
+  // .star-rating__item
+  &__item {
+    width: 12px;
+    height: 12px;
+    display: block;
+    background-image: url("../images/icons/star-t.svg");
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+  }
+}

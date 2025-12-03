@@ -1,0 +1,250 @@
+@use "./global" as *;
+
+@mixin hover($hasActiveEffectOnMobile: false) {
+  @media (any-hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+  @if ($hasActiveEffectOnMobile) {
+    @media (any-hover: none) {
+      &:active {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin flex-center($isInline: false) {
+  @if $isInline {
+    display: inline-flex;
+  } @else {
+    display: flex;
+  }
+
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin mask-image($url, $bg, $size: contain, $position: center) {
+  mask-image: $url;
+  mask-size: $size;
+  mask-repeat: no-repeat;
+  mask-position: $position;
+  background-color: $bg;
+}
+
+/**
+ * examples:
+ * @include font-face("Font Name", "font-file")
+ * @include font-face("Font Name", "font-file", fallback)
+ * @include font-face($font-family: "Font Name", $file-name: "font-file", $font-display: fallback)
+ */
+@mixin font-face($font-family, $file-name, $weight, $style, $font-display: swap) {
+  @font-face {
+    font-family: $font-family;
+    font-display: $font-display;
+    src: url("~/assets/fonts/#{$file-name}.woff2") format("woff2"), url("~/assets/fonts/#{$file-name}.woff") format("woff");
+    font-style: #{$style};
+    font-weight: #{$weight};
+    @content;
+  }
+}
+
+@mixin scrollbar() {
+  @supports not selector(::-webkit-scrollbar) {
+    & {
+      scrollbar-color: gray white;
+      scrollbar-width: thin;
+    }
+  }
+  &::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $mainColor;
+    border: 0;
+    border-radius: 20px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgba($mainColor, 0.6);
+  }
+}
+
+@mixin no-scroll() {
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+}
+
+// Сброс стилей списков
+@mixin reset-list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+// Сброс стилей ссылки
+@mixin reset-link {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+// Сброс стилей кнопки
+@mixin reset-button {
+  border: none;
+  background-color: transparent;
+  outline: 0px solid transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-size: inherit;
+  color: inherit;
+  font: inherit;
+  border-radius: 0;
+}
+// Сброс стилей полей
+@mixin reset-input {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  cursor: inherit;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  border-radius: 0;
+  appearance: none;
+  &::placeholder {
+    opacity: 1;
+    color: inherit;
+  }
+  &:focus {
+    &::placeholder {
+      opacity: 0;
+    }
+  }
+}
+// Сброс textarea
+@mixin reset-textarea {
+  @include reset-input;
+  resize: vertical;
+}
+// Сброс стилей select
+@mixin reset-select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  &::-ms-expand {
+    display: none;
+  }
+  & > option {
+    padding: 0;
+  }
+}
+@mixin fontSize($font-size, $line-height: normal, $letter-spacing: normal) {
+  font-size: $font-size * 1px;
+  line-height: math.div($line-height, $font-size) * 100%;
+  letter-spacing: $letter-spacing * 1px;
+}
+
+@mixin underline($color, $width) {
+  cursor: pointer;
+  position: relative;
+  &::after {
+    content: "";
+    width: 100%;
+    height: $width;
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    transform-origin: 100% 50%;
+    transform: scaleX(0);
+    background: $color;
+    pointer-events: none;
+    transition: transform cubic-bezier(0.76, 0.09, 0.215, 1) var(--time);
+  }
+  @media (min-width: 767.98px) {
+    &:hover::after {
+      transform-origin: 0% 50%;
+      transform: scaleX(1);
+    }
+  }
+}
+@mixin maskGradient() {
+  mask-image: linear-gradient(90deg, #0000, #000 10% 80%, #0000);
+}
+@mixin borderGradient() {
+  border-image: fill 0 linear-gradient(#0003, #000);
+}
+
+@mixin placeholder {
+  $placeholders: ":-moz" ":-webkit-input" "-moz" "-ms-input";
+  @each $placeholder in $placeholders {
+    &:#{$placeholder}-placeholder {
+      @content;
+    }
+  }
+}
+@mixin unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+@mixin text-truncate() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@mixin blurEffect {
+  box-shadow: inset 0 -1px 0 0 #eaeaea;
+  backdrop-filter: saturate(180%) blur(5px);
+  background: hsla(0, 0%, 100%, 0.8);
+}
+@mixin tableWrapper {
+  --color-secondary: #e6efa3;
+  --color-quaternary: rgba(0, 0, 0, 0.35);
+  overflow: auto;
+  max-width: 100%;
+  background: linear-gradient(90deg, var(--color-secondary) 20%, rgba(255, 255, 255, 0)),
+    linear-gradient(90deg, rgba(255, 255, 255, 0), var(--color-secondary) 80%) 100% 0,
+    radial-gradient(farthest-side at 0 0%, var(--color-quaternary), rgba(0, 0, 0, 0)),
+    radial-gradient(farthest-side at 100% 0%, var(--color-quaternary), rgba(0, 0, 0, 0)) 100% 0;
+  background-repeat: no-repeat;
+  background-size: 20% 200%, 20% 200%, 8% 400%, 8% 400%;
+  background-attachment: local, local, scroll, scroll;
+}
+
+// АДАПТИВНОЕ СВОЙСТВО
+@mixin adaptiv-value($property, $startSize, $minSize, $type) {
+  $addSize: $startSize - $minSize;
+  @if $type==1 {
+    //Только если меньше контейнера
+    #{$property}: $startSize + px;
+    @media screen and (max-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
+    }
+  } @else if $type==2 {
+    //Только если больше контейнера
+    #{$property}: $startSize + px;
+    @media screen and (min-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+    }
+  } @else {
+    //Всегда
+    #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+  }
+}

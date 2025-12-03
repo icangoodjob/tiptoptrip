@@ -1,0 +1,41 @@
+.card-options {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 15px;
+  .apartments-card &,
+  .booking & {
+    gap: 10px 25px;
+  }
+  &.has-icons {
+    & .card-option {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      &::before {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      &--bed {
+        &::before {
+          background-image: url("../images/icons/options/bed.svg");
+        }
+      }
+      &--area {
+        &::before {
+          background-image: url("../images/icons/options/area.svg");
+        }
+      }
+      &--guests {
+        &::before {
+          background-image: url("../images/icons/options/guests.svg");
+        }
+      }
+    }
+  }
+}

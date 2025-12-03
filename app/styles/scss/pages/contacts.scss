@@ -1,0 +1,83 @@
+@use "../scss/mixins/include-media" as *;
+@use "../base/mixins" as *;
+
+.contacts {
+  // .contacts__body
+  &__body {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 20px;
+    @include media("<=md") {
+      gap: 15px;
+    }
+  }
+  // .contacts__info
+  &__info {
+  }
+  // .contacts__map
+  &__map {
+    min-height: 558px;
+    border: 1px solid var(--gray-color-stroke-secondary);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 20px;
+    background-color: var(--gray-color-gray);
+    @include media("<=md") {
+      margin-top: 15px;
+      border-radius: 15px;
+      min-height: 385px;
+    }
+  }
+  // .contacts__content
+  &__content {
+    border-radius: 10px;
+    padding: 20px;
+    background: var(--gray-color-gray);
+    font-size: 14px;
+    line-height: 130%;
+  }
+}
+.info-contacts {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px 30px;
+  flex-wrap: wrap;
+  @include media("<=md") {
+    flex-direction: column;
+  }
+  // .info-contacts__item
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 389px;
+    @include media("<=md") {
+      max-width: 100%;
+    }
+    &:last-child {
+      max-width: 263px;
+      @include media("<=md") {
+        max-width: 100%;
+      }
+    }
+    &:nth-child(even) {
+      width: 218px;
+      @include media("<=md") {
+        width: 100%;
+      }
+    }
+  }
+  // .info-contacts__caption
+  &__caption {
+  }
+  // .info-contacts__content
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  // .info-contacts__text
+  &__text {
+  }
+}

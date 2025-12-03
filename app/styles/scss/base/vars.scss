@@ -1,0 +1,54 @@
+@use "../mixins/include-media" as *;
+
+:root {
+  --universal-bg-dark-1: #272a30;
+  --universal-dg-dark-2: #2b2e34;
+  --color-black-rgb-80: rgb(8, 21, 26, 0.8);
+  --universal-black: #08151a;
+  --universal-white: #fff;
+  --basic-orange: #ff692e;
+  --basic-blue: #1c8cf3;
+  --basic-orange-hover: #ff966c;
+  --basic-orange-hover-opacity-80: rgba(255, 150, 108, 0.8);
+  --basic-orange-active: #f4591b;
+  --basic-orange-active-second: #ff6933;
+  --basic-orange-hover-input: #f5b196;
+  --basic-green-button: #60c670;
+  --gray-color-gray: #f3f3f5;
+  --gray-color-gray-stroke: #e6e9ea;
+  --gray-color-stroke-secondary: #e1e3eb;
+  --gray-color-gray-background: #f9f9fa;
+  --gray-color-gray-text: #989eaa;
+  --gray-color-gray-dark-stroke: #585c64;
+  --error-error-color: #ff2828;
+  --color-map-blue-map: #01b7f2;
+  --color-map-fiolet-map: #c052e7;
+  --color-map-green-map: #3acac1;
+  --color-map-dark-green-map: #358794;
+  --color-map-yellow-map: #f39d1c;
+  --color-map-orange-map: #ff692e;
+  --color-map-dark-blue-map: #1c8cf3;
+  --color-blue-hover: #51abff;
+  --color-light-blue: #f1f8ff;
+  --color-blue-link: #2986ff;
+
+  --white: #ffffff;
+  --black: #08151a;
+
+  --letter-spacing: -0.2px;
+
+  --header-height: 84px;
+  --font-size: 16px;
+  --text-primary: var(--universal-black);
+  --font-family: "Manrope", sans-serif;
+  --font-weight: 400;
+  --bg-primary: var(--universal-white);
+
+  --time: 0.25s;
+}
+
+@include media("<=md") {
+  :root {
+    --header-height: 70px;
+  }
+}

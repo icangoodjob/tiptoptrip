@@ -1,0 +1,240 @@
+@use "sass:math";
+@use "../scss/mixins/include-media" as *;
+@use "../../base/mixins" as *;
+
+.town {
+  // .town__heading
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 40px;
+    @include media("<=md") {
+      margin-bottom: 30px;
+    }
+    // margin-bottom: 30px;
+  }
+  // .town__heading-image
+  &__heading-image {
+    padding-bottom: math.div(200, 1170) * 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    @include media("<=md") {
+      display: none;
+    }
+  }
+}
+
+.menu-navigation {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  @include no-scroll;
+  margin-right: -18px;
+  padding-right: 18px;
+  // .menu-navigation__link
+  &__link {
+    scroll-snap-align: start;
+    font-size: 14px;
+    line-height: 130%;
+    white-space: nowrap;
+    &.active {
+      cursor: default;
+      pointer-events: none;
+      background-color: var(--basic-orange-active);
+      color: var(--universal-white);
+    }
+  }
+}
+
+.default-grid-wrapper {
+  display: grid;
+  grid-template-columns: 270px calc(100% - 300px);
+  align-items: flex-start;
+  gap: 30px;
+  @include media("<=lg") {
+    grid-template-columns: 100%;
+  }
+}
+
+.aside {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 40px;
+  @include media("<=lg") {
+    display: none;
+  }
+}
+
+.aside-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid var(--gray-color-gray-stroke);
+  border-radius: 20px;
+  padding: 30px;
+  position: sticky;
+  top: 20px;
+  @include media("<=lg") {
+    position: static;
+    order: 1;
+  }
+  @include media("<=md") {
+    margin: 0 -18px;
+    padding: 0 18px;
+    border: 0;
+    border-radius: 0;
+    margin-top: 26px;
+  }
+  // .aside-nav__caption
+  &__caption {
+    padding-bottom: 19px;
+    border-bottom: 1px solid var(--gray-color-gray-stroke);
+    .aside-nav-category & {
+      font-size: 18px;
+      line-height: 120%;
+    }
+    .aside-nav-form & {
+      padding-bottom: 10px;
+    }
+  }
+}
+
+.aside-nav-category {
+  @include media("<=lg") {
+    display: none;
+  }
+}
+
+.aside-nav-form {
+  & .base-checkbox {
+    width: 100%;
+    &__label {
+      width: 100%;
+      &:has(input:checked) {
+        color: var(--basic-orange);
+      }
+    }
+  }
+}
+
+.aside-menu {
+  // .aside-menu__list
+  &__list {
+    @include reset-list;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    .aside-nav-category & {
+      gap: 20px;
+    }
+  }
+  // .aside-menu__item
+  &__item {
+    .aside-nav-category & {
+      &:not(:last-child) {
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--gray-color-stroke-secondary);
+      }
+    }
+  }
+  // .aside-menu__link
+  &__link {
+    line-height: 140%;
+    color: var(--basic-blue);
+    .aside-nav-category & {
+      line-height: 130%;
+      color: var(--universal-black);
+      transition: color var(--time);
+      &.active {
+        color: var(--basic-orange);
+      }
+      @include hover {
+        color: var(--basic-orange);
+      }
+    }
+    @include hover {
+      text-decoration-color: transparent;
+    }
+  }
+}
+
+// Статьи
+.testimonials {
+  // .testimonials__cards
+  &__cards {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 30px;
+    @include media("<=md") {
+      gap: 20px;
+    }
+  }
+}
+
+// Статьи
+.town-posts {
+  // .town-posts__wrapper
+  &__wrapper {
+  }
+  // .town-posts__cards
+  &__cards {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 19px;
+  }
+}
+
+// Развлечения
+.town-games {
+}
+
+// Транспорт
+.town-transport {
+  & .comfort-cards {
+    gap: 30px;
+    @include media("<=md") {
+      gap: 15px;
+    }
+  }
+}
+
+// Транспорт
+.town-food {
+}
+
+// Общие стили для сетки карточек Транспорта, Питание
+.comfort-cards {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 24px;
+  @include media("<=md") {
+    gap: 20px;
+  }
+}
+
+// Жилье (Отели)
+.town-hotels {
+  // .town-hotels__main
+  &__main {
+  }
+  // .town-hotels__cards
+  &__cards {
+  }
+  & .section-heading {
+    margin-bottom: 30px;
+  }
+}
+
+.default-grid-cards,
+.hotel-cards {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 18px;
+  @include media("<=md") {
+    gap: 20px;
+  }
+}

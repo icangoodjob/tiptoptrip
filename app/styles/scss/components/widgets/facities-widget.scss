@@ -1,0 +1,80 @@
+@use "../../base/mixins" as *;
+@use "../scss/mixins/include-media" as *;
+
+.facities-sections {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 40px;
+  &--offset-lg {
+    margin-top: 100px;
+    @include media("<=md") {
+      margin-top: 56px;
+    }
+  }
+  &--offset-md {
+    margin-top: 40px;
+    @include media("<=md") {
+      margin-top: 30px;
+    }
+  }
+}
+
+.facities-widget {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  .content & {
+    max-width: 870px;
+    margin: 70px 0 0px;
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
+    @include media("<=lg") {
+      max-width: 100%;
+    }
+    @include media("<=md") {
+      margin: 40px 0px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  // .facities-widget__slider
+  &__slider {
+    width: 100%;
+    position: relative;
+  }
+  &.has-controls {
+    & .swiper-scrollbar {
+      display: none;
+      @include media("<=vl") {
+        display: block;
+      }
+    }
+  }
+  & .slider-controls {
+    @include media("<=vl") {
+      display: none;
+    }
+  }
+  & .slider-button {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    transform: translateY(-50%);
+    &-prev {
+      left: 0;
+      transform: translate(calc(-100% - 40px), -50%);
+      @include media("<=xl") {
+        transform: translate(calc(-50% - 10px), -50%);
+      }
+    }
+    &-next {
+      right: 0;
+      transform: translate(calc(100% + 40px), -50%);
+      @include media("<=xl") {
+        transform: translate(calc(50% + 10px), -50%);
+      }
+    }
+  }
+}

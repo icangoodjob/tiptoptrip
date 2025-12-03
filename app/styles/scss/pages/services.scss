@@ -1,0 +1,86 @@
+@use "sass:math";
+@use "../scss/mixins/include-media" as *;
+@use "../base/mixins" as *;
+
+.services {
+  // .services__body
+  &__body {
+    background: var(--gray-color-gray-background);
+    border-radius: 30px;
+    padding: 30px;
+    overflow: hidden;
+    border: 1px solid var(--gray-color-stroke-secondary);
+    @include media("<=lg") {
+      border-radius: 10px;
+      padding: 0;
+    }
+  }
+  // .services__table
+  &__table {
+    & tr {
+      display: grid;
+      grid-template-columns: 1fr repeat(2, 260px);
+      gap: 20px;
+      border-radius: 5px;
+      @include media("<=vl") {
+        grid-template-columns: 1fr repeat(2, 200px);
+      }
+    }
+
+    & td,
+    & th {
+      min-height: 61px;
+      padding: 20px;
+      display: grid;
+      align-items: center;
+      text-align: left;
+      font-size: 16px;
+      line-height: 130%;
+      @include media("<=lg") {
+        padding: 0;
+        min-height: auto;
+      }
+    }
+    & th {
+      font-weight: 600;
+      padding-right: 0;
+    }
+    & tbody {
+      & tr {
+        &:nth-child(odd) {
+          background-color: var(--universal-white);
+        }
+        @include media("<=lg") {
+          grid-template-columns: 100%;
+          gap: 10px;
+          padding: 20px 15px;
+        }
+      }
+    }
+    .thead {
+      @include media("<=lg") {
+        display: none;
+      }
+    }
+    .td-resort {
+      @include media("<=lg") {
+        font-weight: 700;
+      }
+    }
+    .td-price {
+      @include media("<=lg") {
+        font-weight: 600;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        &::before {
+          content: attr(data-price);
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 130%;
+        }
+      }
+    }
+  }
+}

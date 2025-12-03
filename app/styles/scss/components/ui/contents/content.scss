@@ -1,0 +1,129 @@
+@use "../../../functions/fluid" as *;
+@use "../scss/mixins/include-media" as *;
+@use "../../../base/mixins" as *;
+
+.content {
+  font-size: 16px;
+  line-height: 130%;
+  & h1,
+  & h2 {
+    font-weight: 700;
+  }
+  & h1 {
+    font-size: fluid-clamp(
+      (
+        xs: 38px,
+        hd: 46px,
+      )
+    );
+    line-height: 120%;
+  }
+  & h2 {
+    font-size: 40px;
+    line-height: 120%;
+    @include media("<=md") {
+      font-size: 32px;
+      line-height: 130%;
+    }
+  }
+  & h3 {
+    font-size: 32px;
+    line-height: 130%;
+    @include media("<=md") {
+      font-size: 26px;
+    }
+  }
+  & h4 {
+    font-size: 24px;
+    line-height: 120%;
+    @include media("<=md") {
+      font-size: 20px;
+      line-height: 130%;
+    }
+  }
+  & h5 {
+    font-size: 20px;
+    line-height: 130%;
+    @include media("<=md") {
+      font-size: 18px;
+      line-height: 130%;
+    }
+  }
+  & h1,
+  & h2 {
+    margin-bottom: 30px;
+  }
+  & h3,
+  & h4,
+  & h5 {
+    margin-bottom: 22px;
+    @include media("<=md") {
+      margin-bottom: 16px;
+    }
+    .hidden-content & {
+      margin-bottom: 15px;
+    }
+    .main-card__content-section & {
+      margin-bottom: 20px;
+    }
+  }
+  & * + h1,
+  & * + h2,
+  & * + h3,
+  & * + h4,
+  & * + h5,
+  & * + h6 {
+    margin-top: 30px;
+    // @include media("<=md") {
+    //   margin-top: 20px;
+    // }
+  }
+  & *:first-child {
+    margin-top: 0;
+  }
+  & *:last-child {
+    margin-bottom: 0;
+  }
+  & p {
+    margin-bottom: 20px;
+    @include media("<=md") {
+      margin-bottom: 16px;
+    }
+  }
+  & ul:not([class]) li,
+  & ol:not([class]) li {
+    font-size: 16px;
+    line-height: 130%;
+  }
+  & ul:not([class]) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    @include reset-list;
+    margin: 20px 0 30px;
+    & li {
+      position: relative;
+      gap: 10px;
+      padding-left: 25px;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 15px;
+        height: 15px;
+        background-image: url("../images/icons/check.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+  }
+  a:not([class]) {
+    color: var(--color-blue-link);
+    transition: color var(--time);
+    @include hover {
+      color: var(--color-blue-hover);
+    }
+  }
+}

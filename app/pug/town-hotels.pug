@@ -1,0 +1,101 @@
+extends layouts/default.pug
+
+append variables
+	- let pageTitle = "Жилье";
+	- description += pageTitle;
+	- let breadCrumbsList = [{"title": "Главная", "link": "/"}, {"title": "Крым", "link": "/"}];
+	- let currentPage = "Алушта"
+
+block content
+	.page-header
+		.container
+			.page-title.title-h2= currentPage
+	.page-body
+		.town-hotels
+			.container 
+				.town__heading 
+					.town__heading-image.image-ibg
+						img(src="images/town/preview-img@2x.jpg", alt=currentPage)
+					+navigationTown(1)
+				.section-heading.section-heading-column
+					.title-h4 Жилье в Алуште (54 найдено)
+					.section-heading__actions
+						.section-heading__actions-buttons
+							button(type="button" data-popup-button="popup-map").btn-map.btn-map-transparent.btn-map-mobile.color-gray.default-text--small-s
+								| Карта
+								<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M9.16667 2.5H6.66667C4.36548 2.5 2.5 4.36548 2.5 6.66667V13.3333C2.5 15.6345 4.36548 17.5 6.66667 17.5H13.3333C15.6345 17.5 17.5 15.6345 17.5 13.3333V10" stroke="#989EAA" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M14.584 4.37484C14.699 4.3753 14.7918 4.46878 14.7915 4.58373C14.7912 4.69868 14.6978 4.79166 14.5829 4.79151C14.4679 4.79135 14.3748 4.69813 14.3748 4.58318C14.3745 4.52769 14.3965 4.4744 14.4358 4.43524C14.4751 4.39608 14.5285 4.37432 14.584 4.37484" stroke="#989EAA" stroke-linecap="round" stroke-linejoin="round" />
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M17.4998 4.58317V4.58317C17.4998 2.97234 16.194 1.6665 14.5832 1.6665V1.6665C12.9723 1.6665 11.6665 2.97234 11.6665 4.58317V4.58317C11.6665 5.9486 13.1565 7.40719 14.0065 8.12847C14.3422 8.40141 14.8233 8.40141 15.159 8.12847C16.0098 7.40718 17.4998 5.9486 17.4998 4.58317Z" stroke="#989EAA" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M3.3335 4.1665L15.8335 16.6665" stroke="#989EAA" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M3.3335 15.8333L9.16683 10" stroke="#989EAA" stroke-linecap="round" stroke-linejoin="round" />
+								</svg>
+							.sorting
+								.sorting__caption.default-text--small-s Сортировать:
+								button(type="button").sorting-button.color-gray.default-text--small-s Сортировать
+								ul.sorting__list 
+									li.sorting__item.default-text--small-s(data-sort="ASC") Популярность
+									li.sorting__item.default-text--small-s(data-sort="ASC") Рейтинг
+									li.sorting__item.default-text--small-s.active(data-sort="ASC") Цена
+							button(type="button").btn-filter.btn-filter-transparent.color-gray.default-text--small-s Фильтры
+				.default-grid-wrapper
+					.aside.aside-filter
+						.map-box.map-box--size-lg
+							button.btn.btn--white(type="button" data-popup-button="popup-map") Показать на карте
+						.filter.extended-filter(data-da=".default-grid-wrapper, 1024, 0")
+							.filter__wrapper
+								.filter__header
+									.filter__caption.default-text--m.default-text--bold Фильтры
+									button(type="button").filter__close.default-text Закрыть
+								form(action="#", method="post").form
+									.form-groups
+										+fieldGroup("Регион, город")
+											.form-group__items
+												+customSelect([...selects.region], "Крым", "region")
+												+customSelect([...selects.city], "Алушта", "city")
+										+fieldGroup("Цена за сутки,₽")
+											.form-group__values.default-text--small-s
+												.form-group__value
+													span.form-group__value-caption от
+													input(type="number" name="range_from" data-min="0" value="0").form-group__value-input.range-min
+												.form-group__value 
+													span.form-group__value-caption до
+													input(type="number" name="range_to" data-max="10000" value="10000").form-group__value-input.range-max
+											.range-slider
+										+fieldGroup("Тип жилья")
+											.form-group__items
+												each item, index in checkboxes.type 
+													+baseCheckbox(item, index, "type")
+											//- +btnShowMore
+										+fieldGroup("Инфраструктура")
+											.form-group__items
+												each item, index in checkboxes.infrastructure 
+													+baseCheckbox(item, index, "infrastructure")
+											+btnShowMore
+										+fieldGroup("Питание")
+											.form-group__items
+												each item, index in checkboxes.food 
+													+baseCheckbox(item, index, "food")
+											//- +btnShowMore
+										+fieldGroup("Общие")
+											.form-group__items
+												each item, index in checkboxes.common 
+													+baseCheckbox(item, index, "common")
+											//- +btnShowMore
+										include ./components/filter-actions
+						+asideNavigation(townAsideMenu)
+					.town-hotels__main
+						.hotel-cards
+							- for (var i = 0; i < 10; i++)
+								+hotelCard(hotelCards[0], `${i+1}`)
+						include ./components/pagination
+				.testimonials-section
+					.testimonials-section__title.title-h2 Последние отзывы на отели Алушты
+					+btn("Все отзывы", "btn--gray")
+					.testimonials-slider 
+						.swiper
+							.swiper-wrapper 
+								each item in testimonials.slider
+									+testimonialsCard(item, null, 'testimonials-card-vertical swiper-slide')
+							.swiper-scrollbar
+						include ./components/slider-controls

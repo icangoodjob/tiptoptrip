@@ -1,0 +1,33 @@
+@use "sass:math";
+@use "../scss/mixins/include-media" as *;
+@use "../../../base/mixins" as *;
+
+.photo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  @include hover {
+    & .photo-card__image img {
+      transform: scale(1.2);
+    }
+    & .photo-card__description {
+      color: var(--basic-orange);
+    }
+  }
+  // .photo-card__image
+  &__image {
+    border-radius: 20px;
+    padding-bottom: math.div(220, 370) * 100%;
+    overflow: hidden;
+    & img {
+      transition: transform calc(var(--time) * 3);
+    }
+    @include media("<=md") {
+      border-radius: 16px;
+    }
+  }
+  // .photo-card__description
+  &__description {
+    transition: color var(--time);
+  }
+}

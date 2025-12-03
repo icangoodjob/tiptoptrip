@@ -1,0 +1,47 @@
+@use "sass:math";
+@use "../../../base/mixins" as *;
+
+.game-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  @include hover {
+    & .game-card__caption {
+      color: var(--basic-orange);
+      text-decoration-color: var(--basic-orange);
+    }
+    & .game-card__image img {
+      transform: scale(1.2);
+    }
+  }
+  // .game-card__image-wrap
+  &__image-wrap {
+  }
+  // .game-card__image
+  &__image {
+    padding-bottom: math.div(330, 270) * 100%;
+
+    & img {
+      transition: transform calc(var(--time) * 3);
+    }
+  }
+  // .game-card__content
+  &__content {
+    position: absolute;
+    width: calc(100% - 20px);
+    bottom: 10px;
+    left: 10px;
+    background: var(--universal-white);
+    padding: 15px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  // .game-card__caption
+  &__caption {
+  }
+  // .game-card__text
+  &__text {
+  }
+}

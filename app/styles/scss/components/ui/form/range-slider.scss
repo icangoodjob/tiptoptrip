@@ -1,0 +1,86 @@
+@use "sass:math";
+@use "../scss/mixins/include-media" as *;
+@use "../../../base/mixins" as *;
+
+// noUiSlider
+.range-slider {
+  margin: 7px 0px;
+}
+.noUi-connect {
+  background: var(--basic-orange);
+  @include hover {
+    cursor: pointer;
+  }
+}
+.noUi-target {
+  width: 252px;
+  background-color: var(--gray-color-stroke-secondary);
+  border: none;
+  box-shadow: none;
+  position: relative;
+  border-radius: 0;
+  height: 5px;
+  @include media("<=lg") {
+    width: calc(100% - 18px);
+  }
+  // margin-left: 7.5px;
+  &::before,
+  &::after {
+    content: "";
+    width: 20px;
+    height: 100%;
+    background-color: var(--gray-color-stroke-secondary);
+    position: absolute;
+    top: 0;
+  }
+  &::before {
+    content: none;
+  }
+  &::after {
+    right: -19px;
+  }
+  //   @media screen and (max-width: $xl) {
+  //     width: calc(100% - 13px);
+  //   }
+  //   @media screen and (max-width: $md) {
+  //     width: calc(100% - 13px);
+  //   }
+}
+.noUi-horizontal {
+  height: 5px;
+}
+.noUi-handle {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  box-shadow: none;
+  background-color: var(--universal-white);
+  filter: drop-shadow(0 4px 5px 0 rgba(42, 88, 115, 0.25));
+  @include hover {
+    cursor: pointer;
+  }
+  &::before {
+    content: "";
+    display: block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin: auto;
+    inset: 0;
+    background-color: var(--basic-orange);
+  }
+  &::after {
+    content: none;
+  }
+}
+.noUi-horizontal .noUi-handle {
+  right: -19px;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  transform: translateY(-40%);
+}
+.noUi-connects {
+  border-radius: 0;
+}

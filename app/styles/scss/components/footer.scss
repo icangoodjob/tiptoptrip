@@ -1,0 +1,120 @@
+@use "../base/mixins" as *;
+@use "../scss/mixins/include-media" as *;
+
+.footer {
+  border-top: 1px solid var(--gray-color-gray-stroke);
+  padding: 50px 0px;
+  @include media("<=md") {
+    padding: 24px 0;
+  }
+  // .footer__body
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px 40px;
+    @include media("<=md") {
+      flex-direction: column;
+    }
+  }
+  // .footer__info
+  &__info {
+  }
+  // .footer__logo
+  &__logo {
+    margin-bottom: 25px;
+  }
+  // .footer__main
+  &__main {
+  }
+}
+
+.info-footer {
+  max-width: 439px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  // .info-footer__copyright
+  &__copyright {
+  }
+  //   .info-footer__politic
+  &__politic {
+    &:not(:last-child) {
+      margin-bottom: 14px;
+    }
+  }
+  // .info-footer__text
+  &__text {
+    margin-top: auto;
+    color: rgba(38, 38, 38, 0.5);
+  }
+}
+
+.main-footer {
+  display: flex;
+  gap: 100px;
+  flex-shrink: 0;
+  padding-right: 3px;
+  @include media("<=lg") {
+    padding: 0;
+    gap: 40px;
+  }
+  @include media("<=md") {
+    flex-direction: column;
+    gap: 50px;
+  }
+  // .main-footer__menu
+  &__menu {
+  }
+  // .main-footer__actions
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    text-align: right;
+    & .btn {
+      margin-top: auto;
+      @include media("<=md") {
+        margin-top: 35px;
+        width: 100%;
+      }
+    }
+    @include media("<=md") {
+      align-items: center;
+      text-align: center;
+    }
+  }
+}
+.menu-footer {
+  height: 100%;
+  max-width: 287px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  @include media("<=md") {
+    gap: 30px;
+    max-width: 100%;
+  }
+  // .menu-footer__caption
+  &__caption {
+    grid-column: span 2;
+  }
+  // .menu-footer__list
+  &__list {
+    @include reset-list;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    grid-auto-flow: dense;
+    align-items: center;
+    gap: 10px 100px;
+    margin-top: auto;
+    @include media("<=lg") {
+      gap: 10px 40px;
+    }
+  }
+  // .menu-footer__item
+  &__item {
+  }
+  &__link {
+  }
+}

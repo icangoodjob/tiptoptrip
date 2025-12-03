@@ -1,0 +1,149 @@
+@use "sass:math";
+@use "./global" as *;
+@use "../mixins/include-media" as *;
+@use "../base/mixins" as *;
+
+html {
+  scrollbar-gutter: stable;
+  &.lock {
+    body {
+      overflow: hidden;
+    }
+  }
+  &:has(dialog[open]) {
+    overflow: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-x: clip;
+  & > * {
+    min-width: 0px;
+  }
+}
+
+.page-content {
+  padding-bottom: 102px;
+  flex: 1 1 auto;
+  @include media("<=md") {
+    padding-bottom: 56px;
+  }
+  body.page--home & {
+    padding-bottom: 113px;
+    @include media("<=md") {
+      padding-bottom: 56px;
+    }
+  }
+}
+
+footer {
+  margin-top: auto;
+}
+
+.page-header {
+  margin-bottom: 42px;
+  @include media("<=md") {
+    margin-bottom: 30px;
+  }
+  & .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    @include media("<=md") {
+      gap: 10px;
+    }
+  }
+  // .page-header__text
+  &__text {
+    max-width: 770px;
+  }
+}
+
+.color-gray {
+  color: var(--gray-color-gray-text);
+}
+
+.color-blue {
+  color: var(--basic-blue);
+  transition: color var(--time);
+  @include hover {
+    color: var(--color-blue-hover);
+  }
+}
+
+.gray-text {
+  color: var(--gray-color-gray-text);
+}
+
+.map {
+  &-marker {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: var(--white);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    z-index: 10;
+    position: relative;
+    width: 50px;
+    pointer-events: none;
+  }
+  [class*="--marker"] {
+    width: 50px;
+    height: 50px;
+  }
+  [class*="--map-copyrights"] {
+    display: none;
+  }
+  & .ymaps3x0--marker {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+// (i) Стили будут применяться ко всем классам содержащим *__container. Например header__container, footer__container и т.д.
+@if ($responsiveType == 1) {
+  // Отзывчивая
+  .container {
+    @if ($maxWidthContainer > 0) {
+      max-width: $maxWidthContainer + px;
+      margin: 0 auto;
+    }
+    @if ($containerPadding > 0) {
+      padding: 0 math.div($containerPadding, 2) + px;
+    }
+  }
+} @else {
+  // По брейк-поинтам
+  .container {
+    margin: 0 auto;
+    @if ($maxWidthContainer > 0) {
+      max-width: $maxWidthContainer + px;
+    }
+    @if ($containerPadding > 0) {
+      padding: 0 math.div($containerPadding, 2) + px;
+    }
+    @include media("<=vl") {
+      max-width: 980px;
+    }
+    @include media("<=lg") {
+      max-width: 750px;
+    }
+    @include media("<=md") {
+      max-width: 620px;
+    }
+    @include media("<=sm") {
+      max-width: 100%;
+    }
+  }
+}

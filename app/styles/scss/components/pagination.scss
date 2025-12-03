@@ -1,0 +1,98 @@
+@use "sass:math";
+@use "../scss/mixins/include-media" as *;
+@use "../base/mixins" as *;
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  @include media("<=md") {
+    margin-top: 40px;
+  }
+  // .pagination__list
+  &__list {
+    @include reset-list;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  // .pagination__item
+  &__item {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    &.active {
+      & .pagination__link {
+        background-color: var(--basic-orange);
+        color: var(--universal-white);
+      }
+    }
+  }
+  // .pagination__item--prev
+  &__item--prev {
+    margin-right: 16px;
+    display: grid;
+    place-items: center;
+
+    &::before {
+      //   content: "";
+    }
+  }
+  // .pagination__link
+  &__link {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    font-size: 14px;
+    line-height: 114%;
+    text-align: center;
+    border-radius: 8px;
+    transition: color var(--time), background-color var(--time);
+    @include hover {
+      background-color: var(--basic-orange-hover-opacity-80);
+      color: var(--universal-white);
+      &::before {
+        background-color: var(--basic-orange);
+      }
+    }
+    &:active {
+      background-color: var(--basic-orange);
+    }
+  }
+  // .pagination__item--next
+  &__item--next {
+    margin-left: 16px;
+  }
+  &__item--prev,
+  &__item--next {
+    & .pagination__link {
+      &::before {
+        content: "";
+        display: grid;
+        place-items: center;
+        width: 15px;
+        height: 15px;
+        @include mask-image(url("../images/icons/arrow-right.svg"), var(--universal-black));
+        transition: background-color var(--time);
+      }
+    }
+  }
+  &__item--prev {
+    & .pagination__link::before {
+      transform: scaleX(-1);
+    }
+  }
+}
+
+.pagination-nav {
+  @include media("<=md") {
+    display: none;
+  }
+}
+.pagination-nav-mobile {
+  display: none;
+  @include media("<=md") {
+    display: block;
+  }
+}

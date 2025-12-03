@@ -1,0 +1,34 @@
+extends layouts/default.pug
+
+append variables
+	- let pageTitle = "Контакты";
+	- description += pageTitle;
+	- let breadCrumbsList = [{"title": "Главная", "link": "/"}];
+	- let currentPage = "Контакты офиса поддержки";
+
+block content
+	.page-header
+		.container
+			.page-title.title-h2= currentPage
+	.page-body
+		.contacts
+			.container 
+				.contacts__body
+					.contacts__info.info-contacts
+						.info-contacts__item
+							.info-contacts__caption.default-text--small Адрес
+							.info-contacts__content 
+								p.text-h5.default-text--bold 354200, Краснодарский край, г. Сочи, п. Лазаревское, ул. Партизанская 11
+						.info-contacts__item
+							.info-contacts__caption.default-text--small Напишите нам
+							.info-contacts__content
+								+siteEmail("info@na-uga.ru", "site-email--size-lg")
+								.info-contacts__text.default-text--small.gray-text по вопросам тех поддержки
+						.info-contacts__item
+							.info-contacts__caption.default-text--small По вопросам публикации объявлений на нашем сайте
+							.info-contacts__content
+								+sitePhone("+7 (978) 802 90 14", "site-phone--size-lg")
+								.info-contacts__text.default-text--small.gray-text с 09:00 до 18:00
+					.contacts__map#contactsMap карта
+					.contacts__content.content 
+						| Внимание! Размещение объявлений на нашем сайте самостоятельное. Вам нужно #[a(href="#") зарегистрироваться] и внести информацию о своем месте размещения. Поддержка осуществляется только по телефону.

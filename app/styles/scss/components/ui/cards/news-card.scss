@@ -1,0 +1,64 @@
+@use "sass:math";
+@use "../../../base/mixins" as *;
+@use "../scss/mixins/include-media" as *;
+
+.news-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: auto;
+  @include hover {
+    & .news-card__title {
+      color: var(--basic-orange);
+      text-decoration-color: currentColor;
+    }
+  }
+  // .news-card__image
+  &__image {
+    background-color: #050505;
+    padding-bottom: math.div(320, 370) * 100%;
+    border-radius: 30px;
+    overflow: hidden;
+    @include media("<=md") {
+      border-radius: 24px;
+    }
+  }
+  // .news-card__content
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1 1 auto;
+  }
+  // .news-card__title
+  &__title {
+  }
+  // .news-card__text
+  &__text {
+    flex: 1 1 auto;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+    & p {
+      display: inline;
+    }
+  }
+  // .news-card__info
+  &__info {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+  // .news-card__date
+  &__date {
+  }
+  // .news-card__time
+  &__time {
+  }
+}

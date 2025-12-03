@@ -1,0 +1,95 @@
+@use "sass:math";
+@use "../scss/mixins/include-media" as *;
+@use "../../../base/mixins" as *;
+
+.comfort-card {
+  display: grid;
+  grid-template-columns: 270px 1fr;
+  gap: 30px;
+  padding-bottom: 23px;
+  border-bottom: 1px solid var(--gray-color-gray-stroke);
+  position: relative;
+  @include media("<=md") {
+    grid-template-columns: 100%;
+    padding-bottom: 19px;
+    gap: 20px;
+  }
+  // .comfort-card__image-wrap
+  &__image-wrap {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  // .comfort-card__image
+  &__image {
+    padding-bottom: math.div(233, 270) * 100%;
+    @include media("<=md") {
+      padding-bottom: math.div(271, 339) * 100%;
+    }
+  }
+  // .comfort-card__main
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    @include media("<=md") {
+      gap: 16px;
+    }
+  }
+  // .comfort-card__header
+  &__header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "title rating" "subtitle rating";
+    align-items: start;
+    gap: 5px 15px;
+  }
+  // .comfort-card__title
+  &__title {
+    grid-area: title;
+    justify-self: start;
+    @include hover {
+      color: var(--basic-orange);
+      text-decoration-color: currentColor;
+    }
+  }
+  // .comfort-card__sub-title
+  &__sub-title {
+    grid-area: subtitle;
+    color: var(--gray-color-gray-text);
+  }
+  // .comfort-card__content
+  &__content {
+    margin: 0px 0px 20px;
+    @include media("<=md") {
+      margin: 0px 0 14px;
+    }
+  }
+  // .comfort-card__details
+  &__details {
+    margin-top: auto;
+  }
+  & .rating {
+    grid-area: rating;
+    align-self: start;
+  }
+}
+
+.card-details {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+}
+.card-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  // .card-detail__caption
+  &__caption {
+    color: var(--gray-color-gray-text);
+  }
+  // .card-detail__value
+  &__value {
+  }
+}

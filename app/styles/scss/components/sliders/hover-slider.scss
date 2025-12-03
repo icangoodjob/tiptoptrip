@@ -1,0 +1,78 @@
+@use "sass:math";
+@use "../scss/mixins/include-media" as *;
+@use "../../base/mixins" as *;
+
+.hover-slider {
+  position: relative;
+  padding-bottom: math.div(250, 269) * 100%;
+  & .swiper {
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  & .swiper-wrapper {
+    @include media(">=lg") {
+      transform: unset !important;
+    }
+  }
+  // .hover-slider__item
+  &__item {
+    position: static;
+    flex-shrink: unset;
+    flex-grow: 1;
+    transform: unset !important;
+    width: 100% !important;
+    &.swiper-slide-active {
+      & .hover-slider__image {
+        opacity: 1;
+      }
+    }
+    @include hover {
+      cursor: pointer;
+    }
+    @include media("<=lg") {
+      flex-shrink: 0;
+      flex-grow: unset;
+      transform: translateZ(0) !important;
+    }
+  }
+  // .hover-slider__image
+  &__image {
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity var(--time) ease;
+    & img {
+      //   position: absolute;
+      //   inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    @include media("<=lg") {
+      position: static;
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
+.swiper {
+}
+.swiper-wrapper {
+}
+.swiper-slide {
+}
+.image-ibg {
+}
+.swiper-pagination {
+}
