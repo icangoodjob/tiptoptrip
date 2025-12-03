@@ -58,7 +58,7 @@ import webpHtmlNoSvg from "gulp-webp-html-nosvg";
 import ifPlugin from "gulp-if";
 
 import pngquant from "imagemin-pngquant";
-import webpHTML from "gulp-webp-retina-html";
+// import webpHTML from "gulp-webp-retina-html";
 import concat from "gulp-concat";
 
 // Получаем имя папки проекта
