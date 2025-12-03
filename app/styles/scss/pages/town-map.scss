@@ -43,6 +43,8 @@
       padding: 14px;
       width: 310px;
       border-radius: 20px;
+      position: relative;
+      // z-index: 1001;
     }
     @include media("<=sm") {
       width: 100%;
@@ -80,6 +82,7 @@
     padding: 20px;
     box-shadow: 0 4px 40px 0 rgba(42, 49, 83, 0.25);
     background-color: var(--universal-white);
+    margin-top: auto;
     &__actions {
       display: none;
       @include media("<=lg") {
@@ -93,6 +96,7 @@
       box-shadow: none;
       border: unset;
       padding: 0;
+      margin: 0;
     }
     & .form {
       display: grid;

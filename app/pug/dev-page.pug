@@ -1,0 +1,82 @@
+extends layouts/default.pug
+
+append variables
+	- let pageTitle = "Разработка сайтов";
+	- description += pageTitle;
+	- bodyClass = "theme-dark"
+
+block content
+	.dev-page
+		section.dev-hero
+			.container
+				.dev-hero__body
+					.dev-hero__main
+						.dev-hero__title Разработка сайтов для владельцев #[span.title-bg отелей] на основе #[span.accent-text шаблонов] 
+						.dev-hero__features 
+							.dev-hero__feature Быстро
+							.dev-hero__feature Удобно
+							.dev-hero__feature Выгодно
+					.dev-hero__content 
+						button(type="button").btn-request.text-h4 Оставить заявку
+						.dev-hero__text.default-text Предлагаем создание сайтов для отелей на основе предложенных вариантов. В самые сжатые сроки Вы получаете полностью готовый информационный сайт о Вашем объекте.
+		section.dev-advantages 
+			.container
+				.dev-advantages__body 
+					.dev-advantages__info
+						.dev-page-heading
+							.section-caption.text-h5 Преимущества
+							.title-h2 Почему выбирают TipTopTrip  
+							.dev-advantages__text.default-text.color-gray Мы понимаем, что в современном мире скорость имеет решающее значение. Поэтому мы разработали ряд решений, которые можно внедрить максимально оперативно, не жертвуя качеством
+					.dev-advantages__items 
+						each item, index in devPage.advantages
+							.dev-advantages__item
+								.dev-advantages__item-number.title-h2 0#{index+1}
+								.dev-advantages__item-title.title-h5= item.title
+								.dev-advantages__item-text.default-text--small= item.text
+		section.dev-catalog 
+			.container
+				.dev-page-heading
+					.section-caption Наши шаблоны
+					.title-h2 Каталог шаблонов  
+				.dev-catalog__body 
+					- for (var i = 0; i < 4; i++)
+						.dev-catalog__card.catalog-card
+							.catalog-card__info
+								.catalog-card__header
+									.catalog-card__badge.default-text--caption.default-text--semibold Демо №#{i+1}
+									.catalog-card__header-caption.default-text--small.default-text--semibold.color-gray диджитал маркетинг
+								.catalog-card__content 
+									.catalog-card__title.title-h3 Сайт для маркетинговых исследований в сфере онлайн бизнеса
+									.catalog-card__text.default-text--small Создали комплексную систему автоматического зачисления на GetCourse для курсов повышения квалификации медицинских работников. Реализовали полный цикл зачисления: от верификации персональных данных студентов до формирования всех необходимых документов... 
+									.catalog-card__price.title-h2
+										| 15 000
+										span ₽ / год
+								.catalog-card__actions 
+									a(href="#").btn.btn--border Хочу такой
+									a(href="#").btn.btn--border.btn-demo Смотреть демо
+							.catalog-card__image.image-ibg
+								img(src=`images/dev/catalog-${i+1}@2x.png`, alt="Сайт для маркетинговых исследований в сфере онлайн бизнеса")
+		section.dev-steps 
+			.container
+				.dev-page-heading
+					.section-caption Этапы работы
+					.title-h2 Как мы работаем
+				.dev-steps__body 
+					each step, index in devPage.steps
+						.dev-step
+							.dev-step__icon 
+								img(src=`images/icons/steps/step-${index+1}.svg`, alt=step.title)
+							.dev-step__content 
+								.dev-step__title.title-h4= step.title
+								.dev-step__text.default-text= step.text
+		section.dev-ready
+			.container
+				.dev-ready__body 
+					.dev-ready__info
+						.dev-ready__title 
+							span Готовы приступить
+							span к работе над вашим 
+							span проектом?
+						button(type="button").btn-request.text-h4 Оставить заявку
+
+

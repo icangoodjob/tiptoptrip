@@ -40,7 +40,7 @@ html(lang="ru")
 			meta(name="format-detection" content="date=no")
 			link(rel="shortcut icon" href="images/favicons/favicon.svg" type="image/x-icon")
 			//- include ../components/favicons
-	body(class=bodyClass === 'home' ? 'page--home' : '')
+	body(class=bodyClass ? bodyClass : '')
 		div.wrapper#wrapper
 			include ../components/header
 			if !bodyClass

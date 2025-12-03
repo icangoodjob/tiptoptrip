@@ -4,7 +4,7 @@
 .header {
   min-height: var(--header-height);
   padding: 15px 0;
-  body:not(.page--home) & {
+  body:not(.page--home):not(.theme-dark) & {
     border-bottom: 1px solid var(--gray-color-gray-stroke);
   }
   // .header__body
