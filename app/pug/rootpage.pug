@@ -6,20 +6,7 @@ html(lang="ru")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		title TipTopTrip
 		link(rel="icon" href="images/favicons/favicon.svg" type="image/svg+xml")
-	body 
-		.rootpage
-			h1.rootpage__title TipTopTrip
-			p.rootpage__description 
-				| #[b Описание:] Адаптивная верстка
-			.rootpage__text Ниже вы найдете ссылки на все страницы. Для просмотра кликайте на нужную страничку (откроется в новом окне)
-			h2 Страницы:
-			ol.rootpage__list
-				each item in pages
-					li
-						a(target="_blank" href=item.link)= item.title
-				
 		style.
-			@charset "UTF-8";
 			@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 			*,
 			*::before,
@@ -160,3 +147,14 @@ html(lang="ru")
 				background: #81B29A;
 				/* Firefox */
 			}
+	body 
+		.rootpage
+			h1.rootpage__title TipTopTrip
+			p.rootpage__description 
+				| #[b Описание:] Адаптивная верстка
+			.rootpage__text Ниже вы найдете ссылки на все страницы. Для просмотра кликайте на нужную страничку (откроется в новом окне)
+			h2 Страницы:
+			ol.rootpage__list
+				each item in pages
+					li
+						a(target="_blank" href=item.link)= item.title

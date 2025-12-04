@@ -49,8 +49,8 @@ mixin ratingBlue(num = "4,8", result = "142 отзыва")
 
 
 mixin objectCard(item, classNames, isRating)
-	a(href="#" class=classNames).object-card
-		.object-card__image-wrap 
+	a(href="main-card.html" class=classNames).object-card
+		.object-card__image-wrap
 			+favoriteButton
 			.object-card__image.image-ibg
 				img(src=`images/objects/object-${item.img}@2x.jpg`, alt=item.title)
@@ -213,7 +213,7 @@ mixin baseCheckbox(item, idx, name, image)
 	.base-checkbox 
 		label(for=`${name}-${idx}`).base-checkbox__label.default-text--small-s
 			input(type="checkbox" name=name id=`${name}-${idx}` checked=item.checked).base-checkbox__real-input.visuallyHidden
-			.base-checkbox__custom-input 
+			span.base-checkbox__custom-input 
 			| #{item.title}
 			if name === 'object'
 				span.base-checkbox__img 
@@ -233,7 +233,7 @@ mixin btnShowMore
 	button(type="button").btn-show-more.default-text--small Показать еще (10) 
 
 mixin favoriteButton(classNames)
-	button.favorite-button(type="button" class=classNames)
+	div.favorite-button(class=classNames)
 		<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<rect width="40" height="40" rx="20" fill="white" />
 			<path fill-rule="evenodd" clip-rule="evenodd" d="M20.9033 15.2001C21.6826 14.4319 22.74 14 23.843 14C24.946 14 26.0034 14.4319 26.7828 15.2002C27.5623 15.968 28 17.0093 28 18.0948C28 19.1804 27.5622 20.2218 26.7826 20.9896L20.8123 26.8726C20.7295 26.9542 20.6171 27 20.4998 27C20.3826 27 20.2701 26.9542 20.1874 26.8726L14.217 20.9895C12.5943 19.3907 12.5943 16.799 14.217 15.2001C15.8404 13.6004 18.473 13.6004 20.0964 15.2001L20.4998 15.5976L20.9033 15.2001Z" fill="transparent" />
