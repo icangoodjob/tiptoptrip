@@ -21,6 +21,9 @@
 @use "components/pagination";
 @use "components/popup";
 
+// Подключение календаря
+@use "components/calendar";
+
 @use "components/section-common";
 @use "components/ui/numbers";
 @use "components/ui/badges";

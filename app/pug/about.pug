@@ -4,5 +4,19 @@ append variables
 	- let pageTitle = "О нас";
 	- description += pageTitle;
 block content
-	.container
-		h1= pageTitle
+	.about
+		.container
+			form(action="#")
+				.form-item
+					.form-item__caption Дата заезда
+					.form-item__field
+						.custom-select.custom-select-calendar
+							button(type="button")#button-calendar-date-from.custom-select__btn.date-picker-button 21 июня 2024
+							input(type="hidden", name="date_from")#input-date-from
+				.form-item
+					.form-item__caption Дата выезда
+					.form-item__field
+						.custom-select.custom-select-calendar
+							button(type="button")#button-calendar-date-to.custom-select__btn.date-picker-button 21 июня 2024
+							input(type="hidden", name="date_to")#input-date-to
+				.calendar-popup#calendar-popup(style="display: none;")
