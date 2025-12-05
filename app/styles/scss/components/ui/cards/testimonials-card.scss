@@ -284,7 +284,9 @@
       }
     }
     & .rating {
-      margin: 0 0 0 auto;
+      @include media("<=md") {
+        margin: 0 0 0 auto;
+      }
     }
   }
   &.testimonials-card--short .date {

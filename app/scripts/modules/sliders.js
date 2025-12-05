@@ -1,5 +1,5 @@
 import Swiper from "swiper";
-import { Navigation, Pagination, Scrollbar } from "swiper/modules";
+import { Navigation, Pagination, Scrollbar, Thumbs } from "swiper/modules";
 
 const sliderDefaultOptions = {
   watchOverflow: true,
@@ -162,6 +162,36 @@ export const initSliders = () => {
         el: ".swiper-pagination",
         type: "bullets",
         clickable: true,
+      },
+    });
+  }
+
+  const apartmentMainSlider = document.querySelector(".slider-apartment__main");
+  const apartmentThumbSlider = document.querySelector(".slider-apartment__thumbs");
+  if (apartmentMainSlider && apartmentThumbSlider) {
+    const buttonPrev = apartmentMainSlider.querySelector(".slider-button-prev");
+    const buttonNext = apartmentMainSlider.querySelector(".slider-button-next");
+    let swiperThumbs = new Swiper(apartmentThumbSlider, {
+      spaceBetween: 10,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesProgress: true,
+      direction: "vertical",
+    });
+    let swiperMain = new Swiper(apartmentMainSlider, {
+      modules: [Thumbs, Navigation, Pagination],
+      spaceBetween: 10,
+      navigation: {
+        nextEl: buttonNext,
+        prevEl: buttonPrev,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        type: "bullets",
+        clickable: true,
+      },
+      thumbs: {
+        swiper: swiperThumbs,
       },
     });
   }

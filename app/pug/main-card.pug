@@ -145,7 +145,7 @@ block content
 								.apartments__body
 									each card in apartmentsCards
 										.apartments-card
-											.apartments-card__slider.hover-slider
+											.apartments-card__slider.hover-slider(data-popup-button="popup-apartment")
 												.swiper 
 													.swiper-wrapper 
 														each img in card.images
@@ -155,7 +155,7 @@ block content
 													.slider-pagination.swiper-pagination
 											.apartments-card__content 
 												.apartments-card__main 
-													.apartments-card__title.title-h5= card.title
+													.apartments-card__title.title-underline.title-h5(data-popup-button="popup-apartment")= card.title
 													.card-options.has-icons
 														each option in cardOptions
 															.default-text--caption.card-option(class=`card-option--${option.key}`)= option.caption
@@ -165,7 +165,7 @@ block content
 													.apartments-card__prices 
 														.apartments-card__price.text-h4=card.price
 														.apartments-card__sub-price.default-text--small= card.subPrice
-														button(type="button" data-popup-button="apartment-popup").btn.btn--primary Забронировать
+														a(href="booking.html").btn.btn--primary Забронировать
 							.main-card__content-section
 								.title-h5 Россия, Краснодарский край, Сочи, Адлер, улица Просвещения 155/2
 								.main-card__map 

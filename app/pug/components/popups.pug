@@ -29,7 +29,7 @@
         button(type="button" data-popup-close).popup__close
         .popup-apartment__body 
             .popup-apartment__slider.slider-apartment
-                .slider-apartment__thumbs 
+                .slider-apartment__thumbs.swiper
                     .swiper-wrapper
                         - for (var i = 0; i < 4; i++)
                             .swiper-slide
@@ -39,9 +39,12 @@
                     .swiper-wrapper 
                         - for (var i = 0; i < 4; i++)
                             .swiper-slide
-                                .slider-apartment__image.image-ibg
+                                a(href=`images/main-card/apartment-img-${i+1}@2x.jpg` data-fancybox="apartment-gallery").slider-apartment__image.image-ibg
                                     img(src=`images/main-card/apartment-img-${i+1}@2x.jpg`, alt="фото")
                     .slider-pagination.swiper-pagination
+                    .slider-controls 
+                        button(type="button").slider-button.slider-button-prev 
+                        button(type="button").slider-button.slider-button-next 
             .popup-apartment__main-contents
                 .popup-apartment__main-content 
                     .popup-apartment__main-content-caption.title-h5 Описание

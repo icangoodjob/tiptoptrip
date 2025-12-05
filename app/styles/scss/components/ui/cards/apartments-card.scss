@@ -39,6 +39,11 @@
   }
   // .apartments-card__title
   &__title {
+    @include hover {
+      cursor: pointer;
+      color: var(--basic-orange);
+      text-decoration-color: var(--basic-orange);
+    }
   }
   // .apartments-card__info
   &__info {

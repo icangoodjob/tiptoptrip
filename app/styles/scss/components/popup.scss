@@ -35,6 +35,7 @@
   @include media("<=md") {
     padding: 0;
   }
+  // .popup__window
   &__window {
     max-width: 1170px;
     width: 100%;
@@ -66,7 +67,7 @@
     //   padding: 30px 20px;
     // }
   }
-
+  // .popup__close
   &__close {
     width: 40px;
     height: 40px;
@@ -79,7 +80,7 @@
     z-index: 10;
     display: grid;
     place-items: center;
-    transition: background-color var(--time);
+    transition: background-color var(--time), border-color var(--time);
     .popup-map & {
       top: 25px;
       right: 17px;
@@ -94,7 +95,7 @@
     }
     @include hover {
       background-color: var(--basic-orange);
-      border-color: ver(var(--basic-orange));
+      border-color: var(--basic-orange);
       &::before {
         background-color: var(--white);
       }
@@ -148,6 +149,10 @@
     display: grid;
     grid-template-columns: 1.2fr 1fr;
     gap: 30px;
+    @include media("<=lg") {
+      grid-template-columns: 100%;
+      gap: 20px;
+    }
   }
   // .popup-apartment__slider
   &__slider {
@@ -158,6 +163,9 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
+    @include media("<=lg") {
+      gap: 20px;
+    }
   }
   // .popup-apartment__main-content
   &__main-content {
@@ -165,10 +173,14 @@
     flex-direction: column;
     gap: 10px;
     &.content-bottom {
-      padding-top: 30px;
+      padding-top: 29px;
       border-top: 1px solid var(--gray-color-gray-stroke);
       gap: 30px;
       grid-column: 1 / -1;
+      @include media("<=lg") {
+        padding-top: 19px;
+        gap: 15px;
+      }
     }
     & .content {
       & p {
@@ -180,8 +192,13 @@
       column-count: 3;
       column-width: 250px;
       column-gap: 20px;
-      justify-content: space-between;
       display: block;
+      @include media("<=md") {
+        display: flex;
+        columns: unset;
+        gap: 10px;
+        justify-content: flex-start;
+      }
     }
     & .features-item {
       break-inside: avoid;
@@ -190,6 +207,9 @@
       padding: 5px 10px;
       background-color: var(--gray-color-gray-background);
       width: fit-content;
+      @include media("<=md") {
+        margin-bottom: 0;
+      }
     }
   }
   // .popup-apartment__main-content-caption
@@ -199,24 +219,83 @@
 .slider-apartment {
   display: flex;
   gap: 13px;
+  max-width: 556px;
+  max-height: 412px;
+  @include media("<=lg") {
+    max-width: 100%;
+    max-height: none;
+  }
   // .slider-apartment__thumbs
   &__thumbs {
-    flex: 0 1 100px;
+    flex: 0 0 100px;
     display: flex;
     flex-direction: column;
+    @include media("<=lg") {
+      display: none;
+    }
     & .slider-apartment__image {
       padding-bottom: math.div(96, 100) * 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      @include hover {
+        cursor: pointer;
+      }
+    }
+    & .swiper-slide {
+      opacity: 0.8;
+      transition: opacity var(--time);
+      &-thumb-active {
+        opacity: 1;
+      }
     }
   }
   // .slider-apartment__image
   &__image {
     width: 100%;
+    display: block;
   }
   // .slider-apartment__main
   &__main {
     width: 100%;
     & .slider-apartment__image {
       padding-bottom: math.div(412, 443) * 100%;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    & .slider-controls {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 30px;
+      width: calc(100% - 60px);
+      display: flex;
+      justify-content: space-between;
+      z-index: 2;
+      visibility: hidden;
+      @include media("<=md") {
+        display: none;
+      }
+    }
+    & .slider-button {
+      background-color: transparent;
+      width: 30px;
+      height: 30px;
+      visibility: visible;
+      border-radius: 0;
+      &::before {
+        mask-image: url("../images/icons/arrow-white-left.svg");
+      }
+      &.swiper-button-disabled {
+        background-color: transparent;
+        &::before {
+          background-color: var(--white);
+        }
+      }
+      @include hover {
+        &:not(.swiper-button-disabled) {
+          background-color: transparent;
+        }
+      }
     }
   }
 }
