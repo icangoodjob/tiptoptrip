@@ -36,14 +36,14 @@ block content
 		section.dev-catalog 
 			.container
 				.dev-page-heading
-					.section-caption Наши шаблоны
+					.section-caption.title-h5 Наши шаблоны
 					h2.title-h2 Каталог шаблонов  
 				.dev-catalog__body 
 					- for (var i = 0; i < 4; i++)
 						.dev-catalog__card.catalog-card
 							.catalog-card__info
 								.catalog-card__header
-									.catalog-card__badge.default-text--caption.default-text--semibold Демо №#{i+1}
+									.catalog-card__badge.default-text--caption.default-text--semibold Демо № #{i+1}
 									.catalog-card__header-caption.default-text--small.default-text--semibold.color-gray диджитал маркетинг
 								.catalog-card__content 
 									.catalog-card__title.title-h3 Сайт для маркетинговых исследований в сфере онлайн бизнеса
@@ -59,7 +59,7 @@ block content
 		section.dev-steps 
 			.container
 				.dev-page-heading
-					.section-caption Этапы работы
+					.section-caption.title-h5 Этапы работы
 					h2.title-h2 Как мы работаем
 				.dev-steps__body 
 					each step, index in devPage.steps

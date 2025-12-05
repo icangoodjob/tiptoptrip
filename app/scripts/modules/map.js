@@ -1,5 +1,7 @@
 import { MAP_API_KEY } from "../global.js";
 
+import { isLoadedPopupMap } from "./popup-map.js";
+
 let isLoaded = false;
 
 function loadMap() {

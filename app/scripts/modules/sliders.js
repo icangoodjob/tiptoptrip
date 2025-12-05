@@ -121,7 +121,7 @@ export const initSliders = () => {
     const slider = item.querySelector(".swiper");
     const sliderItems = item.querySelectorAll(".hover-slider__item");
     const swiperElem = new Swiper(slider, {
-      ...sliderDefaultOptions,
+      // ...sliderDefaultOptions,
       modules: [Pagination],
       speed: 800,
       updateOnWindowResize: true,

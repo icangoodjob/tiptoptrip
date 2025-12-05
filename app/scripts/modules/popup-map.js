@@ -1,4 +1,4 @@
-export let isLoaded = false;
+export let isLoadedPopupMap = false;
 
 import { MAP_API_KEY } from "../global.js";
 
@@ -9,7 +9,7 @@ export function loadMap() {
   script.onload = function () {
     if (typeof ymaps3 === "undefined") return;
     initMap();
-    isLoaded = true;
+    isLoadedPopupMap = true;
     // ymaps3.ready(initMap);
   };
 }

@@ -1,4 +1,4 @@
-import { loadMap, isLoaded } from "./popup-map.js";
+import { loadMap, isLoadedPopupMap } from "./popup-map.js";
 import { lockScroll, unlockScroll } from "../utils/scroll-lock.js";
 
 // Окна
@@ -16,7 +16,7 @@ export function popups(elem = document) {
         if (!currentPopup) return;
         currentPopup.classList.add("active");
         lockScroll();
-        if (popup_id === "popup-map" && !isLoaded) {
+        if (popup_id === "popup-map" && !isLoadedPopupMap) {
           loadMap();
         }
       });

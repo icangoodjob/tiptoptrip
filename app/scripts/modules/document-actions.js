@@ -60,6 +60,9 @@ const documentActions = (e) => {
   if (target.closest(".sorting-button")) {
     openSorting();
   }
+  if (target.closest(".main-card__favorite-btn") || target.closest(".main-card__share-btn")) {
+    target.classList.toggle("active");
+  }
 };
 
 document.addEventListener("click", documentActions);

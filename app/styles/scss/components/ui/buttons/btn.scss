@@ -8,11 +8,15 @@
   text-align: center;
   border-radius: 30px;
   min-height: 51px;
-  padding: 15px 25px;
+  padding: 14px 25px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background-color var(--time) ease-out, color var(--time) ease-out, border-color var(--time) ease-out;
+  // @include media("<=md") {
+  //   min-height: 49px;
+  //   padding: 12px 25px;
+  // }
   &--primary {
     color: var(--universal-white);
     background-color: var(--basic-orange);
@@ -202,5 +206,17 @@
       height: 100%;
       mask-size: 20px 20px;
     }
+  }
+}
+
+.btn-demo {
+  gap: 5px;
+  &::after {
+    content: "";
+    display: block;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    @include mask-image(url("../images/icons/expand.svg"), currentColor);
   }
 }

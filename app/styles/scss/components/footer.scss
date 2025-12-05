@@ -38,6 +38,11 @@
   }
   //   .info-footer__politic
   &__politic {
+    align-self: flex-start;
+    transition: color var(--time);
+    @include hover {
+      color: var(--basic-orange);
+    }
     &:not(:last-child) {
       margin-bottom: 14px;
     }
@@ -115,6 +120,11 @@
   // .menu-footer__item
   &__item {
   }
+  // .menu-footer__link
   &__link {
+    transition: color var(--time);
+    @include hover {
+      color: var(--basic-orange);
+    }
   }
 }

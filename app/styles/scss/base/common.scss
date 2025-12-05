@@ -15,6 +15,10 @@ html {
   }
 }
 
+html.with-fancybox {
+  scrollbar-gutter: unset;
+}
+
 body.theme-dark {
   background-color: var(--universal-bg-dark-1);
   color: var(--gray-color-gray);

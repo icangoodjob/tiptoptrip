@@ -90,6 +90,9 @@
     align-items: center;
     gap: 10px;
     transition: color var(--time);
+    & > * {
+      pointer-events: none;
+    }
     @include hover {
       color: var(--basic-orange);
       & .svg-border {
@@ -116,7 +119,7 @@
         fill: #ff6933;
       }
       & .svg-border {
-        stroke: #ff6933;
+        fill: #ff6933;
       }
     }
   }
@@ -126,6 +129,9 @@
     align-items: center;
     gap: 10px;
     transition: color var(--time);
+    & > * {
+      pointer-events: none;
+    }
     & svg {
       width: 20px;
       height: 20px;
@@ -135,6 +141,12 @@
       }
     }
     @include hover {
+      color: var(--basic-orange);
+      & svg path {
+        stroke: var(--basic-orange);
+      }
+    }
+    &.active {
       color: var(--basic-orange);
       & svg path {
         stroke: var(--basic-orange);
@@ -380,6 +392,12 @@
     text-align: left;
     justify-items: start;
     gap: 10px;
+    & a {
+      transition: color var(--time);
+      @include hover {
+        color: var(--basic-orange);
+      }
+    }
   }
   // .profile-info-card__contacts-item
   &__contacts-item {

@@ -16,6 +16,10 @@ a.link-underline {
 .site-email,
 .site-phone {
   font-weight: 700;
+  transition: color var(--time);
+  @include hover {
+    color: var(--basic-orange);
+  }
 }
 
 .site-phone {

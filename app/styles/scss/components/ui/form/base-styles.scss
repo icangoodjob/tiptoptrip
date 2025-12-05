@@ -209,6 +209,15 @@
   background-image: url("../images/icons/line.svg");
   background-repeat: no-repeat;
   background-position: center bottom 12px;
+  transition: border-color var(--time), background-color var(--time);
+  &:focus-visible {
+    background-color: var(--gray-color-gray-background);
+    border-color: var(--basic-orange);
+  }
+  &:disabled {
+    background-color: var(--gray-color-gray-background);
+    pointer-events: none;
+  }
 }
 
 .error-message {

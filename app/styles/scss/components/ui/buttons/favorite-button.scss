@@ -19,6 +19,7 @@
     transition: fill var(--time), stroke var(--time);
   }
   @include hover {
+    cursor: pointer;
     &:not(.favorite-button--active) {
       & svg rect {
         fill: var(--basic-orange-hover);
