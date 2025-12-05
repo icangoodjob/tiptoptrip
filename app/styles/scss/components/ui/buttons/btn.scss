@@ -59,11 +59,11 @@
         background-color: var(--basic-orange-active);
       }
     }
-    @include media("<=md") {
-      min-height: 45px;
-      padding: 11px 25px;
-      gap: 10px;
-    }
+    // @include media("<=md") {
+    //   min-height: 45px;
+    //   padding: 11px 25px;
+    //   gap: 10px;
+    // }
   }
   &--white {
     background-color: var(--universal-white);

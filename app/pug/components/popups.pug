@@ -2,3 +2,25 @@
     .popup__window 
         button(type="button" data-popup-close).popup__close
         .map#map-popup
+.popup.popup-request(id="popup-request" data-popup)
+    .popup__window 
+        button(type="button" data-popup-close).popup__close
+        form(action="#", method="post").popup-form
+            .popup-form__image.image-ibg 
+                img(src="images/dev/popup-img@2x.jpg", alt="Изображение")
+            .popup-form__body 
+                .popup-form__title.title-h3 Подать заявку на разработку сайта по готовому шаблону
+                .popup-form__items 
+                    +formItem("text", "request_name", "Имя")
+                    +formItem("email", "request_email", "Email")
+                    +formItem("tel", "request_phone", "+7-900-000-00-00")
+                    .form-item
+                        .form-item__caption.default-text--small-s Месяц проживания
+                        +customSelect([...selects.requestType], "Выбрать тип", "request_type")
+                        .form-item.form-item-textarea
+                            .form-item__field
+                                textarea(name="request_message" id="request_message" placeholder="Комментарий").form-input.form-textarea
+                                label(for="request_message").form-label Комментарий 
+                .popup-form__actions 
+                    +btn("Отправить", "btn--primary", "submit")
+                    .form-text.default-text--small Нажимая на кнопку “Отправить” вы автоматически соглашаетесь на обработку персональных данных в соответствии с #[a(href="#").link-underline Политикой конфиденциальности] и принимаете условия #[a(href="#").link-underline Пользовательского соглашения]

@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "../scss/mixins/include-media" as *;
 @use "../base/mixins" as *;
 
@@ -25,18 +26,39 @@
   &.active &__window {
     top: 0;
   }
+  &.active &__close {
+    @include media("<=md") {
+      opacity: 1;
+      transition: opacity var(--time) ease 0.25s;
+    }
+  }
+  @include media("<=md") {
+    padding: 0;
+  }
   &__window {
-    max-width: 870px;
-    width: calc(100% - 20px);
+    max-width: 1170px;
+    width: 100%;
     margin: auto;
-    background-color: #fff;
+    background-color: var(--white);
     position: relative;
     top: -60px;
-    padding: 48px 60px 64px;
+    padding: 60px;
     transition: top var(--time), bottom var(--time);
-    border-radius: 10px;
+    border-radius: 30px;
     overflow: hidden;
-    box-shadow: 0px 2px 20px 0px rgba(13, 13, 13, 0.05);
+    .popup-request & {
+      padding: 80px;
+      @include media("<=lg") {
+        padding: 80px 40px;
+      }
+      @include media("<=md") {
+        padding: 20px 18px;
+      }
+    }
+    @include media("<=md") {
+      padding: 20px 18px;
+      border-radius: 0;
+    }
     // @media (max-width: $md) {
     //   padding: 50px 30px;
     // }
@@ -51,12 +73,16 @@
     border-radius: 50%;
     border: 1px solid var(--gray-color-gray-stroke);
     position: absolute;
-    top: 25px;
-    right: 17px;
+    top: 35px;
+    right: 35px;
     background-color: var(--white);
     z-index: 10;
     display: grid;
     place-items: center;
+    .popup-map & {
+      top: 25px;
+      right: 17px;
+    }
     &::before {
       content: "";
       display: block;
@@ -64,40 +90,14 @@
       height: 20px;
       @include mask-image(url("../images/icons/close.svg"), var(--black));
     }
-    // &:hover:before,
-    // &:hover:after {
-    //   background-color: $orange;
-    // }
-    // &:before {
-    //   transform: rotate(45deg);
-    // }
-    // &:after {
-    //   transform: rotate(-45deg);
-    // }
-    // @media (any-hover: hover) {
-    //   &:hover {
-    //     cursor: pointer;
-    //   }
-    // }
-    .popup-room & {
-      top: 25px;
-      right: 25px;
-      width: 34px;
-      height: 34px;
-      background-color: transparent;
-      &::before,
-      &::after {
-        width: 25px;
-        // background-color: $gray-background;
-        height: 1px;
-      }
+    @include media("<=md") {
+      opacity: 0;
     }
   }
 }
 
 .popup-map {
-  height: 100%;
-  &__container {
+  & .map {
     width: 100%;
     height: 100%;
   }
@@ -113,17 +113,6 @@
     //   transition: transform var(--time) * 2;
     // }
   }
-  //   @media screen and (max-width: $xl) {
-  //     padding-bottom: 0;
-  //     padding-right: 0;
-  //     padding-top: 50px;
-  //     right: 0;
-  //     &.active {
-  //       & .popup__window {
-  //         transform: translateY(0);
-  //       }
-  //     }
-  //   }
   & .filter-button-mobile {
     display: none;
     position: absolute;
@@ -143,103 +132,71 @@
     // }
   }
 }
-.popup-map {
-  & .map {
-    width: 100%;
-    height: 100%;
-  }
-}
 
 .popup-room {
   & .popup__window {
     padding: 0;
-    // @media screen and (max-width: $md) {
-    //   width: 100%;
-    //   border-radius: 0;
-    // }
   }
 }
 
-// .popup {
-//   position: fixed;
-//   display: table;
-//   height: 100%;
-//   width: 100%;
-//   top: 0;
-//   left: 0;
-//   transform: scale(0);
-//   z-index: 1;
-//   &.open-popup {
-//     transform: scaleY(0.01) scaleX(0);
-//     animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-//     & .popup__content {
-//       transform: scale(0);
-//       animation: zoomIn 0.5s 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-//     }
-//     &.out {
-//       transform: scale(1);
-//       animation: unfoldOut 1s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-//       .popup__wrapper {
-//         .popup__content {
-//           animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-//         }
-//       }
-//     }
-//   }
-//   &__content {
-//     height: 200px;
-//     background: white;
-//     padding: 50px;
-//     display: inline-block;
-//     border-radius: 3px;
-//     font-weight: 300;
-//     position: relative;
-//   }
-//   &__wrapper {
-//     display: table-cell;
-//     background: rgba(0, 0, 0, 0.8);
-//     text-align: center;
-//     vertical-align: middle;
-//   }
-// }
-// @keyframes unfoldIn {
-//   0% {
-//     transform: scaleY(1) scaleX(1);
-//   }
-//   50% {
-//     transform: scaleY(0.005) scaleX(1);
-//   }
-//   100% {
-//     transform: scaleY(0.005) scaleX(0);
-//   }
-// }
-
-// @keyframes unfoldOut {
-//   0% {
-//     transform: scaleY(1) scaleX(1);
-//   }
-//   50% {
-//     transform: scaleY(0.005) scaleX(1);
-//   }
-//   100% {
-//     transform: scaleY(0.005) scaleX(0);
-//   }
-// }
-
-// @keyframes zoomIn {
-//   0% {
-//     transform: scale(0);
-//   }
-//   100% {
-//     transform: scale(1);
-//   }
-// }
-
-// @keyframes zoomOut {
-//   0% {
-//     transform: scale(1);
-//   }
-//   100% {
-//     transform: scale(0);
-//   }
-// }
+.popup-form {
+  display: grid;
+  grid-template-columns: 0.825fr 1fr;
+  gap: 30px;
+  color: var(--black);
+  @include media("<=lg") {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  @include media("<=md") {
+    grid-template-columns: 100%;
+  }
+  // .popup-form__image
+  &__image {
+    border-radius: 10px;
+    overflow: hidden;
+    padding-bottom: math.div(660, 443) * 100%;
+    @include media("<=md") {
+      padding-bottom: math.div(390, 339) * 100%;
+    }
+  }
+  // .popup-form__body
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    @include media("<=md") {
+      gap: 20px;
+    }
+  }
+  // .popup-form__title
+  &__title {
+  }
+  // .popup-form__items
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  // .popup-form__actions
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  & .form-text {
+    a {
+      color: var(--basic-orange);
+      transition: color var(--time);
+      @include hover {
+        color: var(--basic-orange-hover);
+        &:active {
+          color: var(--basic-orange-active);
+        }
+      }
+    }
+  }
+  & .form-textarea {
+    min-height: 100px;
+  }
+}
