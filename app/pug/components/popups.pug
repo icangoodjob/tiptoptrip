@@ -24,3 +24,41 @@
                 .popup-form__actions 
                     +btn("Отправить", "btn--primary", "submit")
                     .form-text.default-text--small Нажимая на кнопку “Отправить” вы автоматически соглашаетесь на обработку персональных данных в соответствии с #[a(href="#").link-underline Политикой конфиденциальности] и принимаете условия #[a(href="#").link-underline Пользовательского соглашения]
+.popup.popup-apartment(id="popup-apartment" data-popup)
+    .popup__window 
+        button(type="button" data-popup-close).popup__close
+        .popup-apartment__body 
+            .popup-apartment__slider.slider-apartment
+                .slider-apartment__thumbs 
+                    .swiper-wrapper
+                        - for (var i = 0; i < 4; i++)
+                            .swiper-slide
+                                .slider-apartment__image.image-ibg
+                                    img(src=`images/main-card/apartment-img-${i+1}@2x.jpg`, alt="фото")
+                .slider-apartment__main.swiper 
+                    .swiper-wrapper 
+                        - for (var i = 0; i < 4; i++)
+                            .swiper-slide
+                                .slider-apartment__image.image-ibg
+                                    img(src=`images/main-card/apartment-img-${i+1}@2x.jpg`, alt="фото")
+                    .slider-pagination.swiper-pagination
+            .popup-apartment__main-contents
+                .popup-apartment__main-content 
+                    .popup-apartment__main-content-caption.title-h5 Описание
+                    .content
+                        p Макс. 3+1 чел. ​Однокомнатный, двуспальная кровать 200х200 см + раскладная софа 70х180 см + доп. кровать 100х180 см или 2 двуспальные кровати 160х200 см + доп. кровать 100х180 см. Балкон или терраса. В номере ванна и душ.
+                .popup-apartment__main-content 
+                    .popup-apartment__main-content-caption.title-h5 Характеристики
+                    .content
+                        p Площадь: 45м²
+                        p Вид из номера: на бассейн
+                        p Максимальное размещение: 4
+            .popup-apartment__main-content.content-bottom 
+                .popup-apartment__main-content-caption.title-h5 Описание отеля
+                ul.features-list
+                    each feature in mainCardPage.featuresExpanded
+                        li.default-text--small.features-item(class=`features-item--${feature.key}`)= feature.caption
+
+
+
+
