@@ -38,11 +38,11 @@ const handleSelect = (event) => {
       target.classList.add("active");
     }
   } else {
-    const calendarContainer = document.querySelector(".calendar-container");
-    const calendarSelectList = calendarContainer && target.closest(".calendar-container") && !target.matches(".calendar-container > *");
-    // if (!calendarSelectList) {
-    deactivateAllSelects();
-    // }
+    const calendarContainer = target.closest("#calendar-popup .vc-grid");
+    // const calendarSelectList = calendarContainer && target.closest(".calendar-container") && !target.matches(".calendar-container > *");
+    if (!calendarContainer) {
+      deactivateAllSelects();
+    }
   }
   if (target.closest(".select-list__item")) {
     const parent = target.closest(".custom-select");

@@ -10,6 +10,14 @@ export const galleryReady = () => {
       wheel: "slide",
     },
   });
+  Fancybox.bind("[data-fancybox='main-gallery']", {
+    groupAll: true,
+    placeFocusBack: false,
+    Hash: false,
+    Image: {
+      wheel: "slide",
+    },
+  });
   // Исправить баг с дублированием изображений в фенсибоксе, если свипер бесконечный
   let fancyboxInSlider = document.querySelectorAll(".swiper-slide-duplicate [data-fancybox]");
   if (fancyboxInSlider.length > 0) {

@@ -1,40 +1,55 @@
-.calendar-popup {
-  z-index: 1000;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  width: 664px;
-}
-
-.about {
-  form {
-    display: flex;
-    gap: 20px;
-  }
-}
+@use "../base/mixins" as *;
+@use "../scss/mixins/include-media" as *;
 
 .calendar-container {
   position: absolute;
   top: calc(100% + 5px);
   width: 664px;
   z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+  @include media("<=md") {
+    width: 339px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    background-color: var(--color-black-rgb-80);
+    opacity: 0;
+    pointer-events: none;
+    overflow-y: auto;
+    transition: opacity var(--time);
+    &.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
 }
 
 [data-vc="calendar"] {
   padding: 16px;
   padding-bottom: 12px;
+  border-radius: 10px;
   box-shadow: 5px 4px 40px 0 rgba(70, 91, 121, 0.15);
   background: var(--universal-white);
+  color: var(--universal-black);
+  @include media("<=md") {
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+  }
   // position: absolute;
   // width: 664px;
   // z-index: 10;
 }
 
 [data-vc-theme="dark"].vc {
-  --tw-bg-opacity: 1;
-  background: var(--universal-white);
-  color: var(--universal-black);
 }
 
 [data-vc-header="content"] {
@@ -88,6 +103,10 @@
   min-width: auto;
   color: var(--gray-color-gray-text) !important;
   font-weight: 400;
+  @include media("<=xs") {
+    height: 30px;
+    width: 30px;
+  }
 }
 
 [data-vc-date] {
@@ -97,6 +116,10 @@
   border-radius: 8px;
   &[data-vc-date-hover] [data-vc-date-btn] {
     border-radius: 8px;
+  }
+  @include media("<=xs") {
+    height: 30px;
+    width: 30px;
   }
 }
 
@@ -222,6 +245,10 @@
   border-top: 0.5px solid var(--gray-color-gray-stroke);
   display: flex;
   justify-content: flex-end;
+  @include media("<=md") {
+    padding-top: 0;
+    border: 0;
+  }
   &__buttons {
     display: flex;
     align-items: center;
@@ -256,6 +283,10 @@
   position: relative;
   max-width: fit-content;
   margin-bottom: 24px;
+  @include media("<=md") {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+  }
   &.active {
     &::before {
       transform: translateX(100%);
@@ -277,6 +308,13 @@
     padding: 11px 16px;
     height: 56px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include media("<=md") {
+      width: 100%;
+      padding: 11px 12px;
+    }
   }
   &__caption {
     font-size: 12px;
@@ -288,5 +326,9 @@
     font-size: 14px;
     line-height: 18px;
     color: var(--universal-black);
+    @include media("<=md") {
+      font-size: 13px;
+      line-height: 120%;
+    }
   }
 }

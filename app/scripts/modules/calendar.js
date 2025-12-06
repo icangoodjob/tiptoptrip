@@ -1,5 +1,7 @@
 import { Calendar } from "vanilla-calendar-pro";
 
+import { lockScroll, unlockScroll } from "../utils/scroll-lock.js";
+
 const device = window.innerWidth >= 1024 ? "desktop" : "mobile";
 
 const calendarOptions = (device) => {
@@ -43,7 +45,7 @@ const calendarOptions = (device) => {
           </div>
           <div class="vc-footer">
             <div class="vc-footer__buttons">
-              <button class="vc-button vc-button-reset btn btn--border" id="vc-button-reset" type="button">Сбросить</button>
+              <button class="vc-button vc-button-reset btn btn--border" id="vc-button-reset" data-vc-btn-reset type="button">Сбросить</button>
               <button class="vc-button vc-button-apply btn btn--primary" id="vc-button-apply" type="button">Применить</button>
             </div>
           </div>
@@ -54,45 +56,61 @@ const calendarOptions = (device) => {
   } else {
     return {
       layouts: {
+        // default: `
+        //     <div class="${self.styles.header}" data-vc="header" role="toolbar" aria-label="${self.labels.navigation}">
+        //       <#ArrowPrev [month] />
+        //       <div class="${self.styles.headerContent}" data-vc-header="content">
+        //         <#Month />
+        //         <#Year />
+        //       </div>
+        //       <#ArrowNext [month] />
+        //     </div>
+        //     <div class="${self.styles.wrapper}" data-vc="wrapper">
+        //       <#WeekNumbers />
+        //       <div class="${self.styles.content}" data-vc="content">
+        //         <#Week />
+        //         <#Dates />
+        //         <#DateRangeTooltip />
+        //       </div>
+        //     </div>
+        //     <#ControlTime />
+        //   `
+        // },
         multiple: `
-          <div class="vc-container">
-            <div class="vc-choices" data-vc-choices>
-                <div class="vc-choices__item">
-                  <div class="vc-choices__caption">Заезд</div>
-                  <div class="vc-choices__value" id="vc-value-from"></div>
-                </div>
-                <div class="vc-choices__item">
-                  <div class="vc-choices__caption">Выезд</div>
-                  <div class="vc-choices__value" id="vc-value-to"></div>
-                </div>
+          <div class="vc-choices" data-vc-choices>
+            <div class="vc-choices__item">
+              <div class="vc-choices__caption">Заезд</div>
+              <div class="vc-choices__value" id="vc-value-from"></div>
             </div>
-            <div class="vc-body">
-              <div class="vc-header" data-vc="header">
-                <div class="vc-controls" data-vc="controls" role="toolbar" aria-label="Навигация">
-                  <#ArrowPrev [month] />
-                  <#ArrowNext [month] />
-                </div>
-                <div class="vc-header-content" data-vc-header="content">
-                  <#Month />
-                  <#Year />
-                </div>
-              </div>
-              <div class="vc-grid" data-vc="grid">
-                <div class="vc-wrapper" data-vc="wrapper">
-                  <#WeekNumbers />
-                  <div class="vc-content" data-vc="content">
-                    <#Week />
-                    <#Dates />
-                  </div>
-                </div>
-                <#DateRangeTooltip />
+            <div class="vc-choices__item">
+              <div class="vc-choices__caption">Выезд</div>
+              <div class="vc-choices__value" id="vc-value-to"></div>
+            </div>
+          </div>
+          <div class="vc-controls" data-vc="controls" role="toolbar" aria-label="Навигация">
+            <#ArrowPrev [month] />
+            <#ArrowNext [month] />
+          </div>
+          <div class="vc-header" data-vc="header">
+            <div class="vc-header-content" data-vc-header="content">
+              <#Month />
+              <#Year />
+            </div>
+          </div>
+          <div class="vc-grid" data-vc="grid">
+            <div class="vc-wrapper" data-vc="wrapper">
+              <#WeekNumbers />
+              <div class="vc-content" data-vc="content">
+                <#Week />
+                <#Dates />
               </div>
             </div>
-            <div class="vc-footer">
-              <div class="vc-footer__buttons">
-                <button class="vc-button vc-button-reset btn btn--border" id="vc-button-reset" data-vc-btn-reset type="button">Сбросить</button>
-                <button class="vc-button vc-button-apply btn btn--primary" id="vc-button-apply" type="button">Применить</button>
-              </div>
+            <#DateRangeTooltip />
+          </div>
+          <div class="vc-footer">
+            <div class="vc-footer__buttons">
+              <button class="vc-button vc-button-reset btn btn--border" id="vc-button-reset" data-vc-btn-reset type="button">Сбросить</button>
+              <button class="vc-button vc-button-apply btn btn--primary" id="vc-button-apply" type="button">Применить</button>
             </div>
           </div>
           <#ControlTime />
@@ -208,6 +226,20 @@ let currentButton = null;
 // Контейнер для календаря
 const calendarPopup = document.getElementById("calendar-popup");
 
+function removeActiveButtons() {
+  const activeButtons = document.querySelectorAll(".date-picker-button.active");
+  if (activeButtons.length > 0) {
+    activeButtons.forEach((btn) => btn.classList.remove("active"));
+  }
+}
+
+function removeActiveCalendarContainer() {
+  const activeCalendarContainer = document.querySelectorAll(".calendar-container.active");
+  if (activeCalendarContainer.length > 0) {
+    activeCalendarContainer.forEach((elem) => elem.classList.remove("active"));
+  }
+}
+
 // Функция для показа календаря
 function showCalendar(button) {
   // Вызываем функцию закрытия календаря
@@ -228,6 +260,7 @@ function showCalendar(button) {
   let calendarContainer = customSelect.querySelector(".calendar-container");
 
   if (calendarContainer) {
+    calendarContainer.classList.add("active");
     calendarContainer.appendChild(calendarPopup);
   }
 
@@ -240,11 +273,6 @@ function showCalendar(button) {
     // Не обновляем, если нужно сохранить выделение у выбранного диапазона дат
     // currentCalendar.update();
   }
-
-  // Позиционируем относительно кнопки
-  const rect = calendarContainer.getBoundingClientRect();
-  // calendarPopup.style.top = `${rect.bottom + window.scrollY + 5}px`;
-  // calendarPopup.style.left = `${rect.left + window.scrollX}px`;
 
   calendarPopup.style.display = "block";
 
@@ -266,7 +294,12 @@ function showCalendar(button) {
   if (vcButtonApply) {
     vcButtonApply.addEventListener("click", () => {
       hideCalendar();
+      removeActiveButtons();
     });
+  }
+
+  if (window.innerWidth <= 767) {
+    lockScroll();
   }
 
   // Добавляем обработчик клика вне календаря с небольшой задержкой
@@ -283,6 +316,12 @@ function hideCalendar() {
 
   currentButton = null;
 
+  removeActiveCalendarContainer();
+
+  if (window.innerWidth <= 767) {
+    unlockScroll();
+  }
+
   // Удаляем обработчик клика вне календаря
   document.removeEventListener("click", handleClickOutside);
 }
@@ -291,6 +330,7 @@ buttons.forEach((button) => {
   button.addEventListener("click", (e) => {
     e.stopPropagation();
     // Если календарь уже открыт для этой кнопки - закрываем
+    // if (currentButton === button && calendarPopup?.style.display === "block") {
     if (currentButton === button && calendarPopup?.style.display === "block") {
       hideCalendar();
     } else {
@@ -303,7 +343,7 @@ buttons.forEach((button) => {
 function handleClickOutside(event) {
   const target = event.target;
   // Проверяем, является ли клик частью календаря
-  const isCalendarClick = !target.closest(".vc-month") && !target.closest(".vc-year") && !target.closest(".vc-grid");
+  const isCalendarClick = !target.closest(".vc-month") && !target.closest(".vc-year") && !target.closest(".vc-grid") && !target.closest(".vc-header");
   // Проверяем, является ли клик кнопкой открытия календаря
   if (calendarPopup && !calendarPopup.contains(target) && currentButton !== target && !currentButton?.contains(target) && isCalendarClick) {
     hideCalendar();
