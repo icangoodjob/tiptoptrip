@@ -35,16 +35,14 @@ const handleSelect = (event) => {
       target.classList.remove("active");
     } else {
       deactivateAllSelects();
-      if (target.classList.contains("guests") && window.innerWidth <= 767.98) {
-        overlay?.classList.add("active");
-      }
       target.classList.add("active");
     }
   } else {
-    const calendarSelectList = target.closest(".calendar-select-list") && !target.matches(".calendar-select-list .vc > *");
-    if (!calendarSelectList) {
-      deactivateAllSelects();
-    }
+    const calendarContainer = document.querySelector(".calendar-container");
+    const calendarSelectList = calendarContainer && target.closest(".calendar-container") && !target.matches(".calendar-container > *");
+    // if (!calendarSelectList) {
+    deactivateAllSelects();
+    // }
   }
   if (target.closest(".select-list__item")) {
     const parent = target.closest(".custom-select");

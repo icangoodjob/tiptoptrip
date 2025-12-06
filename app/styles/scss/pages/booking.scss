@@ -80,6 +80,12 @@
   &--calendar {
     & .group-booking__items {
       align-items: end;
+      @include media("<=1100px") {
+        grid-template-columns: 100%;
+      }
+      @include media("<=md") {
+        padding: 0;
+      }
     }
   }
   &--contacts {
@@ -105,7 +111,7 @@
   &__items {
     display: grid;
     grid-template-columns: repeat(2, 1fr) auto;
-    gap: 30px;
+    gap: 20px 30px;
     align-items: start;
     &:not(:last-child) {
       margin-bottom: 30px;
@@ -119,17 +125,23 @@
       grid-template-columns: 1fr;
       padding-right: 60px;
       position: relative;
-      & .btn {
+      & .btn-edit {
         position: absolute;
         top: 0;
         right: 0;
       }
     }
-    & .btn {
+    & .btn--secondary {
       font-size: 14px;
       line-height: 130%;
       min-height: 40px;
       padding: 10px 25px;
+      @include media("<=lg") {
+        font-size: 16px;
+        line-height: 130%;
+        padding: 14px 25px;
+        min-height: 49px;
+      }
     }
   }
   // .group-booking__item

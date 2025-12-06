@@ -28,13 +28,13 @@ block content
 							.main-booking__group.group-booking.group-booking--calendar
 								.group-booking__items
 									.form-item
-										.form-item__caption Дата заезда
+										.form-item__caption.default-text--small Дата заезда
 										.custom-select.custom-select-calendar
 											button(type="button")#button-calendar-date-from.custom-select__btn.date-picker-button 21 июня 2024
 											input(type="hidden", name="date_from")#input-date-from
 											.calendar-container
 									.form-item
-										.form-item__caption Дата выезда
+										.form-item__caption.default-text--small Дата выезда
 										.custom-select.custom-select-calendar
 											button(type="button")#button-calendar-date-to.custom-select__btn.date-picker-button 21 июня 2024
 											input(type="hidden", name="date_to")#input-date-to
@@ -43,15 +43,31 @@ block content
 									.calendar-popup#calendar-popup(style="display: none;")
 								.group-booking__items
 									.form-item
+										.form-item__caption.default-text--small Кол-во взрослых
 										.form-quantity
-											button(type="button").form-quantity__plus
-											input(type="text", name="quantity_adalts").form-quantity__input
-											button(type="button").form-quantity__minus
+											button(type="button").form-quantity-btn.form-quantity-btn__minus
+												<svg width="10" height="1" viewBox="0 0 10 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path fill-rule="evenodd" clip-rule="evenodd" d="M10 1H0V0H10V1Z" fill="#08151A" />
+												</svg>
+											input(type="text", name="quantity_adults" value="2 взрослых").form-quantity__input
+											button(type="button").form-quantity-btn.form-quantity-btn__plus
+												<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path fill-rule="evenodd" clip-rule="evenodd" d="M10 5.5H0V4.5H10V5.5Z" fill="#08151A" />
+													<path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 10L4.5 0L5.5 4.37113e-08L5.5 10H4.5Z" fill="#08151A" />
+												</svg>
 									.form-item
+										.form-item__caption.default-text--small Кол-во детей
 										.form-quantity
-											button(type="button").form-quantity__plus
-											input(type="text", name="quantity_children").form-quantity__input
-											button(type="button").form-quantity__minus
+											button(type="button").form-quantity-btn.form-quantity-btn__minus
+												<svg width="10" height="1" viewBox="0 0 10 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path fill-rule="evenodd" clip-rule="evenodd" d="M10 1H0V0H10V1Z" fill="#08151A" />
+												</svg>
+											input(type="text", name="quantity_children" value="0 детей").form-quantity__input
+											button(type="button").form-quantity-btn.form-quantity-btn__plus
+												<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path fill-rule="evenodd" clip-rule="evenodd" d="M10 5.5H0V4.5H10V5.5Z" fill="#08151A" />
+													<path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 10L4.5 0L5.5 4.37113e-08L5.5 10H4.5Z" fill="#08151A" />
+												</svg>
 									+btn("Сохранить", "btn--secondary", "button")
 							.main-booking__group.group-booking.group-booking.group-booking--contacts
 								.group-booking__title.title-h5 Укажите контакты, по которым с вами можно связаться

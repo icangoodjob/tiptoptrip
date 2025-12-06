@@ -160,6 +160,8 @@ function resetValues() {
   stateActionsButtons([]);
 }
 
+const buttons = document.querySelectorAll(".date-picker-button");
+
 function transformationChoices(arrDates) {
   const calendarChoices = document.querySelector("[data-vc-choices]");
   if (calendarChoices) {
@@ -214,6 +216,10 @@ function showCalendar(button) {
   // Запоминаем текущую кнопку
   currentButton = button;
 
+  [...buttons].forEach((btn) => btn.classList.remove("active"));
+
+  button.classList.add("active");
+
   // Находим родительский .custom-select
   const customSelect = button.closest(".custom-select");
   if (!customSelect) return;
@@ -236,7 +242,7 @@ function showCalendar(button) {
   }
 
   // Позиционируем относительно кнопки
-  const rect = button.getBoundingClientRect();
+  const rect = calendarContainer.getBoundingClientRect();
   // calendarPopup.style.top = `${rect.bottom + window.scrollY + 5}px`;
   // calendarPopup.style.left = `${rect.left + window.scrollX}px`;
 
@@ -280,8 +286,6 @@ function hideCalendar() {
   // Удаляем обработчик клика вне календаря
   document.removeEventListener("click", handleClickOutside);
 }
-
-const buttons = document.querySelectorAll(".date-picker-button");
 
 buttons.forEach((button) => {
   button.addEventListener("click", (e) => {

@@ -26,6 +26,8 @@ import "./modules/custom-scrollbar.js";
 
 import "./modules/forms.js";
 
+import "./modules/quantity.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   galleryReady();
 
@@ -41,11 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const dynamicAdapt = new DynamicAdapt("max");
   dynamicAdapt.init();
 });
-
-let date = new Date().getFullYear();
-document.getElementById("year").innerHTML = date;
-
-// maskPhone();
 
 // Смена плейсхолдера в поле поиска
 const mediaQuery = window.matchMedia("(max-width: 767px)");
@@ -64,15 +61,33 @@ handleMobileChange(mediaQuery);
 
 mediaQuery.addEventListener("change", handleMobileChange);
 
-// Обернуть таблицы
-if (window.innerWidth < 768) {
-  let contentTable = document.querySelectorAll(".content table");
-  if (contentTable.length) {
-    contentTable.forEach(function (item) {
-      let tableWrap = document.createElement("div");
-      tableWrap.setAttribute("class", "table-wrap");
-      item.parentNode.insertBefore(tableWrap, item);
-      tableWrap.appendChild(item);
+// Проставление актуальной даты в подвале
+let date = new Date().getFullYear();
+document.getElementById("year").innerHTML = date;
+
+// Перемещение активного пункта навигации в начало блока
+const menuNavigation = document.querySelector(".menu-navigation");
+if (menuNavigation) {
+  const menuNavigationLinks = menuNavigation.querySelectorAll(".menu-navigation__link");
+  if (menuNavigationLinks.length) {
+    [...menuNavigationLinks].forEach((link) => {
+      if (link.classList.contains("active")) {
+        const offset = link.getBoundingClientRect().left - menuNavigation?.getBoundingClientRect().left;
+        menuNavigation?.scrollTo(offset, 0);
+      }
     });
   }
 }
+
+// Обернуть таблицы
+// if (window.innerWidth < 768) {
+//   let contentTable = document.querySelectorAll(".content table");
+//   if (contentTable.length) {
+//     contentTable.forEach(function (item) {
+//       let tableWrap = document.createElement("div");
+//       tableWrap.setAttribute("class", "table-wrap");
+//       item.parentNode.insertBefore(tableWrap, item);
+//       tableWrap.appendChild(item);
+//     });
+//   }
+// }

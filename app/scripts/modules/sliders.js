@@ -5,7 +5,7 @@ const sliderDefaultOptions = {
   watchOverflow: true,
   resizeObserver: true,
   updateOnWindowResize: true,
-  preventInteractionOnTransition: true,
+  // preventInteractionOnTransition: true,
 };
 
 export const initSliders = () => {
@@ -19,6 +19,7 @@ export const initSliders = () => {
       slidesPerView: 3,
       spaceBetween: 30,
       speed: 800,
+      preventInteractionOnTransition: true,
       navigation: {
         prevEl: sliderButtonPrev,
         nextEl: sliderButtonNext,

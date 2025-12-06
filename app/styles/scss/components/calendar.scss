@@ -72,6 +72,7 @@
   height: 32px;
   display: flex;
   align-items: center;
+  margin-bottom: 0;
 }
 
 [data-vc="grid"] {
@@ -215,8 +216,8 @@
 }
 
 .vc-footer {
-  margin: 40px -16px 0;
-  padding: 16px 16px;
+  margin: 32px -16px 0;
+  padding: 12px 16px;
   padding-bottom: 0;
   border-top: 0.5px solid var(--gray-color-gray-stroke);
   display: flex;
