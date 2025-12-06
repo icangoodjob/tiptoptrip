@@ -13,7 +13,7 @@
     border-radius: 7px;
     padding: 18px 20px 18px 19px;
     padding-right: 40px;
-    min-height: 58px;
+    height: 59px;
     position: relative;
     width: 100%;
     display: flex;
@@ -21,7 +21,7 @@
     justify-content: flex-start;
     transition: border-color var(--time), background-color var(--time);
     @include media("<=md") {
-      min-height: 49px;
+      height: 49px;
       padding: 12px 20px;
       padding-right: 40px;
     }

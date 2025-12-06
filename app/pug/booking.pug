@@ -25,8 +25,34 @@ block content
 							.main-booking__image.image-ibg
 								img(src="images/main-card/apartment-img-1@2x.jpg", alt="превью")
 						.main-booking__groups 
-							.main-booking__group.group-booking
-								| form items
+							.main-booking__group.group-booking.group-booking--calendar
+								.group-booking__items
+									.form-item
+										.form-item__caption Дата заезда
+										.custom-select.custom-select-calendar
+											button(type="button")#button-calendar-date-from.custom-select__btn.date-picker-button 21 июня 2024
+											input(type="hidden", name="date_from")#input-date-from
+											.calendar-container
+									.form-item
+										.form-item__caption Дата выезда
+										.custom-select.custom-select-calendar
+											button(type="button")#button-calendar-date-to.custom-select__btn.date-picker-button 21 июня 2024
+											input(type="hidden", name="date_to")#input-date-to
+											.calendar-container
+									+btn("Сохранить", "btn--secondary", "button")
+									.calendar-popup#calendar-popup(style="display: none;")
+								.group-booking__items
+									.form-item
+										.form-quantity
+											button(type="button").form-quantity__plus
+											input(type="text", name="quantity_adalts").form-quantity__input
+											button(type="button").form-quantity__minus
+									.form-item
+										.form-quantity
+											button(type="button").form-quantity__plus
+											input(type="text", name="quantity_children").form-quantity__input
+											button(type="button").form-quantity__minus
+									+btn("Сохранить", "btn--secondary", "button")
 							.main-booking__group.group-booking.group-booking.group-booking--contacts
 								.group-booking__title.title-h5 Укажите контакты, по которым с вами можно связаться
 								.group-booking__fields

@@ -14,8 +14,235 @@
   }
 }
 
-[data-vc="calendar"] {
+.calendar-container {
   position: absolute;
+  top: calc(100% + 5px);
+  width: 664px;
+  z-index: 10;
+}
+
+[data-vc="calendar"] {
+  padding: 16px;
+  padding-bottom: 12px;
+  box-shadow: 5px 4px 40px 0 rgba(70, 91, 121, 0.15);
+  background: var(--universal-white);
+  // position: absolute;
+  // width: 664px;
+  // z-index: 10;
+}
+
+[data-vc-theme="dark"].vc {
+  --tw-bg-opacity: 1;
+  background: var(--universal-white);
+  color: var(--universal-black);
+}
+
+[data-vc-header="content"] {
+  padding: 0 32px;
+  gap: 5px;
+}
+
+[data-vc="month"],
+[data-vc="year"] {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 133%;
+  padding: 0;
+  border: 0;
+}
+
+[data-vc-arrow] {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  visibility: visible !important;
+}
+
+[data-vc-arrow]:before {
+  background-size: 20px 20px;
+}
+
+[data-vc="controls"] {
+  padding: 0;
+  top: calc(56px + 24px + 16px);
+  padding: 0 16px;
+}
+
+[data-vc="header"] {
+  height: 32px;
+  display: flex;
+  align-items: center;
+}
+
+[data-vc="grid"] {
+  gap: 24px;
+}
+
+[data-vc-week-day] {
+  width: 40px;
+  height: 40px;
+  font-size: 12px;
+  line-height: 133%;
+  text-align: center;
+  min-width: auto;
+  color: var(--gray-color-gray-text) !important;
+  font-weight: 400;
+}
+
+[data-vc-date] {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 8px;
+  &[data-vc-date-hover] [data-vc-date-btn] {
+    border-radius: 8px;
+  }
+}
+
+[data-vc-date-btn] {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 171%;
+}
+
+[data-vc-theme="light"] .vc-date[data-vc-date-holiday][data-vc-date-today][data-vc-date-selected] .vc-date__btn,
+[data-vc-theme="light"] .vc-date[data-vc-date-today][data-vc-date-selected] .vc-date__btn,
+[data-vc-theme="light"] .vc-date[data-vc-date-weekend][data-vc-date-today][data-vc-date-selected] .vc-date__btn {
+  background-color: var(--basic-orange);
+  color: var(--universal-white);
+}
+
+[data-vc-date][data-vc-date-selected="last"] [data-vc-date-btn],
+[data-vc-date][data-vc-date-selected="middle"] [data-vc-date-btn],
+[data-vc-date][data-vc-date-selected="first"] [data-vc-date-btn] {
+  border-radius: 8px;
+}
+
+[data-vc-theme="light"] .vc-date[data-vc-date-selected="middle"][data-vc-date-selected] .vc-date__btn {
+  background-color: rgba(255, 105, 46, 0.1);
+  color: var(--basic-orange);
+}
+
+[data-vc-theme="light"] .vc-date[data-vc-date-selected] .vc-date__btn {
+  background-color: var(--basic-orange);
+  color: var(--universal-white);
+}
+
+[data-vc="dates"] {
+  gap: 4px;
+}
+
+[data-vc-theme="light"] .vc-date[data-vc-date-selected="middle"][data-vc-date-holiday][data-vc-date-selected] .vc-date__btn,
+[data-vc-theme="light"] .vc-date[data-vc-date-selected="middle"][data-vc-date-weekend][data-vc-date-selected] .vc-date__btn {
+  background-color: rgba(255, 105, 46, 0.1);
+  color: var(--basic-orange);
+}
+
+[data-vc-theme="light"] .vc-date[data-vc-date-holiday][data-vc-date-selected] .vc-date__btn,
+[data-vc-theme="light"] .vc-date[data-vc-date-weekend][data-vc-date-selected] .vc-date__btn {
+  background-color: var(--basic-orange);
+  color: var(--universal-white);
+}
+
+[data-vc-theme="light"] .vc-date[data-vc-date-holiday] .vc-date__btn,
+[data-vc-theme="light"] .vc-date[data-vc-date-weekend] .vc-date__btn {
+  color: var(--universal-black);
+}
+
+[data-vc-theme="light"] .vc-date[data-vc-date-holiday][data-vc-date-today] .vc-date__btn,
+[data-vc-theme="light"] .vc-date[data-vc-date-weekend][data-vc-date-today] .vc-date__btn {
+  color: var(--basic-orange);
+}
+[data-vc-theme="light"] .vc-date[data-vc-date-hover=""] .vc-date__btn {
+  background-color: rgba(255, 105, 46, 0.1) !important;
+  color: var(--basic-orange);
+}
+
+[data-vc-theme="light"] .vc-date[data-vc-date-selected="last"][data-vc-date-hover="last"] .vc-date__btn {
+  background-color: rgba(255, 105, 46, 0.1) !important;
+  color: var(--basic-orange);
+}
+
+[data-vc-theme="light"] .vc-date[data-vc-date-today] .vc-date__btn {
+  background-color: transparent;
+  color: var(--universal-black);
+}
+
+[data-vc-theme="light"] .vc-date[data-vc-date-holiday][data-vc-date-today] .vc-date__btn,
+[data-vc-theme="light"] .vc-date[data-vc-date-weekend][data-vc-date-today] .vc-date__btn {
+  background-color: transparent;
+  color: var(--universal-black);
+}
+
+[data-vc-theme="light"] .vc-months__month[data-vc-months-month-selected],
+[data-vc-theme="light"] .vc-years__year[data-vc-years-year-selected] {
+  background: var(--basic-orange);
+  color: var(--universal-white);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  [data-vc-theme="light"] .vc-date[data-vc-date-selected] .vc-date__btn:hover,
+  [data-vc-theme="light"] .vc-date[data-vc-date-selected="middle"][data-vc-date-selected] .vc-date__btn:hover,
+  [data-vc-theme="light"] .vc-date[data-vc-date-selected="middle"][data-vc-date-holiday][data-vc-date-selected] .vc-date__btn:hover,
+  [data-vc-theme="light"] .vc-date[data-vc-date-selected="middle"][data-vc-date-weekend][data-vc-date-selected] .vc-date__btn:hover,
+  [data-vc-theme="light"] .vc-date[data-vc-date-holiday][data-vc-date-selected] .vc-date__btn:hover,
+  [data-vc-theme="light"] .vc-date[data-vc-date-weekend][data-vc-date-selected] .vc-date__btn:hover {
+    background-color: var(--basic-orange);
+    color: var(--universal-white);
+  }
+  [data-vc-theme="light"] .vc-date[data-vc-date-holiday] .vc-date__btn:hover,
+  [data-vc-theme="light"] .vc-date[data-vc-date-weekend] .vc-date__btn:hover,
+  [data-vc-theme="light"] .vc-date__btn:hover,
+  [data-vc-theme="light"] .vc-date[data-vc-date-hover="first"] .vc-date__btn:hover,
+  [data-vc-theme="light"] .vc-date[data-vc-date-hover="last"] .vc-date__btn:hover,
+  [data-vc-theme="light"] .vc-date[data-vc-date-holiday][data-vc-date-hover="first"] .vc-date__btn:hover,
+  [data-vc-theme="light"] .vc-date[data-vc-date-holiday][data-vc-date-hover="last"] .vc-date__btn:hover,
+  [data-vc-theme="light"] .vc-date[data-vc-date-weekend][data-vc-date-hover="first"] .vc-date__btn:hover,
+  [data-vc-theme="light"] .vc-date[data-vc-date-weekend][data-vc-date-hover="last"] .vc-date__btn:hover {
+    background-color: rgba(255, 105, 46, 0.1);
+    color: var(--basic-orange);
+  }
+  [data-vc-theme="light"] .vc-months__month:hover,
+  [data-vc-theme="light"] .vc-years__year:hover {
+    background-color: rgba(255, 105, 46, 0.1);
+    color: var(--basic-orange);
+  }
+  [data-vc-theme="light"] .vc-months__month[data-vc-months-month-selected]:hover,
+  [data-vc-theme="light"] .vc-years__year[data-vc-years-year-selected]:hover {
+    background-color: var(--basic-orange);
+    color: var(--universal-white);
+  }
+}
+
+.vc-footer {
+  margin: 40px -16px 0;
+  padding: 16px 16px;
+  padding-bottom: 0;
+  border-top: 0.5px solid var(--gray-color-gray-stroke);
+  display: flex;
+  justify-content: flex-end;
+  &__buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    & .btn {
+      padding: 7px 12px;
+      height: 32px;
+      min-height: auto;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 133%;
+      &:disabled {
+        pointer-events: none;
+        opacity: 0.7;
+      }
+    }
+    & .btn--border {
+      border-color: var(--basic-orange);
+      color: var(--basic-orange);
+    }
+  }
 }
 
 .vc-choices {
@@ -27,6 +254,7 @@
   overflow: hidden;
   position: relative;
   max-width: fit-content;
+  margin-bottom: 24px;
   &.active {
     &::before {
       transform: translateX(100%);
@@ -45,16 +273,16 @@
     transition: transform var(--time);
   }
   &__item {
-    display: flex;
-    flex-direction: column;
     padding: 11px 16px;
     height: 56px;
+    position: relative;
   }
   &__caption {
     font-size: 12px;
     line-height: 16px;
     color: var(--gray-color-gray-text);
   }
+  // .vc-choices__value
   &__value {
     font-size: 14px;
     line-height: 18px;

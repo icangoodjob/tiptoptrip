@@ -77,6 +77,11 @@
   }
 }
 .group-booking {
+  &--calendar {
+    & .group-booking__items {
+      align-items: end;
+    }
+  }
   &--contacts {
     padding-top: 40px;
     position: relative;
@@ -119,6 +124,12 @@
         top: 0;
         right: 0;
       }
+    }
+    & .btn {
+      font-size: 14px;
+      line-height: 130%;
+      min-height: 40px;
+      padding: 10px 25px;
     }
   }
   // .group-booking__item
