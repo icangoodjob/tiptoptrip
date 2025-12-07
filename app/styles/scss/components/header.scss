@@ -99,6 +99,8 @@
   }
   // .header__select {
   &__select {
+    position: relative;
+    z-index: 10;
     @include media("<=lg") {
       display: none;
     }
@@ -122,6 +124,19 @@
         // transform: rotate(-90deg);
       }
     }
+    &.active {
+      background-color: var(--basic-orange);
+      border-color: var(--basic-orange);
+      color: var(--white);
+      &::after {
+        transform: rotate(-90deg);
+      }
+      @include hover {
+        background-color: var(--basic-orange);
+        border-color: var(--basic-orange);
+        color: var(--white);
+      }
+    }
   }
   // .header__burger
   &__burger {
@@ -132,6 +147,7 @@
     place-items: center;
     flex-shrink: 0;
     display: none;
+    position: relative;
     @include media("<=lg") {
       display: grid;
     }
@@ -139,4 +155,8 @@
       stroke: var(--white);
     }
   }
+}
+
+.menu {
+  display: none;
 }

@@ -28,6 +28,8 @@ import "./modules/forms.js";
 
 import "./modules/quantity.js";
 
+import "./modules/menu.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   galleryReady();
 

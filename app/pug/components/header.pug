@@ -11,6 +11,7 @@ header.header#header
 					img(src="images/logo-white.svg", alt="логотип").logo-white
 				.header__select
 					button(type="button").btn.btn--border.header__btn-select Выберите курорт
+					include ./menu-category
 			.header__right 
 				a(href="favorites.html" class={current: isFavorites}).header__favorite
 					<svg width="26" height="23" viewBox="0 0 26 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -20,3 +21,9 @@ header.header#header
 				a(href="#").btn.btn--border.header__btn-auth Авторизация
 				a(href="#").btn.btn--border.btn-append.header__btn-append 
 					span Добавить проект 
+		.header__menu.menu
+			.menu__top
+			.menu__links 
+				a(href="#").btn.btn--border.header__btn-auth Авторизация
+				a(href="#").btn.btn--border.btn-append Добавить проект
+			.menu__body
