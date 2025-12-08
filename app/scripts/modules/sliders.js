@@ -166,20 +166,26 @@ export const initSliders = () => {
       },
     });
   }
+};
 
+export let swiperThumbs;
+
+export let swiperMain;
+
+export const popupGallerySlider = () => {
   const apartmentMainSlider = document.querySelector(".slider-apartment__main");
   const apartmentThumbSlider = document.querySelector(".slider-apartment__thumbs");
   if (apartmentMainSlider && apartmentThumbSlider) {
     const buttonPrev = apartmentMainSlider.querySelector(".slider-button-prev");
     const buttonNext = apartmentMainSlider.querySelector(".slider-button-next");
-    let swiperThumbs = new Swiper(apartmentThumbSlider, {
+    swiperThumbs = new Swiper(apartmentThumbSlider, {
       spaceBetween: 10,
       slidesPerView: 4,
       freeMode: true,
       watchSlidesProgress: true,
       direction: "vertical",
     });
-    let swiperMain = new Swiper(apartmentMainSlider, {
+    swiperMain = new Swiper(apartmentMainSlider, {
       modules: [Thumbs, Navigation, Pagination],
       spaceBetween: 10,
       navigation: {

@@ -78,6 +78,18 @@
       & svg path {
         fill: var(--basic-orange-hover);
       }
+      body.theme-dark & .svg-border {
+        fill: var(--basic-orange-hover);
+      }
+      &:active {
+        & .svg-bg,
+        & .svg-border {
+          fill: var(--basic-orange-active-second);
+          body.theme-dark & {
+            fill: var(--basic-orange-active-second);
+          }
+        }
+      }
     }
     & svg {
       width: 100%;

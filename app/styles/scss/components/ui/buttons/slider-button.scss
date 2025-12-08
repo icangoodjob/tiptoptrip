@@ -30,6 +30,9 @@
       transform: scaleX(-1);
     }
   }
+  &.swiper-button-lock {
+    display: none;
+  }
   &.disabled,
   &.swiper-button-disabled {
     cursor: default;
@@ -51,4 +54,8 @@
     width: 40px;
     height: 40px;
   }
+}
+
+.slider-controls:has(.swiper-button-lock) {
+  display: none;
 }

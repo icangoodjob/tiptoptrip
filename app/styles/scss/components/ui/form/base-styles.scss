@@ -9,6 +9,7 @@
   &.error {
     & .form-input {
       border-color: var(--error-error-color);
+      caret-color: var(--error-error-color);
     }
   }
   // .form-item__buttons
@@ -238,8 +239,11 @@
 
 .form-text {
   & a {
-    transition: color var(--time);
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+    text-underline-offset: 3px;
     color: var(--basic-blue);
+    transition: text-decoration-color var(--time), color var(--time);
     @include hover {
       color: var(--color-blue-hover);
     }

@@ -88,7 +88,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    transition: background-color var(--time);
+    transition: background-color var(--time), color var(--time);
     @include hover {
       cursor: pointer;
       background-color: var(--gray-color-gray-background);
@@ -104,6 +104,7 @@
       transition: opacity var(-time);
     }
     &.current {
+      color: var(--basic-orange);
       background-color: var(--gray-color-gray-background);
       &::after {
         opacity: 1;

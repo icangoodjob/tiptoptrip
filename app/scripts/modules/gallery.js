@@ -3,16 +3,8 @@ import { Fancybox } from "@fancyapps/ui";
 export const galleryReady = () => {
   // Fancybox
   Fancybox.bind("[data-fancybox]", {
-    groupAll: true,
-    placeFocusBack: false,
-    Hash: false,
-    Image: {
-      wheel: "slide",
-    },
-  });
-  Fancybox.bind("[data-fancybox='main-gallery']", {
-    groupAll: true,
-    placeFocusBack: false,
+    // groupAll: true,
+    // placeFocusBack: false,
     Hash: false,
     Image: {
       wheel: "slide",
@@ -32,4 +24,25 @@ export const galleryReady = () => {
       });
     });
   }
+
+  // const buttonsGallery = document.querySelectorAll("[data-button-gallery]");
+  // if (buttonsGallery.length > 0) {
+  //   buttonsGallery.forEach((btn) => {
+  //     const galleryContainer = document.querySelector(".gallery-container");
+  //     if (galleryContainer) {
+  //       const images = galleryContainer.querySelectorAll("img");
+  //       btn.addEventListener("click", () => {
+  //         const galleryItems = Array.from(images).map((img) => ({
+  //           src: img.src,
+  //           thumbSrc: img.src,
+  //           // caption: img.alt,
+  //         }));
+  //         Fancybox.show(galleryItems, {
+  //           Hash: true,
+  //           placeFocusBack: true,
+  //         });
+  //       });
+  //     }
+  //   });
+  // }
 };

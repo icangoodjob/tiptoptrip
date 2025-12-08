@@ -2,7 +2,7 @@ import { Calendar } from "vanilla-calendar-pro";
 
 import { lockScroll, unlockScroll } from "../utils/scroll-lock.js";
 
-const device = window.innerWidth >= 1024 ? "desktop" : "mobile";
+let device = window.innerWidth >= 1024 ? "desktop" : "mobile";
 
 const calendarOptions = (device) => {
   if (device === "desktop") {

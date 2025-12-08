@@ -424,20 +424,18 @@
       width: 18px;
       height: 18px;
       flex-shrink: 0;
-      background-repeat: no-repeat;
-      background-position: center;
     }
   }
   // .profile-info-card__link--site
   &__link--site {
     &::before {
-      background-image: url("../images/icons/link-site-icon.svg");
+      @include mask-image(url("../images/icons/link-site-icon.svg"), currentColor);
     }
   }
   // .profile-info-card__link--email
   &__link--email {
     &::before {
-      background-image: url("../images/icons/link-email-icon.svg");
+      @include mask-image(url("../images/icons/link-email-icon.svg"), currentColor);
     }
   }
   &__text {
@@ -475,7 +473,35 @@
     @include mask-image(url("../images/icons/viber.svg"), currentColor);
   }
 }
+
+.gallery-container {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+
 .main-card-gallery {
+  position: relative;
+  & .btn-map {
+    transition: background-color var(--time), color var(--time);
+    & svg path {
+      transition: fill var(--time);
+    }
+    @include hover {
+      & svg path {
+        fill: currentColor;
+      }
+      background-color: var(--basic-orange-hover);
+      color: var(--universal-white);
+      &:active {
+        background-color: var(--basic-orange-active);
+      }
+    }
+  }
   @include media("<=lg") {
     display: flex;
     flex-direction: column;

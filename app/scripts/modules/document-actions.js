@@ -1,5 +1,7 @@
 import { lockScroll, unlockScroll } from "../utils/scroll-lock.js";
 
+import { isOpenMapPopup } from "./popups.js";
+
 const openFilter = () => {
   const filter = document.querySelector(".filter");
   if (filter) {
@@ -12,7 +14,9 @@ const closeFilter = () => {
   const filter = document.querySelector(".filter");
   if (filter) {
     filter.classList.remove("active");
-    unlockScroll();
+    if (!isOpenMapPopup) {
+      unlockScroll();
+    }
   }
 };
 
@@ -23,19 +27,21 @@ const openSorting = () => {
   }
 };
 
+const changeSorting = (target) => {
+  const sortingItems = document.querySelectorAll(".sorting__item.active");
+  const sortingBlock = target.closest(".sorting");
+  if (sortingItems) {
+    sortingItems.forEach((item) => item.classList.remove("active"));
+  }
+  target.classList.add("active");
+  sortingBlock?.classList.remove("active");
+};
+
 const documentActions = (e) => {
   const target = e.target;
   //   Сортировка
   if (target.closest(".sorting__item")) {
-    const sortingItems = document.querySelectorAll(".sorting__item.active");
-    const sortingBlock = target.closest(".sorting");
-    if (sortingItems) {
-      sortingItems.forEach((item) => item.classList.remove("active"));
-    }
-    target.classList.add("active");
-    sortingBlock?.classList.remove("active");
-    // const dataSort = target.classList.contains("active") && target.dataset.sort === "ASC" ? "DESC" : "ASC";
-    // target.dataset.sort = dataSort;
+    changeSorting(target);
   }
   // Добаление класса кнопке "Добавить в избранное"
   if (target.classList.contains("favorite-button")) {

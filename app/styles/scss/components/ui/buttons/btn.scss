@@ -150,6 +150,11 @@
   box-shadow: 0 4px 15px 0 rgba(55, 87, 117, 0.15);
   background-color: var(--universal-white);
   border-radius: 7px;
+  &:not(.btn-map-transparent):active {
+    & svg path {
+      fill: currentColor;
+    }
+  }
   &-transparent {
     box-shadow: none;
     padding: 0;

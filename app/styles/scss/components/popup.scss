@@ -10,7 +10,7 @@
   justify-content: center;
   align-items: center;
   background-color: rgba(#08151a, 0.7);
-  z-index: 20;
+  z-index: 9;
   position: fixed;
   inset: 0;
   overflow-y: auto;
@@ -81,8 +81,8 @@
     place-items: center;
     transition: background-color var(--time), border-color var(--time);
     .popup-map & {
-      top: 25px;
-      right: 17px;
+      top: 27.5px;
+      right: 18px;
     }
     &::before {
       content: "";
@@ -125,20 +125,23 @@
       transition: transform calc(var(--time) * 2);
     }
   }
-  & .filter-button-mobile {
+  & .btn-filter {
     display: none;
     position: absolute;
-    top: 15px;
-    left: 12px;
-    width: 124px;
-    min-height: 41px;
+    top: 25px;
+    left: 18px;
+    width: 186px;
     z-index: 10;
-    background-color: var(--white);
+    background-color: var(--gray-color-gray);
     color: var(--black);
-    font-size: 14px;
-    line-height: 130%;
     gap: 5px;
     border-radius: 30px;
+    &:not(:last-child) {
+      margin: 0;
+    }
+    @include media("<=lg") {
+      display: flex;
+    }
     // @media screen and (max-width: $xl) {
     //   display: flex;
     // }
@@ -227,6 +230,10 @@
     max-width: 100%;
     max-height: none;
   }
+  // & .swiper-button-disabled {
+  //   opacity: 0;
+  //   pointer-events: none;
+  // }
   // .slider-apartment__thumbs
   &__thumbs {
     flex: 0 0 100px;

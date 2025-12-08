@@ -1,6 +1,6 @@
-export let isLoadedPopupMap = false;
-
 import { MAP_API_KEY } from "../global.js";
+
+export let isLoadedPopupMap = false;
 
 export function loadMap() {
   const script = document.createElement("script");
@@ -18,7 +18,7 @@ const coords = [39.331297, 43.911584];
 
 const mapElem = document.getElementById("map-popup");
 
-async function initMap() {
+export async function initMap() {
   await ymaps3?.ready;
 
   const { YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapMarker, YMapControls } = ymaps3;

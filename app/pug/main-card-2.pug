@@ -12,7 +12,6 @@ block content
 			.main-card
 				.main-card__header 
 					.main-card__title.title-h1
-						span.main-card__header-rating 4
 						|  #{currentPage}
 					.main-card__sub-title.default-text--small Береговой переулок, 11, посёлок городского типа Курортное, городской округ Феодосия, Республика Крым
 					.main-card__actions 
@@ -51,11 +50,14 @@ block content
 							p.profile-info-card__text.default-text--small-s Сообщите владельцу, что нашли объявление на сервисе #[a(href="#" target="_blank").default-text--semibold.link-underline tiptoptrip.ru] 
 					.main-card__body
 						.main-card-gallery
+							.gallery-container
+								- for (var i = 0; i < 4; i++)
+									a(href="images/main-card/big-img-2@2x.jpg" data-fancybox="gallery")
 							.main-card-gallery__slider.swiper 
 								.swiper-wrapper 
 									- for (var i = 0; i < 4; i++)
 										.swiper-slide
-											.main-card-gallery__image
+											a(href="images/main-card/big-img-2@2x.jpg" data-fancybox="main-gallery").main-card-gallery__image
 												img(src="images/main-card/big-img-2@2x.jpg", alt="изображение")
 								.slider-pagination.swiper-pagination
 							+btnMap("btn btn--gray btn-map-mobile")
@@ -77,7 +79,7 @@ block content
 									img(src="images/main-card/big-img-2@2x.jpg", alt="изображение")
 								.main-card-gallery__item
 									img(src="images/main-card/big-img-2@2x.jpg", alt="изображение")
-									button(type="button").btn-map.default-text--small 
+									button(type="button" data-fancybox-trigger="gallery" data-fancybox-index="0").btn-map.default-text--small 
 										<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M12.5013 18.9582H7.5013C2.9763 18.9582 1.04297 17.0248 1.04297 12.4998V7.49984C1.04297 2.97484 2.9763 1.0415 7.5013 1.0415H12.5013C17.0263 1.0415 18.9596 2.97484 18.9596 7.49984V12.4998C18.9596 17.0248 17.0263 18.9582 12.5013 18.9582ZM7.5013 2.2915C3.65964 2.2915 2.29297 3.65817 2.29297 7.49984V12.4998C2.29297 16.3415 3.65964 17.7082 7.5013 17.7082H12.5013C16.343 17.7082 17.7096 16.3415 17.7096 12.4998V7.49984C17.7096 3.65817 16.343 2.2915 12.5013 2.2915H7.5013Z" fill="#08151A" />
 											<path d="M7.4987 8.95833C6.23203 8.95833 5.20703 7.93333 5.20703 6.66667C5.20703 5.4 6.23203 4.375 7.4987 4.375C8.76536 4.375 9.79036 5.4 9.79036 6.66667C9.79036 7.93333 8.76536 8.95833 7.4987 8.95833ZM7.4987 5.625C6.9237 5.625 6.45703 6.09167 6.45703 6.66667C6.45703 7.24167 6.9237 7.70833 7.4987 7.70833C8.0737 7.70833 8.54036 7.24167 8.54036 6.66667C8.54036 6.09167 8.0737 5.625 7.4987 5.625Z" fill="#08151A" />

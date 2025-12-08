@@ -19,6 +19,12 @@ html.with-fancybox:not(.lock) {
   scrollbar-gutter: unset;
 }
 
+html.with-fancybox.lock {
+  & body.hide-scrollbar {
+    margin-right: 0 !important;
+  }
+}
+
 body.theme-dark {
   background-color: var(--universal-bg-dark-1);
   color: var(--gray-color-gray);

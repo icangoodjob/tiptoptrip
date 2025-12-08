@@ -22,8 +22,6 @@ import "./modules/sliders.js";
 
 import "./modules/spollers.js";
 
-import "./modules/custom-scrollbar.js";
-
 import "./modules/forms.js";
 
 import "./modules/quantity.js";

@@ -1,5 +1,7 @@
 .popup.popup-map(id="popup-map" data-popup)
     .popup__window 
+        if isHasPopupFilter
+            +btn("Фильтр", "btn--gray btn-filter")
         button(type="button" data-popup-close).popup__close
         .map#map-popup
 .popup.popup-request(id="popup-request" data-popup)
@@ -23,7 +25,7 @@
                                 label(for="request_message").form-label Комментарий 
                 .popup-form__actions 
                     +btn("Отправить", "btn--primary", "submit")
-                    .form-text.default-text--small Нажимая на кнопку “Отправить” вы автоматически соглашаетесь на обработку персональных данных в соответствии с #[a(href="#").link-underline Политикой конфиденциальности] и принимаете условия #[a(href="#").link-underline Пользовательского соглашения]
+                    .form-text.default-text--small Нажимая на кнопку “Отправить” вы автоматически соглашаетесь на обработку персональных данных в соответствии с #[a(href="#") Политикой конфиденциальности] и принимаете условия #[a(href="#") Пользовательского соглашения]
 .popup.popup-apartment(id="popup-apartment" data-popup)
     .popup__window 
         button(type="button" data-popup-close).popup__close
@@ -31,13 +33,13 @@
             .popup-apartment__slider.slider-apartment
                 .slider-apartment__thumbs.swiper
                     .swiper-wrapper
-                        - for (var i = 0; i < 4; i++)
+                        - for (var i = 0; i < 1; i++)
                             .swiper-slide
                                 .slider-apartment__image.image-ibg
                                     img(src=`images/main-card/apartment-img-${i+1}@2x.jpg`, alt="фото")
                 .slider-apartment__main.swiper 
                     .swiper-wrapper 
-                        - for (var i = 0; i < 4; i++)
+                        - for (var i = 0; i < 1; i++)
                             .swiper-slide
                                 a(href=`images/main-card/apartment-img-${i+1}@2x.jpg` data-fancybox="apartment-gallery").slider-apartment__image.image-ibg
                                     img(src=`images/main-card/apartment-img-${i+1}@2x.jpg`, alt="фото")

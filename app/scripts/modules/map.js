@@ -2,7 +2,7 @@ import { MAP_API_KEY } from "../global.js";
 
 import { isLoadedPopupMap } from "./popup-map.js";
 
-let isLoaded = false;
+export let isLoaded = false;
 
 function loadMap() {
   const script = document.createElement("script");
@@ -54,19 +54,18 @@ async function initMap() {
   map.addChild(new YMapControls({ position: "right" }).addChild(new YMapZoomControl({})));
 }
 
-let observerOptions = {
-  // root: по умолчанию window, но можно задать любой элемент-контейнер
-  rootMargin: "0px 0px 0px 0px",
-};
-let observer = new IntersectionObserver(([entry]) => {
-  const targetInfo = entry.boundingClientRect;
-  const rootBoundsInfo = entry.rootBounds;
-  if ((!isLoaded && targetInfo.top < rootBoundsInfo.bottom) || targetInfo.isIntersecting) {
-    loadMap();
-    observer.unobserve(entry.target);
-  }
-}, observerOptions);
-
 if (map) {
+  let observerOptions = {
+    // root: по умолчанию window, но можно задать любой элемент-контейнер
+    rootMargin: "0px 0px 0px 0px",
+  };
+  let observer = new IntersectionObserver(([entry]) => {
+    const targetInfo = entry.boundingClientRect;
+    const rootBoundsInfo = entry.rootBounds;
+    if ((!isLoaded && targetInfo.top < rootBoundsInfo.bottom) || entry.isIntersecting) {
+      isLoadedPopupMap ? initMap() : loadMap();
+      observer.unobserve(entry.target);
+    }
+  }, observerOptions);
   observer.observe(map);
 }
