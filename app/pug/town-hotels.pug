@@ -66,7 +66,7 @@ block content
 											.form-group__items
 												each item, index in checkboxes.type 
 													+baseCheckbox(item, index, "type")
-											//- +btnShowMore
+											+btnShowMore
 										+fieldGroup("Инфраструктура")
 											.form-group__items
 												each item, index in checkboxes.infrastructure 
@@ -76,12 +76,12 @@ block content
 											.form-group__items
 												each item, index in checkboxes.food 
 													+baseCheckbox(item, index, "food")
-											//- +btnShowMore
+											+btnShowMore
 										+fieldGroup("Общие")
 											.form-group__items
 												each item, index in checkboxes.common 
 													+baseCheckbox(item, index, "common")
-											//- +btnShowMore
+											+btnShowMore
 										include ./components/filter-actions
 						+asideNavigation(townAsideMenu)
 					.town-hotels__main

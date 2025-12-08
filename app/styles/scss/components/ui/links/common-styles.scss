@@ -21,27 +21,3 @@ a.link-underline {
     color: var(--basic-orange);
   }
 }
-
-.site-phone {
-  &--size-lg {
-    font-size: 20px;
-    line-height: 130%;
-  }
-  &--size-xl {
-    font-size: 24px;
-    line-height: 120%;
-  }
-}
-
-.site-email {
-  &--size-md {
-    font-size: 18px;
-    line-height: 120%;
-  }
-  &--size-lg {
-    font-size: 20px;
-  }
-  &--size-xl {
-    font-size: 24px;
-  }
-}

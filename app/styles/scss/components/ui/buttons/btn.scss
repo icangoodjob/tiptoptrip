@@ -220,3 +220,21 @@
     @include mask-image(url("../images/icons/expand.svg"), currentColor);
   }
 }
+
+.btn-save {
+  gap: 5px;
+  &::after {
+    content: none;
+    display: block;
+    width: 20px;
+    height: 20px;
+    @include mask-image(url("../images/icons/save-check.svg"), currentColor, 15px 15px);
+  }
+  &.active {
+    background-color: var(--basic-green-button);
+    pointer-events: none;
+    &::after {
+      content: "";
+    }
+  }
+}

@@ -30,6 +30,8 @@ import "./modules/quantity.js";
 
 import "./modules/menu.js";
 
+import "./modules/show-more.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   galleryReady();
 

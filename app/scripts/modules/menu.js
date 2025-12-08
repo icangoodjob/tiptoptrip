@@ -1,3 +1,5 @@
+import { lockScroll, unlockScroll } from "../utils/scroll-lock.js";
+
 const menuCategory = document.querySelector(".menu-category");
 const headerMenu = document.querySelector(".menu");
 
@@ -15,9 +17,12 @@ function menuActions(e) {
     menuCategory?.classList.remove("active");
   }
   if (target.closest(".header__burger")) {
-    target.classList.toggle("active");
-    headerMenu?.classList.toggle("active");
-    document.body.classList.toggle("lock");
+    document.documentElement.classList.add("menu-open");
+    lockScroll();
+  }
+  if (target.closest(".menu__close")) {
+    document.documentElement.classList.remove("menu-open");
+    unlockScroll();
   }
 }
 
@@ -51,8 +56,8 @@ if (categoryLinks.length) {
 
           setTimeout(() => {
             dynamicBoxWrapper.classList.remove("fade-in");
-          }, 300);
-        }, 300);
+          }, 250);
+        }, 250);
       }
     });
   });

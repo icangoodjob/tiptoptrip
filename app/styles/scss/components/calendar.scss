@@ -33,6 +33,12 @@
   }
 }
 
+[data-vc-theme="dark"].vc,
+[data-vc-theme="light"].vc {
+  background: var(--universal-white);
+  color: var(--universal-black);
+}
+
 [data-vc="calendar"] {
   padding: 16px;
   padding-bottom: 12px;
@@ -122,16 +128,61 @@
     width: 30px;
   }
 }
-
 [data-vc-date-btn] {
   font-weight: 400;
   font-size: 14px;
   line-height: 171%;
 }
 
+[data-vc-theme="light"] .vc-arrow:before,
+[data-vc-theme="dark"] .vc-arrow:before {
+  background-image: url("../images/icons/arrow-right.svg");
+  background-size: 12px 12px;
+  transform: rotate(0deg);
+}
+
+[data-vc-theme="light"] .vc-arrow_prev:before,
+[data-vc-theme="dark"] .vc-arrow_prev:before {
+  transform: rotate(0deg) scaleX(-1);
+}
+
+[data-vc-theme="dark"] .vc-months__month,
+[data-vc-theme="dark"] .vc-years__year {
+  background-color: transparent;
+}
+
+[data-vc-theme="light"] .vc-months__month,
+[data-vc-theme="light"] .vc-years__year,
+[data-vc-theme="dark"] .vc-months__month,
+[data-vc-theme="dark"] .vc-years__year {
+  background-color: var(--white);
+  color: var(--universal-black);
+}
+
+[data-vc-theme="light"] .vc-months__month:disabled,
+[data-vc-theme="light"] .vc-years__year:disabled,
+[data-vc-theme="dark"] .vc-months__month:disabled,
+[data-vc-theme="dark"] .vc-years__year:disabled {
+  color: #cbd5e1;
+}
+
+[data-vc-theme="dark"] .vc-date__btn {
+  color: var(--black);
+  background-color: transparent;
+}
+
+[data-vc-theme="dark"] .vc-header__content,
+[data-vc-theme="dark"] .vc-month,
+[data-vc-theme="dark"] .vc-year {
+  color: var(--black);
+}
+
 [data-vc-theme="light"] .vc-date[data-vc-date-holiday][data-vc-date-today][data-vc-date-selected] .vc-date__btn,
 [data-vc-theme="light"] .vc-date[data-vc-date-today][data-vc-date-selected] .vc-date__btn,
-[data-vc-theme="light"] .vc-date[data-vc-date-weekend][data-vc-date-today][data-vc-date-selected] .vc-date__btn {
+[data-vc-theme="light"] .vc-date[data-vc-date-weekend][data-vc-date-today][data-vc-date-selected] .vc-date__btn,
+[data-vc-theme="dark"] .vc-date[data-vc-date-holiday][data-vc-date-today][data-vc-date-selected] .vc-date__btn,
+[data-vc-theme="dark"] .vc-date[data-vc-date-today][data-vc-date-selected] .vc-date__btn,
+[data-vc-theme="dark"] .vc-date[data-vc-date-weekend][data-vc-date-today][data-vc-date-selected] .vc-date__btn {
   background-color: var(--basic-orange);
   color: var(--universal-white);
 }
@@ -142,12 +193,14 @@
   border-radius: 8px;
 }
 
-[data-vc-theme="light"] .vc-date[data-vc-date-selected="middle"][data-vc-date-selected] .vc-date__btn {
+[data-vc-theme="light"] .vc-date[data-vc-date-selected="middle"][data-vc-date-selected] .vc-date__btn,
+[data-vc-theme="dark"] .vc-date[data-vc-date-selected="middle"][data-vc-date-selected] .vc-date__btn {
   background-color: rgba(255, 105, 46, 0.1);
   color: var(--basic-orange);
 }
 
-[data-vc-theme="light"] .vc-date[data-vc-date-selected] .vc-date__btn {
+[data-vc-theme="light"] .vc-date[data-vc-date-selected] .vc-date__btn,
+[data-vc-theme="dark"] .vc-date[data-vc-date-selected] .vc-date__btn {
   background-color: var(--basic-orange);
   color: var(--universal-white);
 }
@@ -157,54 +210,70 @@
 }
 
 [data-vc-theme="light"] .vc-date[data-vc-date-selected="middle"][data-vc-date-holiday][data-vc-date-selected] .vc-date__btn,
-[data-vc-theme="light"] .vc-date[data-vc-date-selected="middle"][data-vc-date-weekend][data-vc-date-selected] .vc-date__btn {
+[data-vc-theme="light"] .vc-date[data-vc-date-selected="middle"][data-vc-date-weekend][data-vc-date-selected] .vc-date__btn,
+[data-vc-theme="dark"] .vc-date[data-vc-date-selected="middle"][data-vc-date-holiday][data-vc-date-selected] .vc-date__btn,
+[data-vc-theme="dark"] .vc-date[data-vc-date-selected="middle"][data-vc-date-weekend][data-vc-date-selected] .vc-date__btn {
   background-color: rgba(255, 105, 46, 0.1);
   color: var(--basic-orange);
 }
 
 [data-vc-theme="light"] .vc-date[data-vc-date-holiday][data-vc-date-selected] .vc-date__btn,
-[data-vc-theme="light"] .vc-date[data-vc-date-weekend][data-vc-date-selected] .vc-date__btn {
+[data-vc-theme="light"] .vc-date[data-vc-date-weekend][data-vc-date-selected] .vc-date__btn,
+[data-vc-theme="dark"] .vc-date[data-vc-date-holiday][data-vc-date-selected] .vc-date__btn,
+[data-vc-theme="dark"] .vc-date[data-vc-date-weekend][data-vc-date-selected] .vc-date__btn {
   background-color: var(--basic-orange);
   color: var(--universal-white);
 }
 
 [data-vc-theme="light"] .vc-date[data-vc-date-holiday] .vc-date__btn,
-[data-vc-theme="light"] .vc-date[data-vc-date-weekend] .vc-date__btn {
+[data-vc-theme="light"] .vc-date[data-vc-date-weekend] .vc-date__btn,
+[data-vc-theme="dark"] .vc-date[data-vc-date-holiday] .vc-date__btn,
+[data-vc-theme="dark"] .vc-date[data-vc-date-weekend] .vc-date__btn {
   color: var(--universal-black);
 }
 
 [data-vc-theme="light"] .vc-date[data-vc-date-holiday][data-vc-date-today] .vc-date__btn,
-[data-vc-theme="light"] .vc-date[data-vc-date-weekend][data-vc-date-today] .vc-date__btn {
+[data-vc-theme="light"] .vc-date[data-vc-date-weekend][data-vc-date-today] .vc-date__btn,
+[data-vc-theme="dark"] .vc-date[data-vc-date-holiday][data-vc-date-today] .vc-date__btn,
+[data-vc-theme="dark"] .vc-date[data-vc-date-weekend][data-vc-date-today] .vc-date__btn {
   color: var(--basic-orange);
 }
-[data-vc-theme="light"] .vc-date[data-vc-date-hover=""] .vc-date__btn {
+[data-vc-theme="light"] .vc-date[data-vc-date-hover=""] .vc-date__btn,
+[data-vc-theme="dark"] .vc-date[data-vc-date-hover=""] .vc-date__btn {
   background-color: rgba(255, 105, 46, 0.1) !important;
   color: var(--basic-orange);
 }
 
-[data-vc-theme="light"] .vc-date[data-vc-date-selected="last"][data-vc-date-hover="last"] .vc-date__btn {
+[data-vc-theme="light"] .vc-date[data-vc-date-selected="last"][data-vc-date-hover="last"] .vc-date__btn,
+[data-vc-theme="dark"] .vc-date[data-vc-date-selected="last"][data-vc-date-hover="last"] .vc-date__btn {
   background-color: rgba(255, 105, 46, 0.1) !important;
   color: var(--basic-orange);
 }
 
-[data-vc-theme="light"] .vc-date[data-vc-date-today] .vc-date__btn {
+[data-vc-theme="light"] .vc-date[data-vc-date-today] .vc-date__btn,
+[data-vc-theme="dark"] .vc-date[data-vc-date-today] .vc-date__btn {
   background-color: transparent;
   color: var(--universal-black);
 }
 
 [data-vc-theme="light"] .vc-date[data-vc-date-holiday][data-vc-date-today] .vc-date__btn,
-[data-vc-theme="light"] .vc-date[data-vc-date-weekend][data-vc-date-today] .vc-date__btn {
+[data-vc-theme="light"] .vc-date[data-vc-date-weekend][data-vc-date-today] .vc-date__btn,
+[data-vc-theme="dark"] .vc-date[data-vc-date-holiday][data-vc-date-today] .vc-date__btn,
+[data-vc-theme="dark"] .vc-date[data-vc-date-weekend][data-vc-date-today] .vc-date__btn {
   background-color: transparent;
   color: var(--universal-black);
 }
 
 [data-vc-theme="light"] .vc-months__month[data-vc-months-month-selected],
-[data-vc-theme="light"] .vc-years__year[data-vc-years-year-selected] {
+[data-vc-theme="light"] .vc-years__year[data-vc-years-year-selected],
+[data-vc-theme="dark"] .vc-months__month[data-vc-months-month-selected],
+[data-vc-theme="dark"] .vc-years__year[data-vc-years-year-selected] {
   background: var(--basic-orange);
   color: var(--universal-white);
 }
 
 @media (hover: hover) and (pointer: fine) {
+  [data-vc-theme="light"] .vc-date[data-vc-date-selected] .vc-date__btn:hover,
   [data-vc-theme="light"] .vc-date[data-vc-date-selected] .vc-date__btn:hover,
   [data-vc-theme="light"] .vc-date[data-vc-date-selected="middle"][data-vc-date-selected] .vc-date__btn:hover,
   [data-vc-theme="light"] .vc-date[data-vc-date-selected="middle"][data-vc-date-holiday][data-vc-date-selected] .vc-date__btn:hover,
@@ -235,6 +304,45 @@
   [data-vc-theme="light"] .vc-years__year[data-vc-years-year-selected]:hover {
     background-color: var(--basic-orange);
     color: var(--universal-white);
+  }
+  [data-vc-theme="light"] .vc-date[data-vc-date-today] .vc-date__btn:hover {
+    color: var(--basic-orange);
+  }
+
+  [data-vc-theme="dark"] .vc-date[data-vc-date-selected] .vc-date__btn:hover,
+  [data-vc-theme="dark"] .vc-date[data-vc-date-selected] .vc-date__btn:hover,
+  [data-vc-theme="dark"] .vc-date[data-vc-date-selected="middle"][data-vc-date-selected] .vc-date__btn:hover,
+  [data-vc-theme="dark"] .vc-date[data-vc-date-selected="middle"][data-vc-date-holiday][data-vc-date-selected] .vc-date__btn:hover,
+  [data-vc-theme="dark"] .vc-date[data-vc-date-selected="middle"][data-vc-date-weekend][data-vc-date-selected] .vc-date__btn:hover,
+  [data-vc-theme="dark"] .vc-date[data-vc-date-holiday][data-vc-date-selected] .vc-date__btn:hover,
+  [data-vc-theme="dark"] .vc-date[data-vc-date-weekend][data-vc-date-selected] .vc-date__btn:hover {
+    background-color: var(--basic-orange);
+    color: var(--universal-white);
+  }
+  [data-vc-theme="dark"] .vc-date[data-vc-date-holiday] .vc-date__btn:hover,
+  [data-vc-theme="dark"] .vc-date[data-vc-date-weekend] .vc-date__btn:hover,
+  [data-vc-theme="dark"] .vc-date__btn:hover,
+  [data-vc-theme="dark"] .vc-date[data-vc-date-hover="first"] .vc-date__btn:hover,
+  [data-vc-theme="dark"] .vc-date[data-vc-date-hover="last"] .vc-date__btn:hover,
+  [data-vc-theme="dark"] .vc-date[data-vc-date-holiday][data-vc-date-hover="first"] .vc-date__btn:hover,
+  [data-vc-theme="dark"] .vc-date[data-vc-date-holiday][data-vc-date-hover="last"] .vc-date__btn:hover,
+  [data-vc-theme="dark"] .vc-date[data-vc-date-weekend][data-vc-date-hover="first"] .vc-date__btn:hover,
+  [data-vc-theme="dark"] .vc-date[data-vc-date-weekend][data-vc-date-hover="last"] .vc-date__btn:hover {
+    background-color: rgba(255, 105, 46, 0.1);
+    color: var(--basic-orange);
+  }
+  [data-vc-theme="dark"] .vc-months__month:hover,
+  [data-vc-theme="dark"] .vc-years__year:hover {
+    background-color: rgba(255, 105, 46, 0.1);
+    color: var(--basic-orange);
+  }
+  [data-vc-theme="dark"] .vc-months__month[data-vc-months-month-selected]:hover,
+  [data-vc-theme="dark"] .vc-years__year[data-vc-years-year-selected]:hover {
+    background-color: var(--basic-orange);
+    color: var(--universal-white);
+  }
+  [data-vc-theme="dark"] .vc-date[data-vc-date-today] .vc-date__btn:hover {
+    color: var(--basic-orange);
   }
 }
 

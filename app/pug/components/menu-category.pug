@@ -1,12 +1,12 @@
 nav.menu-category(data-da=".menu__body, 1024, 0")
     .menu-category__body 
         each item, index in menuCategory
-            .menu-category__group.menu-group
+            .menu-category__group.menu-group(data-spollers="1024,max" data-one-spoller)
                 .menu-group__caption.default-text.default-text--semibold= item.groupCaption
                 .menu-group__items
                     each group in item.items
-                        .menu-group__item.default-text--small
-                            .menu-group__name.color-gray= group.name
+                        .menu-group__item
+                            .menu-group__name(data-spoller)= group.name
                             .menu-group__list-wrap
                                 ul.menu-group__list
                                     each itemList in group.list

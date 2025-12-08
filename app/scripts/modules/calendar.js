@@ -19,18 +19,16 @@ const calendarOptions = (device) => {
               <div class="vc-choices__value" id="vc-value-to"></div>
             </div>
           </div>
-          <div class="vc-controls" data-vc="controls" role="toolbar" aria-label="">
-            <#ArrowPrev [month] />
-            <#ArrowNext [month] />
-          </div>
           <div class="vc-grid" data-vc="grid">
             <#Multiple>
               <div class="vc-column" data-vc="column" role="region">
                 <div class="vc-header" data-vc="header">
+                  <#ArrowPrev [month] />
                   <div class="vc-header-content" data-vc-header="content">
                     <#Month />
                     <#Year />
                   </div>
+                  <#ArrowNext [month] />
                 </div>
                 <div class="vc-wrapper" data-vc="wrapper">
                   <#WeekNumbers />
@@ -52,70 +50,50 @@ const calendarOptions = (device) => {
           <#ControlTime />
         `,
       },
+      type: "multiple",
+      displayMonthsCount: 2,
     };
   } else {
     return {
       layouts: {
-        // default: `
-        //     <div class="${self.styles.header}" data-vc="header" role="toolbar" aria-label="${self.labels.navigation}">
-        //       <#ArrowPrev [month] />
-        //       <div class="${self.styles.headerContent}" data-vc-header="content">
-        //         <#Month />
-        //         <#Year />
-        //       </div>
-        //       <#ArrowNext [month] />
-        //     </div>
-        //     <div class="${self.styles.wrapper}" data-vc="wrapper">
-        //       <#WeekNumbers />
-        //       <div class="${self.styles.content}" data-vc="content">
-        //         <#Week />
-        //         <#Dates />
-        //         <#DateRangeTooltip />
-        //       </div>
-        //     </div>
-        //     <#ControlTime />
-        //   `
-        // },
-        multiple: `
-          <div class="vc-choices" data-vc-choices>
-            <div class="vc-choices__item">
-              <div class="vc-choices__caption">Заезд</div>
-              <div class="vc-choices__value" id="vc-value-from"></div>
+        default: `
+            <div class="vc-choices" data-vc-choices>
+              <div class="vc-choices__item">
+                <div class="vc-choices__caption">Заезд</div>
+                <div class="vc-choices__value" id="vc-value-from"></div>
+              </div>
+              <div class="vc-choices__item">
+                <div class="vc-choices__caption">Выезд</div>
+                <div class="vc-choices__value" id="vc-value-to"></div>
+              </div>
             </div>
-            <div class="vc-choices__item">
-              <div class="vc-choices__caption">Выезд</div>
-              <div class="vc-choices__value" id="vc-value-to"></div>
+            <div class="vc-header" data-vc="header" role="toolbar" aria-label="Навигация">
+              <#ArrowPrev [month] />
+              <div class="vc-header-content" data-vc-header="content">
+                <#Month />
+                <#Year />
+              </div>
+              <#ArrowNext [month] />
             </div>
-          </div>
-          <div class="vc-controls" data-vc="controls" role="toolbar" aria-label="Навигация">
-            <#ArrowPrev [month] />
-            <#ArrowNext [month] />
-          </div>
-          <div class="vc-header" data-vc="header">
-            <div class="vc-header-content" data-vc-header="content">
-              <#Month />
-              <#Year />
-            </div>
-          </div>
-          <div class="vc-grid" data-vc="grid">
             <div class="vc-wrapper" data-vc="wrapper">
               <#WeekNumbers />
               <div class="vc-content" data-vc="content">
                 <#Week />
                 <#Dates />
+                <#DateRangeTooltip />
               </div>
             </div>
-            <#DateRangeTooltip />
-          </div>
-          <div class="vc-footer">
-            <div class="vc-footer__buttons">
-              <button class="vc-button vc-button-reset btn btn--border" id="vc-button-reset" data-vc-btn-reset type="button">Сбросить</button>
-              <button class="vc-button vc-button-apply btn btn--primary" id="vc-button-apply" type="button">Применить</button>
+            <div class="vc-footer">
+              <div class="vc-footer__buttons">
+                <button class="vc-button vc-button-reset btn btn--border" id="vc-button-reset" data-vc-btn-reset type="button">Сбросить</button>
+                <button class="vc-button vc-button-apply btn btn--primary" id="vc-button-apply" type="button">Применить</button>
+              </div>
             </div>
-          </div>
-          <#ControlTime />
-        `,
+            <#ControlTime />
+          `,
       },
+      type: "default",
+      displayMonthsCount: 1,
     };
   }
 };
@@ -201,8 +179,6 @@ function stateActionsButtons(arrDates) {
 const options = {
   // selectedTheme: "dark",
   locale: "ru",
-  type: "multiple",
-  displayMonthsCount: 2,
   displayDatesOutside: false,
   disableDatesPast: true,
   enableEdgeDatesOnly: true,
@@ -211,7 +187,6 @@ const options = {
   ...opts,
   onClickDate(self) {
     const selectedDates = self.context.selectedDates;
-    console.log(selectedDates);
     setDateValues(selectedDates);
     transformationChoices(selectedDates);
     stateActionsButtons(selectedDates);
@@ -276,28 +251,6 @@ function showCalendar(button) {
 
   calendarPopup.style.display = "block";
 
-  const vcButtonReset = document.getElementById("vc-button-reset");
-
-  const vcButtonApply = document.getElementById("vc-button-apply");
-
-  if (vcButtonReset) {
-    vcButtonReset.addEventListener("click", (e) => {
-      const vcDates = e.target.closest("#calendar-popup").querySelectorAll("[data-vc-date]");
-      if (vcDates.length > 0) {
-        vcDates.forEach((date) => date.removeAttribute("data-vc-date-selected"));
-      }
-      currentCalendar.context.selectedDates = [];
-      resetValues();
-    });
-  }
-
-  if (vcButtonApply) {
-    vcButtonApply.addEventListener("click", () => {
-      hideCalendar();
-      removeActiveButtons();
-    });
-  }
-
   if (window.innerWidth <= 767) {
     lockScroll();
   }
@@ -330,7 +283,6 @@ buttons.forEach((button) => {
   button.addEventListener("click", (e) => {
     e.stopPropagation();
     // Если календарь уже открыт для этой кнопки - закрываем
-    // if (currentButton === button && calendarPopup?.style.display === "block") {
     if (currentButton === button && calendarPopup?.style.display === "block") {
       hideCalendar();
     } else {
@@ -344,8 +296,35 @@ function handleClickOutside(event) {
   const target = event.target;
   // Проверяем, является ли клик частью календаря
   const isCalendarClick = !target.closest(".vc-month") && !target.closest(".vc-year") && !target.closest(".vc-grid") && !target.closest(".vc-header");
-  // Проверяем, является ли клик кнопкой открытия календаря
   if (calendarPopup && !calendarPopup.contains(target) && currentButton !== target && !currentButton?.contains(target) && isCalendarClick) {
     hideCalendar();
+  }
+}
+
+document.addEventListener("click", calendarActions);
+
+function calendarActions(e) {
+  const target = e.target;
+  if (target.closest("#vc-button-reset")) {
+    e.stopPropagation();
+    const vcDates = e.target.closest("#calendar-popup").querySelectorAll("[data-vc-date]");
+    if (vcDates.length > 0) {
+      vcDates.forEach((date) => date.removeAttribute("data-vc-date-selected"));
+    }
+    if (currentCalendar) currentCalendar.context.selectedDates = [];
+    resetValues();
+  }
+  if (target.closest("#vc-button-apply")) {
+    e.stopPropagation();
+    hideCalendar();
+    removeActiveButtons();
+  }
+  if (target.closest(".btn-save")) {
+    target.classList.add("active");
+    target.textContent = "Сохранено";
+    setTimeout(() => {
+      target.classList.remove("active");
+      target.textContent = "Сохранить";
+    }, 3000);
   }
 }
