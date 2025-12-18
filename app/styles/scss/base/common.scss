@@ -161,7 +161,6 @@ footer {
   }
 }
 
-// (i) Стили будут применяться ко всем классам содержащим *__container. Например header__container, footer__container и т.д.
 @if ($responsiveType == 1) {
   // Отзывчивая
   .container {
@@ -174,7 +173,6 @@ footer {
     }
   }
 } @else {
-  // По брейк-поинтам
   .container {
     margin: 0 auto;
     @if ($maxWidthContainer > 0) {
@@ -195,5 +193,41 @@ footer {
     @include media("<=sm") {
       max-width: 100%;
     }
+  }
+}
+
+html {
+  @supports (scrollbar-width: auto) {
+    scrollbar-width: thin;
+    scrollbar-color: var(--basic-orange) transparent;
+  }
+  @supports selector(::-webkit-scrollbar) {
+    &::-webkit-scrollbar {
+      width: 5px !important;
+      height: 5px !important;
+    }
+    &::-webkit-scrollbar-track {
+      background: var(--gray-color-gray-stroke);
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--basic-orange);
+      border-radius: 20px;
+      cursor: pointer;
+    }
+  }
+  @supports ((scrollbar-width: auto) and (selector(::-webkit-scrollbar))) {
+    &::-webkit-scrollbar {
+      width: 5px !important;
+      height: 5px !important;
+    }
+    &::-webkit-scrollbar-track {
+      background: var(--gray-color-gray-stroke);
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--basic-orange);
+      border-radius: 20px;
+    }
+    scrollbar-width: unset;
+    scrollbar-color: unset;
   }
 }

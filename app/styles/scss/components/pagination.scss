@@ -33,7 +33,6 @@
     margin-right: 16px;
     display: grid;
     place-items: center;
-
     &::before {
       //   content: "";
     }
@@ -53,7 +52,7 @@
       background-color: var(--basic-orange-hover-opacity-80);
       color: var(--universal-white);
       &::before {
-        background-color: var(--basic-orange);
+        background-color: var(--universal-white);
       }
     }
     &:active {

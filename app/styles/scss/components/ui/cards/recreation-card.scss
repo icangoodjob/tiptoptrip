@@ -3,7 +3,6 @@
 @use "../../../base/mixins" as *;
 
 .recreation-card {
-  //   aspect-ratio: 270 / 250;
   position: relative;
   border-radius: 10px;
   overflow: hidden;
@@ -36,7 +35,6 @@
     @include media("<=md") {
       grid-column: unset;
     }
-    // aspect-ratio: 570 / 250;
   }
   &.vertical-long-card {
     grid-row: 1 / span 2;

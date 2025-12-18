@@ -26,6 +26,15 @@
     }
   }
 }
+
+.profile .profile-info-card {
+  position: sticky;
+  top: 20px;
+  @include media("<=lg") {
+    position: static;
+  }
+}
+
 .profile-info-card {
   border: 1px solid var(--gray-color-stroke-secondary);
   border-radius: 30px;

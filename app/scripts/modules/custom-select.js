@@ -1,6 +1,4 @@
 // select
-const overlay = document.querySelector(".overlay");
-
 import { normalizeText } from "../utils/normalize-text.js";
 
 const checkSelectValue = () => {
@@ -39,7 +37,6 @@ const handleSelect = (event) => {
     }
   } else {
     const calendarContainer = target.closest("#calendar-popup .vc-grid");
-    // const calendarSelectList = calendarContainer && target.closest(".calendar-container") && !target.matches(".calendar-container > *");
     if (!calendarContainer) {
       deactivateAllSelects();
     }

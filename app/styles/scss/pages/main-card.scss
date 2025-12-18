@@ -492,13 +492,15 @@
       transition: fill var(--time);
     }
     @include hover {
-      & svg path {
-        fill: currentColor;
-      }
-      background-color: var(--basic-orange-hover);
-      color: var(--universal-white);
-      &:active {
-        background-color: var(--basic-orange-active);
+      &:not(.btn-map-rating) {
+        & svg path {
+          fill: currentColor;
+        }
+        background-color: var(--basic-orange-hover);
+        color: var(--universal-white);
+        &:active {
+          background-color: var(--basic-orange-active);
+        }
       }
     }
   }
@@ -598,16 +600,6 @@
       padding-bottom: 15px;
     }
   }
-  // @include media("<=lg") {
-  //   .section-faq &:last-child {
-  //     & .accordion__button {
-  //       padding: 0;
-  //       &::before {
-  //         content: none;
-  //       }
-  //     }
-  //   }
-  // }
   // .accordion__button
   &__button {
     display: flex;

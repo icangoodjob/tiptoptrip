@@ -102,6 +102,7 @@ const path = {
   watch: {
     pug: `${srcFolder}/pug/**/*.pug`,
     scss: `${srcFolder}/styles/scss/**/*.scss`,
+    styleLibs: `${srcFolder}/styles/libs/**/*.css`,
     js: `${srcFolder}/scripts/**/*.js`,
     images: `${srcFolder}/images/**/*.{jpg,jpeg,png,svg,gif,ico,webp,json}`,
     fonts: `${srcFolder}/fonts/**/*`,
@@ -249,13 +250,16 @@ function styles() {
       .pipe(rename({ suffix: ".min" }))
       .pipe(dest(path.build.css))
 
-      .pipe(src(path.src.styleLibs))
-      .pipe(concat("libs.css"))
-      .pipe(rename({ suffix: ".min" }))
-      .pipe(dest(path.build.css))
-
       .pipe(browserSync.stream())
   );
+}
+
+function stylesLibs() {
+  return src(path.src.styleLibs)
+    .pipe(concat("libs.css"))
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(dest(path.build.css))
+    .pipe(browserSync.stream());
 }
 
 function scripts() {
@@ -425,6 +429,7 @@ const cleandist = () => {
 function startwatch() {
   gulpWatch([path.watch.pug], { usePolling: true }, buildPug);
   gulpWatch([path.watch.scss], { usePolling: true }, styles);
+  gulpWatch([path.watch.styleLibs], { usePolling: true }, stylesLibs);
   gulpWatch([path.watch.js], { usePolling: true }, scripts);
   gulpWatch([path.watch.images], { usePolling: true }, images);
   gulpWatch([path.watch.fonts], { usePolling: true }, fonts);
@@ -447,7 +452,7 @@ function ftp() {
     .pipe(ftpConnect.dest(`/${path.ftp}/${path.rootFolder}`));
 }
 
-const mainTasks = parallel(images, scripts, buildPug, styles, sprite, fonts, files);
+const mainTasks = parallel(images, scripts, buildPug, styles, stylesLibs, sprite, fonts, files);
 // Добавлена задача cleandist в watch
 const watch = series(cleandist, mainTasks, parallel(browsersync, startwatch));
 const build = series(cleandist, mainTasks);

@@ -111,7 +111,7 @@ function formatDate(dateStr) {
 
 function setDateValues(arrDates) {
   if (arrDates.length === 0) return;
-  // Скрытие инпуты для пробрасывания значений
+  // Скрытые инпуты для пробрасывания значений
   const inputDateFrom = document.getElementById("input-date-from");
   const inputDateTo = document.getElementById("input-date-to");
   // Триггеры для вызова экземпляра календаря
@@ -133,7 +133,7 @@ function setDateValues(arrDates) {
 }
 
 function resetValues() {
-  // Скрытие инпуты для пробрасывания значений
+  // Скрытые инпуты для пробрасывания значений
   const inputDateFrom = document.getElementById("input-date-from");
   const inputDateTo = document.getElementById("input-date-to");
   // Триггеры для вызова экземпляра календаря
@@ -231,7 +231,6 @@ function showCalendar(button) {
   const customSelect = button.closest(".custom-select");
   if (!customSelect) return;
 
-  // Проверяем, есть ли уже контейнер
   let calendarContainer = customSelect.querySelector(".calendar-container");
 
   if (calendarContainer) {

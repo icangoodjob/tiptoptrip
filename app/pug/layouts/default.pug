@@ -27,7 +27,7 @@ html(lang="ru")
 			//- if googleFonts
 			//- 	link(href=`https://fonts.googleapis.com/css2?family=${googleFonts}&display=swap` rel="stylesheet")
 			block styles
-				//- link(href="styles/libs.min.css" rel="stylesheet")
+				link(href="styles/libs.min.css" rel="stylesheet")
 				link(href="styles/main.min.css" rel="stylesheet")
 			meta(name="theme-color" content="#fff")
 			meta(name="msapplication-navbutton-color" content="#fff")
@@ -39,8 +39,7 @@ html(lang="ru")
 			meta(name="format-detection" content="address=no")
 			meta(name="format-detection" content="email=no")
 			meta(name="format-detection" content="date=no")
-			link(rel="shortcut icon" href="images/favicons/favicon.svg" type="image/x-icon")
-			//- include ../components/favicons
+			link(rel="icon" href="images/favicons/favicon.svg" type="image/svg+xml")
 	body(class=bodyClass ? bodyClass : '')
 		div.wrapper#wrapper
 			include ../components/header

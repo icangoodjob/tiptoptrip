@@ -42,9 +42,9 @@
   }
   // .breadcrumbs__link
   &__link {
+    transition: color var(--time);
+    @include hover {
+      color: var(--basic-orange);
+    }
   }
-}
-.container {
-}
-.active {
 }

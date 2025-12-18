@@ -177,9 +177,6 @@
 
 // Статьи
 .town-posts {
-  // .town-posts__wrapper
-  &__wrapper {
-  }
   // .town-posts__cards
   &__cards {
     display: grid;
@@ -218,12 +215,6 @@
 
 // Жилье (Отели)
 .town-hotels {
-  // .town-hotels__main
-  &__main {
-  }
-  // .town-hotels__cards
-  &__cards {
-  }
   & .section-heading {
     margin-bottom: 30px;
   }
