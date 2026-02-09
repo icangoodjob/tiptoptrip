@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TipTopTrip</title>
+	<link rel="icon" href="images/favicons/favicon.svg" type="image/svg+xml">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+		*,
+		*::before,
+		*::after {
+			padding: 0px;
+			margin: 0px;
+			border: 0px;
+			box-sizing: border-box;
+		}
+
+		ul,
+		ol,
+		li {
+			list-style: none;
+		}
+
+		html,
+		body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			min-height: 100%;
+			min-width: 320px;
+			width: 100%;
+			color: #f3f3f5;
+		}
+
+		.rootpage__description {
+			font-size: 18px;
+		}
+
+		.rootpage__text {
+			font-size: 14px;
+			margin: 18px 0 18px;
+		}
+
+		ol {
+			counter-reset: numbers;
+		}
+
+		ol li {
+			position: relative;
+			padding: 0 0 0 30px;
+		}
+
+		ol li::before {
+			counter-increment: numbers;
+			content: counter(numbers) ".";
+			position: absolute;
+			left: 0;
+			top: 0;
+			font-size: 16px;
+			font-weight: 500;
+			text-align: right;
+			color: inherit;
+		}
+
+		@keyframes gradient {
+			0% {
+				background-position: 0 50%;
+			}
+
+			50% {
+				background-position: 100% 50%;
+			}
+
+			100% {
+				background-position: 0 50%;
+			}
+		}
+
+		body {
+			height: auto;
+			font-family: 'Montserrat', sans-serif;
+			font-size: 100%;
+			line-height: 1;
+			font-size: 1rem;
+			background: linear-gradient(-45deg, #ff692e, #6db3f5, #60c670);
+			background-size: 400% 400%;
+			animation: gradient 15s ease infinite;
+		}
+
+		a {
+			position: relative;
+			color: #f3f3f5;
+			text-decoration: none;
+		}
+
+		@media (min-width: 767.98px) {
+			a:after {
+				display: block;
+				position: absolute;
+				left: 0;
+				width: 100%;
+				height: 2px;
+				background-color: currentColor;
+				content: "";
+				transition: width 0.3s ease-out;
+			}
+
+			a:hover:after {
+				width: 0%;
+			}
+		}
+
+		.rootpage {
+			padding: 30px;
+			min-height: 100vh;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			overflow: hidden;
+		}
+
+		@media (max-width: 767.98px) {
+			.rootpage {
+				padding: 30px 15px;
+			}
+		}
+
+		h1 {
+			color: #f3f3f5;
+			font-size: 2.5rem;
+			margin: 0px 0px 1.25rem 0px;
+		}
+
+		@media (max-width: 767.98px) {
+			h1 {
+				font-size: 1.85rem;
+				margin: 0px 0px 1.25rem 0px;
+			}
+		}
+
+		h2 {
+			color: #f3f3f5;
+			font-size: 1.25rem;
+			margin: 0px 0px 1rem 0px;
+		}
+
+		@media (max-width: 767.98px) {
+			h2 {
+				font-size: 1.125rem;
+				margin: 0px 0px 1rem 0px;
+			}
+		}
+
+		.rootpage__list {
+			margin: 0px 0px 2.25rem;
+		}
+
+		.rootpage__list li:not(:last-child) {
+			margin: 0px 0px 15px 0px;
+		}
+
+		::selection {
+			background: #81B29A;
+			/* Safari */
+		}
+
+		::-moz-selection {
+			background: #81B29A;
+			/* Firefox */
+		}
+	</style>
+</head>
+
+<body>
+	<div class="rootpage">
+		<h1 class="rootpage__title">TipTopTrip</h1>
+		<p class="rootpage__description">
+			<b>Описание:</b> Адаптивная верстка
+		</p>
+		<div class="rootpage__text">Ниже вы найдете ссылки на все страницы. Для просмотра кликайте на нужную страничку (откроется в новом окне)</div>
+		<h2>Страницы:</h2>
+		<ol class="rootpage__list">
+			<li>
+				<a target="_blank" href="index.html">Главная страница</a>
+			</li>
+			<li>
+				<a target="_blank" href="town.html">Детальная страница города (Общая)</a>
+			</li>
+			<li>
+				<a target="_blank" href="town-hotels.html">Детальная страница города (Жилье)</a>
+			</li>
+			<li>
+				<a target="_blank" href="town-testimonials.html">Детальная страница города (Отзывы)</a>
+			</li>
+			<li>
+				<a target="_blank" href="town-photo.html">Детальная страница города (Фото)</a>
+			</li>
+			<li>
+				<a target="_blank" href="town-map.html">Детальная страница города (Карта)</a>
+			</li>
+			<li>
+				<a target="_blank" href="town-weather.html">Детальная страница города (Погода)</a>
+			</li>
+			<li>
+				<a target="_blank" href="town-posts.html">Детальная страница города (Статьи)</a>
+			</li>
+			<li>
+				<a target="_blank" href="town-food.html">Детальная страница города (Питание)</a>
+			</li>
+			<li>
+				<a target="_blank" href="town-transport.html">Детальная страница города (Транспорт)</a>
+			</li>
+			<li>
+				<a target="_blank" href="town-games.html">Детальная страница города (Развлечения)</a>
+			</li>
+			<li>
+				<a target="_blank" href="main-card.html">Детальная страница отеля</a>
+			</li>
+			<li>
+				<a target="_blank" href="main-card-2.html">Детальная страница объекта</a>
+			</li>
+			<li>
+				<a target="_blank" href="booking.html">Заявка на бронирование</a>
+			</li>
+			<li>
+				<a target="_blank" href="booking-edit.html">Заявка на бронирование (редактирование)</a>
+			</li>
+			<li>
+				<a target="_blank" href="booking-result.html">Заявка на бронирование (результат)</a>
+			</li>
+			<li>
+				<a target="_blank" href="append-reviews.html">Форма отзыва (добавление нового отзыва)</a>
+			</li>
+			<li>
+				<a target="_blank" href="auth.html">Регистрация</a>
+			</li>
+			<li>
+				<a target="_blank" href="auth-login.html">Вход</a>
+			</li>
+			<li>
+				<a target="_blank" href="auth-password.html">Восстановление пароля</a>
+			</li>
+			<li>
+				<a target="_blank" href="auth-password-code.html">Восстановление пароля (с кодом)</a>
+			</li>
+			<li>
+				<a target="_blank" href="contacts.html">Контакты</a>
+			</li>
+			<li>
+				<a target="_blank" href="services.html">Тарифы и услуги</a>
+			</li>
+			<li>
+				<a target="_blank" href="append-object.html">Добавление нового объекта</a>
+			</li>
+			<li>
+				<a target="_blank" href="favorites.html">Избранное</a>
+			</li>
+			<li>
+				<a target="_blank" href="profile.html">Страница юзера (с отзывами и объявлениями)</a>
+			</li>
+			<li>
+				<a target="_blank" href="profile-advert-empty.html">Страница юзера (без объявлений)</a>
+			</li>
+			<li>
+				<a target="_blank" href="profile-reviews-empty.html">Страница юзера (без отзывов)</a>
+			</li>
+			<li>
+				<a target="_blank" href="site-feedback.html">Отзывы о сайте</a>
+			</li>
+			<li>
+				<a target="_blank" href="dev-page.html">Разработка сайтов</a>
+			</li>
+		</ol>
+	</div>
+</body>
+
+</html>

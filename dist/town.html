@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Деталка города</title>
+	<meta name="description" content="Описание на странице - Деталка города">
+	<meta name="keywords" content="Перечень ключевых слов">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://example.com">
+	<meta property="og:title" content="Деталка города">
+	<meta property="og:description" content="Описание на странице - Деталка города">
+	<meta property="twitter:title" content="Деталка города">
+	<meta property="twitter:description" content="description">
+	<link rel="canonical" href="https://example.com">
+	<link href="styles/libs.min.css?_v=20260209113223" rel="stylesheet">
+	<link href="styles/main.min.css?_v=20260209113223" rel="stylesheet">
+	<meta name="theme-color" content="#fff">
+	<meta name="msapplication-navbutton-color" content="#fff">
+	<meta name="apple-mobile-web-app-status-bar-style" content="#fff">
+	<meta name="apple-mobile-web-app-title" content="Название">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="address=no">
+	<meta name="format-detection" content="email=no">
+	<meta name="format-detection" content="date=no">
+	<link rel="icon" href="images/favicons/favicon.svg" type="image/svg+xml">
+</head>
+
+<body>
+	<div class="wrapper" id="wrapper">
+		<header class="header" id="header">
+			<div class="container">
+				<div class="header__body">
+					<div class="header__left">
+						<button class="header__burger" type="button">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M5 17H13M5 12H19M11 7H19" stroke="#08151A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</button>
+						<a class="header__logo" href="index.html">
+							<img class="logo-black" src="images/logo.svg" alt="логотип">
+							<img class="logo-white" src="images/logo-white.svg" alt="логотип">
+						</a>
+						<div class="header__select">
+							<button class="btn btn--border header__btn-select" type="button">Выберите курорт</button>
+							<nav class="menu-category" data-da=".menu__body, 1024, 0">
+								<div class="menu-category__body">
+									<div class="menu-category__group menu-group" data-spollers="1024,max" data-one-spoller>
+										<div class="menu-group__caption default-text default-text--semibold">Регион</div>
+										<div class="menu-group__items">
+											<div class="menu-group__item">
+												<div class="menu-group__name" data-spoller>Краснодарский край</div>
+												<div class="menu-group__list-wrap">
+													<ul class="menu-group__list">
+														<li class="menu-group__list-item">
+															<a class="menu-group__link" href="#">Курорты Сочи</a>
+															<div class="menu-group__sub-list-inner">
+																<ul class="menu-group__sub-list">
+																	<li class="menu-group__sub-list-item">
+																		<a class="menu-group__sub-link" href="#">Анапа</a>
+																	</li>
+																	<li class="menu-group__sub-list-item">
+																		<a class="menu-group__sub-link" href="#">Благовещенская</a>
+																	</li>
+																	<li class="menu-group__sub-list-item">
+																		<a class="menu-group__sub-link" href="#">Бетта</a>
+																	</li>
+																	<li class="menu-group__sub-list-item">
+																		<a class="menu-group__sub-link" href="#">Гелленджик</a>
+																	</li>
+																</ul>
+															</div>
+														</li>
+														<li class="menu-group__list-item">
+															<a class="menu-group__link" href="#">Курорты Анапы</a>
+															<div class="menu-group__sub-list-inner">
+																<ul class="menu-group__sub-list">
+																	<li class="menu-group__sub-list-item">
+																		<a class="menu-group__sub-link" href="#">Анапа</a>
+																	</li>
+																	<li class="menu-group__sub-list-item">
+																		<a class="menu-group__sub-link" href="#">Благовещенская</a>
+																	</li>
+																	<li class="menu-group__sub-list-item">
+																		<a class="menu-group__sub-link" href="#">Бетта</a>
+																	</li>
+																	<li class="menu-group__sub-list-item">
+																		<a class="menu-group__sub-link" href="#">Гелленджик</a>
+																	</li>
+																	<li class="menu-group__sub-list-item">
+																		<a class="menu-group__sub-link" href="#">Джанхот</a>
+																	</li>
+																	<li class="menu-group__sub-list-item">
+																		<a class="menu-group__sub-link" href="#">Дивноморское</a>
+																	</li>
+																</ul>
+															</div>
+														</li>
+														<li class="menu-group__list-item">
+															<a class="menu-group__link" href="#">Курорты Геленджика</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+											<div class="menu-group__item">
+												<div class="menu-group__name" data-spoller>Крым</div>
+												<div class="menu-group__list-wrap">
+													<ul class="menu-group__list">
+														<li class="menu-group__list-item">
+															<a class="menu-group__link" href="#">Феодосия</a>
+														</li>
+														<li class="menu-group__list-item">
+															<a class="menu-group__link" href="#">Коктебель</a>
+														</li>
+														<li class="menu-group__list-item">
+															<a class="menu-group__link" href="#">Алушта</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+											<div class="menu-group__item">
+												<div class="menu-group__name" data-spoller>Абхазия</div>
+												<div class="menu-group__list-wrap">
+													<ul class="menu-group__list">
+														<li class="menu-group__list-item">
+															<a class="menu-group__link" href="#">Новый Афон</a>
+														</li>
+														<li class="menu-group__list-item">
+															<a class="menu-group__link" href="#">Гагра</a>
+														</li>
+														<li class="menu-group__list-item">
+															<a class="menu-group__link" href="#">Пицунда</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="menu-category__group menu-group">
+										<div class="menu-group__caption default-text default-text--semibold">Курорт</div>
+										<div class="menu-group__items dynamic-items default-text--small"></div>
+									</div>
+								</div>
+							</nav>
+						</div>
+					</div>
+					<div class="header__right">
+						<a class="header__favorite" href="favorites.html">
+							<svg width="26" height="23" viewBox="0 0 26 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path class="svg-bg" fill-rule="evenodd" clip-rule="evenodd" d="M22.8994 2.60655C21.715 1.41785 20.1084 0.75 18.4331 0.75C16.7577 0.75 15.1511 1.41785 13.9667 2.60655L12.7497 3.82749L11.5326 2.60655C9.06597 0.13197 5.06669 0.131971 2.60001 2.60655C0.13333 5.08113 0.13333 9.09322 2.60001 11.5678L12.7497 21.75L22.8994 11.5678C24.0843 10.3797 24.75 8.76786 24.75 7.08718C24.75 5.4065 24.0843 3.79469 22.8994 2.60655Z" fill="#FF6933" />
+								<path class="svg-border" fill-rule="evenodd" clip-rule="evenodd" d="M13.4356 2.07707C14.7604 0.747456 16.558 0 18.4331 0C20.3081 0 22.1059 0.747503 23.4307 2.0772C24.7559 3.40616 25.5 5.20841 25.5 7.08718C25.5 8.96606 24.7558 10.7684 23.4304 12.0974L13.2809 22.2795C13.1402 22.4207 12.949 22.5 12.7497 22.5C12.5504 22.5 12.3592 22.4207 12.2185 22.2795L2.06883 12.0973C-0.689611 9.33001 -0.689611 4.84435 2.06883 2.07707C4.8286 -0.691535 9.30406 -0.691536 12.0638 2.07707L12.7497 2.76513L13.4356 2.07707ZM18.4331 1.5C16.9575 1.5 15.5419 2.0882 14.498 3.13591L13.2809 4.35698C13.1402 4.49815 12.949 4.57749 12.7497 4.57749C12.5504 4.57749 12.3592 4.49815 12.2185 4.35698L11.0015 3.13603C8.82788 0.955477 5.30478 0.955477 3.13119 3.13603C0.956271 5.31792 0.956271 8.85644 3.13119 11.0383L12.7497 20.6876L22.3682 11.0383C23.4126 9.99103 24 8.56966 24 7.08718C24 5.6047 23.4128 4.18345 22.3683 3.13616C21.3244 2.08845 19.9086 1.5 18.4331 1.5Z" fill="#FF6933" />
+							</svg>
+						</a>
+						<a class="btn btn--border header__btn-auth" href="auth.html">Авторизация</a>
+						<a class="btn btn--border btn-append header__btn-append" href="append-object.html">
+							<span>Добавить проект </span>
+						</a>
+					</div>
+				</div>
+				<div class="header__menu menu">
+					<div class="menu__top">
+						<button class="menu__close default-text default-text--semibold" type="button">
+							<span class="menu__close-icon"> </span>Закрыть
+						</button>
+					</div>
+					<div class="menu__links">
+						<a class="btn btn--border" href="auth.html">Авторизация</a>
+						<a class="btn btn--border btn-append" href="append-object.html">Добавить проект</a>
+					</div>
+					<div class="menu__body"></div>
+				</div>
+			</div>
+		</header>
+		<div class="breadcrumbs">
+			<div class="container">
+				<nav class="breadcrumbs__navigation">
+					<ul class="breadcrumbs__list">
+						<li class="breadcrumbs__item">
+							<a class="breadcrumbs__link" href="/">Главная</a>
+						</li>
+						<li class="breadcrumbs__item">
+							<a class="breadcrumbs__link" href="/">Крым</a>
+						</li>
+						<li class="breadcrumbs__item active">Алушта</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<main class="page-content">
+			<div class="page-header">
+				<div class="container">
+					<div class="page-title title-h1">Алушта</div>
+				</div>
+			</div>
+			<div class="page-body">
+				<div class="town">
+					<div class="container">
+						<div class="town__heading">
+							<div class="town__heading-image image-ibg">
+								<picture>
+									<source srcset="images/town/preview-img@2x.webp" type="image/webp">
+									<img src="images/town/preview-img@2x.jpg" alt="Алушта">
+								</picture>
+							</div>
+							<nav class="menu-navigation">
+								<a class="active menu-navigation__link btn btn--gray" href="town.html">Алушта</a>
+								<a class="menu-navigation__link btn btn--gray" href="town-hotels.html">Жилье</a>
+								<a class="menu-navigation__link btn btn--gray" href="town-testimonials.html">Отзывы (25)</a>
+								<a class="menu-navigation__link btn btn--gray" href="town-photo.html">Фото</a>
+								<a class="menu-navigation__link btn btn--gray" href="town-map.html">Карта</a>
+								<a class="menu-navigation__link btn btn--gray" href="town-weather.html">Погода</a>
+								<a class="menu-navigation__link btn btn--gray" href="town-posts.html">Статьи</a>
+								<a class="menu-navigation__link btn btn--gray" href="town-food.html">Питание</a>
+								<a class="menu-navigation__link btn btn--gray" href="town-transport.html">Транспорт</a>
+								<a class="menu-navigation__link btn btn--gray" href="town-games.html">Развлечение</a>
+							</nav>
+						</div>
+						<div class="default-grid-wrapper">
+							<div class="aside-nav">
+								<div class="aside-nav__caption default-text default-text--semibold">Курорты рядом</div>
+								<nav class="aside-menu">
+									<ul class="aside-menu__list">
+										<li class="aside-menu__item">
+											<a class="link-underline default-text aside-menu__link" href="#">Утес</a>
+										</li>
+										<li class="aside-menu__item">
+											<a class="link-underline default-text aside-menu__link" href="#">Лазурное</a>
+										</li>
+										<li class="aside-menu__item">
+											<a class="link-underline default-text aside-menu__link" href="#">Партенит</a>
+										</li>
+										<li class="aside-menu__item">
+											<a class="link-underline default-text aside-menu__link" href="#">Сатера</a>
+										</li>
+										<li class="aside-menu__item">
+											<a class="link-underline default-text aside-menu__link" href="#">Семидворье</a>
+										</li>
+										<li class="aside-menu__item">
+											<a class="link-underline default-text aside-menu__link" href="#">Малый маяк</a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+							<div class="default-grid-wrapper__main">
+								<div class="town-sections">
+									<div class="town-section">
+										<div class="content">
+											<h4>Отдых в Алуште 2024</h4>
+											<p>Алушта – курортный город, расположен на Южном берегу Крыма. Следует отметить великолепный ландшафт и уникальное расположение: город окружен горами, которые создают надежную защиту от ветра. Поэтому Алушта и привлекла кинематографистов: известный советский фильм «Кавказская пленница» снимался именно там, возле полуразрушенной крепости.</p>
+											<p>Климат средиземноморский, жаркий, но зимы в Алуште теплые и мягкие. Город имеет развитую инфраструктуру и единственный в Европе междугородний троллейбусный маршрут Симферополь-Алушта-Ялта.</p>
+											<p>В свободное время рекомендуем посетить мыс Плака, музей природы Крымского заповедника, дом-музей Сергеева-Ценского, парк-музей князей Бороздиных-Гагариных.</p>
+											<p>Каждый год Алушта привлекает все больше и больше новых туристов.</p>
+											<p>В свободное время рекомендуем посетить мыс Плака, музей природы Крымского заповедника, дом-музей Сергеева-Ценского, парк-музей князей Бороздиных-Гагариных.</p>
+											<p>Каждый год Алушта привлекает все больше и больше новых туристов.</p>
+											<div class="facities-widget">
+												<div class="facities-widget__slider">
+													<div class="swiper">
+														<div class="swiper-wrapper">
+															<a class="swiper-slide object-card" href="main-card.html">
+																<div class="object-card__image-wrap">
+																	<div class="favorite-button">
+																		<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+																			<rect width="40" height="40" rx="20" fill="white" />
+																			<path fill-rule="evenodd" clip-rule="evenodd" d="M20.9033 15.2001C21.6826 14.4319 22.74 14 23.843 14C24.946 14 26.0034 14.4319 26.7828 15.2002C27.5623 15.968 28 17.0093 28 18.0948C28 19.1804 27.5622 20.2218 26.7826 20.9896L20.8123 26.8726C20.7295 26.9542 20.6171 27 20.4998 27C20.3826 27 20.2701 26.9542 20.1874 26.8726L14.217 20.9895C12.5943 19.3907 12.5943 16.799 14.217 15.2001C15.8404 13.6004 18.473 13.6004 20.0964 15.2001L20.4998 15.5976L20.9033 15.2001Z" fill="transparent" />
+																		</svg>
+																	</div>
+																	<div class="object-card__image image-ibg">
+																		<picture>
+																			<source srcset="images/objects/object-1@2x.webp" type="image/webp">
+																			<img src="images/objects/object-1@2x.jpg" alt="Гостевой дом “Маяк”">
+																		</picture>
+																	</div>
+																</div>
+																<div class="object-card__content">
+																	<div class="object-card__title title-underline title-h5">Гостевой дом “Маяк”</div>
+																	<div class="object-card__description default-text--small">Голубицкая, ул.&nbsp;Красная, д.&nbsp;178</div>
+																	<div class="object-card__bottom">
+																		<div class="object-card__prices">
+																			<div class="object-card__price title-h4">от 875 ₽</div>
+																			<div class="object-card__price-caption default-text--small">за чел. в сутки в июне</div>
+																		</div>
+																	</div>
+																</div>
+															</a>
+															<a class="swiper-slide object-card" href="main-card.html">
+																<div class="object-card__image-wrap">
+																	<div class="favorite-button">
+																		<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+																			<rect width="40" height="40" rx="20" fill="white" />
+																			<path fill-rule="evenodd" clip-rule="evenodd" d="M20.9033 15.2001C21.6826 14.4319 22.74 14 23.843 14C24.946 14 26.0034 14.4319 26.7828 15.2002C27.5623 15.968 28 17.0093 28 18.0948C28 19.1804 27.5622 20.2218 26.7826 20.9896L20.8123 26.8726C20.7295 26.9542 20.6171 27 20.4998 27C20.3826 27 20.2701 26.9542 20.1874 26.8726L14.217 20.9895C12.5943 19.3907 12.5943 16.799 14.217 15.2001C15.8404 13.6004 18.473 13.6004 20.0964 15.2001L20.4998 15.5976L20.9033 15.2001Z" fill="transparent" />
+																		</svg>
+																	</div>
+																	<div class="object-card__image image-ibg">
+																		<picture>
+																			<source srcset="images/objects/object-2@2x.webp" type="image/webp">
+																			<img src="images/objects/object-2@2x.jpg" alt="Гостевой дом “Маяк”">
+																		</picture>
+																	</div>
+																</div>
+																<div class="object-card__content">
+																	<div class="object-card__title title-underline title-h5">Гостевой дом “Маяк”</div>
+																	<div class="object-card__description default-text--small">Голубицкая, ул.&nbsp;Красная, д.&nbsp;178</div>
+																	<div class="object-card__bottom">
+																		<div class="object-card__prices">
+																			<div class="object-card__price title-h4">от 875 ₽</div>
+																			<div class="object-card__price-caption default-text--small">за чел. в сутки в июне</div>
+																		</div>
+																	</div>
+																</div>
+															</a>
+															<a class="swiper-slide object-card" href="main-card.html">
+																<div class="object-card__image-wrap">
+																	<div class="favorite-button">
+																		<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+																			<rect width="40" height="40" rx="20" fill="white" />
+																			<path fill-rule="evenodd" clip-rule="evenodd" d="M20.9033 15.2001C21.6826 14.4319 22.74 14 23.843 14C24.946 14 26.0034 14.4319 26.7828 15.2002C27.5623 15.968 28 17.0093 28 18.0948C28 19.1804 27.5622 20.2218 26.7826 20.9896L20.8123 26.8726C20.7295 26.9542 20.6171 27 20.4998 27C20.3826 27 20.2701 26.9542 20.1874 26.8726L14.217 20.9895C12.5943 19.3907 12.5943 16.799 14.217 15.2001C15.8404 13.6004 18.473 13.6004 20.0964 15.2001L20.4998 15.5976L20.9033 15.2001Z" fill="transparent" />
+																		</svg>
+																	</div>
+																	<div class="object-card__image image-ibg">
+																		<picture>
+																			<source srcset="images/objects/object-3@2x.webp" type="image/webp">
+																			<img src="images/objects/object-3@2x.jpg" alt="Гостевой дом “Маяк”">
+																		</picture>
+																	</div>
+																</div>
+																<div class="object-card__content">
+																	<div class="object-card__title title-underline title-h5">Гостевой дом “Маяк”</div>
+																	<div class="object-card__description default-text--small">Голубицкая, ул.&nbsp;Красная, д.&nbsp;178</div>
+																	<div class="object-card__bottom">
+																		<div class="object-card__prices">
+																			<div class="object-card__price title-h4">от 875 ₽</div>
+																			<div class="object-card__price-caption default-text--small">за чел. в сутки в июне</div>
+																		</div>
+																	</div>
+																</div>
+															</a>
+															<a class="swiper-slide object-card" href="main-card.html">
+																<div class="object-card__image-wrap">
+																	<div class="favorite-button">
+																		<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+																			<rect width="40" height="40" rx="20" fill="white" />
+																			<path fill-rule="evenodd" clip-rule="evenodd" d="M20.9033 15.2001C21.6826 14.4319 22.74 14 23.843 14C24.946 14 26.0034 14.4319 26.7828 15.2002C27.5623 15.968 28 17.0093 28 18.0948C28 19.1804 27.5622 20.2218 26.7826 20.9896L20.8123 26.8726C20.7295 26.9542 20.6171 27 20.4998 27C20.3826 27 20.2701 26.9542 20.1874 26.8726L14.217 20.9895C12.5943 19.3907 12.5943 16.799 14.217 15.2001C15.8404 13.6004 18.473 13.6004 20.0964 15.2001L20.4998 15.5976L20.9033 15.2001Z" fill="transparent" />
+																		</svg>
+																	</div>
+																	<div class="object-card__image image-ibg">
+																		<picture>
+																			<source srcset="images/objects/object-4@2x.webp" type="image/webp">
+																			<img src="images/objects/object-4@2x.jpg" alt="Гостевой дом “Маяк”">
+																		</picture>
+																	</div>
+																</div>
+																<div class="object-card__content">
+																	<div class="object-card__title title-underline title-h5">Гостевой дом “Маяк”</div>
+																	<div class="object-card__description default-text--small">Голубицкая, ул.&nbsp;Красная, д.&nbsp;178</div>
+																	<div class="object-card__bottom">
+																		<div class="object-card__prices">
+																			<div class="object-card__price title-h4">от 875 ₽</div>
+																			<div class="object-card__price-caption default-text--small">за чел. в сутки в июне</div>
+																		</div>
+																	</div>
+																</div>
+															</a>
+															<a class="swiper-slide object-card" href="main-card.html">
+																<div class="object-card__image-wrap">
+																	<div class="favorite-button">
+																		<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+																			<rect width="40" height="40" rx="20" fill="white" />
+																			<path fill-rule="evenodd" clip-rule="evenodd" d="M20.9033 15.2001C21.6826 14.4319 22.74 14 23.843 14C24.946 14 26.0034 14.4319 26.7828 15.2002C27.5623 15.968 28 17.0093 28 18.0948C28 19.1804 27.5622 20.2218 26.7826 20.9896L20.8123 26.8726C20.7295 26.9542 20.6171 27 20.4998 27C20.3826 27 20.2701 26.9542 20.1874 26.8726L14.217 20.9895C12.5943 19.3907 12.5943 16.799 14.217 15.2001C15.8404 13.6004 18.473 13.6004 20.0964 15.2001L20.4998 15.5976L20.9033 15.2001Z" fill="transparent" />
+																		</svg>
+																	</div>
+																	<div class="object-card__image image-ibg">
+																		<picture>
+																			<source srcset="images/objects/object-5@2x.webp" type="image/webp">
+																			<img src="images/objects/object-5@2x.jpg" alt="Гостевой дом “Маяк”">
+																		</picture>
+																	</div>
+																</div>
+																<div class="object-card__content">
+																	<div class="object-card__title title-underline title-h5">Гостевой дом “Маяк”</div>
+																	<div class="object-card__description default-text--small">Голубицкая, ул.&nbsp;Красная, д.&nbsp;178</div>
+																	<div class="object-card__bottom">
+																		<div class="object-card__prices">
+																			<div class="object-card__price title-h4">от 875 ₽</div>
+																			<div class="object-card__price-caption default-text--small">за чел. в сутки в июне</div>
+																		</div>
+																	</div>
+																</div>
+															</a>
+															<a class="swiper-slide object-card" href="main-card.html">
+																<div class="object-card__image-wrap">
+																	<div class="favorite-button">
+																		<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+																			<rect width="40" height="40" rx="20" fill="white" />
+																			<path fill-rule="evenodd" clip-rule="evenodd" d="M20.9033 15.2001C21.6826 14.4319 22.74 14 23.843 14C24.946 14 26.0034 14.4319 26.7828 15.2002C27.5623 15.968 28 17.0093 28 18.0948C28 19.1804 27.5622 20.2218 26.7826 20.9896L20.8123 26.8726C20.7295 26.9542 20.6171 27 20.4998 27C20.3826 27 20.2701 26.9542 20.1874 26.8726L14.217 20.9895C12.5943 19.3907 12.5943 16.799 14.217 15.2001C15.8404 13.6004 18.473 13.6004 20.0964 15.2001L20.4998 15.5976L20.9033 15.2001Z" fill="transparent" />
+																		</svg>
+																	</div>
+																	<div class="object-card__image image-ibg">
+																		<picture>
+																			<source srcset="images/objects/object-6@2x.webp" type="image/webp">
+																			<img src="images/objects/object-6@2x.jpg" alt="Гостевой дом “Маяк”">
+																		</picture>
+																	</div>
+																</div>
+																<div class="object-card__content">
+																	<div class="object-card__title title-underline title-h5">Гостевой дом “Маяк”</div>
+																	<div class="object-card__description default-text--small">Голубицкая, ул.&nbsp;Красная, д.&nbsp;178</div>
+																	<div class="object-card__bottom">
+																		<div class="object-card__prices">
+																			<div class="object-card__price title-h4">от 875 ₽</div>
+																			<div class="object-card__price-caption default-text--small">за чел. в сутки в июне</div>
+																		</div>
+																	</div>
+																</div>
+															</a>
+															<a class="swiper-slide object-card" href="main-card.html">
+																<div class="object-card__image-wrap">
+																	<div class="favorite-button">
+																		<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+																			<rect width="40" height="40" rx="20" fill="white" />
+																			<path fill-rule="evenodd" clip-rule="evenodd" d="M20.9033 15.2001C21.6826 14.4319 22.74 14 23.843 14C24.946 14 26.0034 14.4319 26.7828 15.2002C27.5623 15.968 28 17.0093 28 18.0948C28 19.1804 27.5622 20.2218 26.7826 20.9896L20.8123 26.8726C20.7295 26.9542 20.6171 27 20.4998 27C20.3826 27 20.2701 26.9542 20.1874 26.8726L14.217 20.9895C12.5943 19.3907 12.5943 16.799 14.217 15.2001C15.8404 13.6004 18.473 13.6004 20.0964 15.2001L20.4998 15.5976L20.9033 15.2001Z" fill="transparent" />
+																		</svg>
+																	</div>
+																	<div class="object-card__image image-ibg">
+																		<picture>
+																			<source srcset="images/objects/object-7@2x.webp" type="image/webp">
+																			<img src="images/objects/object-7@2x.jpg" alt="Гостевой дом “Маяк”">
+																		</picture>
+																	</div>
+																</div>
+																<div class="object-card__content">
+																	<div class="object-card__title title-underline title-h5">Гостевой дом “Маяк”</div>
+																	<div class="object-card__description default-text--small">Голубицкая, ул.&nbsp;Красная, д.&nbsp;178</div>
+																	<div class="object-card__bottom">
+																		<div class="object-card__prices">
+																			<div class="object-card__price title-h4">от 875 ₽</div>
+																			<div class="object-card__price-caption default-text--small">за чел. в сутки в июне</div>
+																		</div>
+																	</div>
+																</div>
+															</a>
+															<a class="swiper-slide object-card" href="main-card.html">
+																<div class="object-card__image-wrap">
+																	<div class="favorite-button">
+																		<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+																			<rect width="40" height="40" rx="20" fill="white" />
+																			<path fill-rule="evenodd" clip-rule="evenodd" d="M20.9033 15.2001C21.6826 14.4319 22.74 14 23.843 14C24.946 14 26.0034 14.4319 26.7828 15.2002C27.5623 15.968 28 17.0093 28 18.0948C28 19.1804 27.5622 20.2218 26.7826 20.9896L20.8123 26.8726C20.7295 26.9542 20.6171 27 20.4998 27C20.3826 27 20.2701 26.9542 20.1874 26.8726L14.217 20.9895C12.5943 19.3907 12.5943 16.799 14.217 15.2001C15.8404 13.6004 18.473 13.6004 20.0964 15.2001L20.4998 15.5976L20.9033 15.2001Z" fill="transparent" />
+																		</svg>
+																	</div>
+																	<div class="object-card__image image-ibg">
+																		<picture>
+																			<source srcset="images/objects/object-8@2x.webp" type="image/webp">
+																			<img src="images/objects/object-8@2x.jpg" alt="Гостевой дом “Маяк”">
+																		</picture>
+																	</div>
+																</div>
+																<div class="object-card__content">
+																	<div class="object-card__title title-underline title-h5">Гостевой дом “Маяк”</div>
+																	<div class="object-card__description default-text--small">Голубицкая, ул.&nbsp;Красная, д.&nbsp;178</div>
+																	<div class="object-card__bottom">
+																		<div class="object-card__prices">
+																			<div class="object-card__price title-h4">от 875 ₽</div>
+																			<div class="object-card__price-caption default-text--small">за чел. в сутки в июне</div>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</div>
+													</div>
+													<div class="swiper-scrollbar"></div>
+												</div>
+												<div class="badges">
+													<ul class="badges__list">
+														<li class="badges__item">
+															<a class="badges__link default-text--small" href="#">Отель</a>
+														</li>
+														<li class="badges__item">
+															<a class="badges__link default-text--small" href="#">Гостиница</a>
+														</li>
+														<li class="badges__item">
+															<a class="badges__link default-text--small" href="#">Пансионат</a>
+														</li>
+														<li class="badges__item">
+															<a class="badges__link default-text--small" href="#">Гостевой дом</a>
+														</li>
+														<li class="badges__item">
+															<a class="badges__link default-text--small" href="#">Мини-отель</a>
+														</li>
+														<li class="badges__item">
+															<a class="badges__link default-text--small" href="#">Вилла</a>
+														</li>
+														<li class="badges__item">
+															<a class="badges__link default-text--small" href="#">Апартаменты</a>
+														</li>
+														<li class="badges__item">
+															<a class="badges__link default-text--small" href="#">Хостел</a>
+														</li>
+														<li class="badges__item">
+															<a class="badges__link default-text--small" href="#">Туристический комплекс</a>
+														</li>
+														<li class="badges__item">
+															<a class="badges__link default-text--small" href="#">База отдыха</a>
+														</li>
+														<li class="badges__item">
+															<a class="badges__link default-text--small" href="#">Частный сектор</a>
+														</li>
+														<li class="badges__item">
+															<a class="badges__link default-text--small" href="#">Апарт отель</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="town-section town-section--housing">
+										<div class="content">
+											<h4>Жилье в Алуште</h4>
+											<p>Привлекательность Алушты для туристов очевидна с первого взгляда: город расположен у моря, цены на жилье сравнительно невысокие, климат мягкий и полезный для здоровья. Отдых в Алуште на берегу моря традиционно считался престижным, поэтому курорт пользуется большой популярностью и у современных туристов. Жилье для отдыха в Алуште найти несложно. При этом здесь уверенно себя будет чувствовать абсолютно любой турист: и отдыхающие с детьми, и пары, и самостоятельные путешественники. Ценовой диапазон очень разнообразный, как и уровень жилья и предоставляемого сервиса. Жить в городе можно как у самого моря, так и ближе к центру. Хотя большая часть вариантов недорогого жилья расположена в менее удобных районах.</p>
+											<p>В Алуште жилье можно снимать у хозяев без посредников, а можно обращаться в агентства по подбору квартир. Также здесь есть масса отелей, вилл и пансионатов, которые предлагают комплексные условия «все включено». Отдых с питанием будет особенно актуальным для семей с маленькими детьми, а также тех, кто ежедневно проводит дни на кухне. Бронирование можно осуществлять через Интернет - в таком случае нужно тщательно изучить фотографии и отзывы отдыхающих, чтобы отдых на берегу моря не стал разочарованием.</p>
+											<div class="images-widget images2-widget">
+												<div class="images-widget__image image-ibg">
+													<picture>
+														<source srcset="images/town/images-widget/img-1@2x.webp" type="image/webp">
+														<img src="images/town/images-widget/img-1@2x.jpg" alt="изображение">
+													</picture>
+												</div>
+												<div class="images-widget__image image-ibg">
+													<picture>
+														<source srcset="images/town/images-widget/img-2@2x.webp" type="image/webp">
+														<img src="images/town/images-widget/img-2@2x.jpg" alt="изображение">
+													</picture>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="town-section town-section--map">
+										<div class="content">
+											<h4>Как добраться до Алушты? Карта проезда</h4>
+											<p>Самый эффективный, быстрый и приятный способ попасть на полуостров - прилететь сюда самолетом. Из Симферополя можно дешево доехать до города, поскольку в этом направлении ездит большое количество общественного транспорта. Есть и рейсовый автобусы, и частные маршрутные такси. Как правило, карта проезда наглядно демонстрирует как лучше добраться до жилья, поэтому несложно будет и тем, кто приехал на машине или взял здесь ее в аренду. К слову, бронирование автомобилей довольно популярно в Крыму, поскольку позволяет туристу увидеть не только город и его окраины, но еще и попутешествовать по полуострову. Отдых в Алуште в 2024 году обещает оставаться таким же популярным среди туристов, поэтому можно рассчитывать и на попутчиков, которые «подбросят» из Симферополя.</p>
+											<p>Интересно то, что в Алушту можно добраться также на троллейбусе. Есть рейсы прямо с автостанции возле аэропорта и с автостанции Курортная (на ж/д вокзале). Стоимость билета около 50 руб, что сравнительно недорого. Едва ли где-то еще можно прокатиться в течение полутора часов на городском троллейбусе, курсирующим между городами! Вот что называется отдыхать дешево, без посредников, и с массой впечатлений!</p>
+											<div class="map" id="map"></div>
+										</div>
+									</div>
+									<div class="town-section">
+										<div class="content">
+											<h4>Немного истории</h4>
+											<p>По приказу Византийского императора Юстиниана І была построена крепость, названа Алустон.</p>
+											<p>Впервые Алушта упоминается в середине Х века в письме хазарского царя Йосифа. А в середине ХІІ века, по данным арабского путешественника Абу Абдаллаха и его сочинения «Географические развлечения», она стала важным приморским городом. Но арабы тогда называли этот город Шалушта. В XV веке была основана генуэзская колония. Здесь находились генуэзский консул, епископ. Но вскоре Алушта перешла во владения Турции, город превратился в деревню в составе Судацкого кадилика.</p>
+											<div class="images-widget images1-widget">
+												<div class="images-widget__image image-ibg">
+													<picture>
+														<source srcset="images/town/images-widget/img-3@2x.webp" type="image/webp">
+														<img src="images/town/images-widget/img-3@2x.jpg" alt="изображение">
+													</picture>
+												</div>
+											</div>
+											<p>В XVIII веке итогом борьбы России и Турции стало присоединения Крыма к Российской империи. Алушта освободилась от влияния враждебной страны и стала центром волости Ялтинского уезда. Интересной является перепись населения 1897 года: население составляло 2187 человек (мужчин на 200 человек больше), две трети исповедовали ислам. Жители имели свой винокурный завод, церковь, 2 мечети, школу, аптеку.</p>
+											<p>В ХХ веке постепенно росло значение Алушты, как курортного города. Развивалась инфраструктура, привлекались туристы. Многие писатели искали вдохновение в Алуште, например, М. Горький, М. Коцюбинский, А. Куприн, К. Паустовский.</p>
+											<div class="images-widget images2-widget images2-widget-small">
+												<div class="images-widget__image image-ibg">
+													<picture>
+														<source srcset="images/town/images-widget/img-4@2x.webp" type="image/webp">
+														<img src="images/town/images-widget/img-4@2x.jpg" alt="изображение">
+													</picture>
+												</div>
+												<div class="images-widget__image image-ibg">
+													<picture>
+														<source srcset="images/town/images-widget/img-5@2x.webp" type="image/webp">
+														<img src="images/town/images-widget/img-5@2x.jpg" alt="изображение">
+													</picture>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="town-section">
+										<div class="content">
+											<h4>Развлечения в Алуште</h4>
+											<p>Отдых в Алуште с детьми или без, на двоих или одного - это уже само по себе развлечение! Хотя, безусловно, город не скупится на всевозможные достопримечательности, зоны отдыха и места приятного времяпрепровождения. Самое главное развлечение на курорте, расположенном у самого моря, и есть это чудо природы: нежное, соленое, бурлящее море! Отзывы отдыхающих, как правило, начинаются именно с рассказов про море, и это логично, ведь в Алушту едут именно за этим. Однако, поскольку город очень древний и имеет богатую историю, здесь хорошо сохранились храмы и мечети, башни и дворцы, построенные еще в XII- XV веках.</p>
+											<p>На набережной много точек представителей турагентств, которые помогут выбрать интересный маршрут. Рекомендуем выбирать экскурсии по тарифу «все включено»: в стоимость уже включен проезд туда-обратно, услуги гида-экскурсовода, входные билеты на посещаемые объекты и, иногда, обед.</p>
+											<div class="images-widget images2-widget images2-widget-small-reverse">
+												<div class="images-widget__image image-ibg">
+													<picture>
+														<source srcset="images/town/images-widget/img-6@2x.webp" type="image/webp">
+														<img src="images/town/images-widget/img-6@2x.jpg" alt="изображение">
+													</picture>
+												</div>
+												<div class="images-widget__image image-ibg">
+													<picture>
+														<source srcset="images/town/images-widget/img-7@2x.webp" type="image/webp">
+														<img src="images/town/images-widget/img-7@2x.jpg" alt="изображение">
+													</picture>
+												</div>
+											</div>
+											<div class="games-widget">
+												<div class="games-widget__cards games-cards">
+													<a class="game-card" href="#">
+														<div class="game-card__image-wrap">
+															<div class="favorite-button">
+																<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+																	<rect width="40" height="40" rx="20" fill="white" />
+																	<path fill-rule="evenodd" clip-rule="evenodd" d="M20.9033 15.2001C21.6826 14.4319 22.74 14 23.843 14C24.946 14 26.0034 14.4319 26.7828 15.2002C27.5623 15.968 28 17.0093 28 18.0948C28 19.1804 27.5622 20.2218 26.7826 20.9896L20.8123 26.8726C20.7295 26.9542 20.6171 27 20.4998 27C20.3826 27 20.2701 26.9542 20.1874 26.8726L14.217 20.9895C12.5943 19.3907 12.5943 16.799 14.217 15.2001C15.8404 13.6004 18.473 13.6004 20.0964 15.2001L20.4998 15.5976L20.9033 15.2001Z" fill="transparent" />
+																</svg>
+															</div>
+															<div class="game-card__image image-ibg">
+																<picture>
+																	<source srcset="images/town/games-widget/game-img-1@2x.webp" type="image/webp">
+																	<img src="images/town/games-widget/game-img-1@2x.jpg" alt="Алуштинский Мультипарк">
+																</picture>
+															</div>
+														</div>
+														<div class="game-card__content">
+															<div class="game-card__caption default-text default-text--semibold title-underline">Алуштинский Мультипарк</div>
+															<div class="game-card__text default-text--small">Голубицкая, ул.&nbsp;Красная, д.&nbsp;178</div>
+														</div>
+													</a>
+													<a class="game-card" href="#">
+														<div class="game-card__image-wrap">
+															<div class="favorite-button">
+																<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+																	<rect width="40" height="40" rx="20" fill="white" />
+																	<path fill-rule="evenodd" clip-rule="evenodd" d="M20.9033 15.2001C21.6826 14.4319 22.74 14 23.843 14C24.946 14 26.0034 14.4319 26.7828 15.2002C27.5623 15.968 28 17.0093 28 18.0948C28 19.1804 27.5622 20.2218 26.7826 20.9896L20.8123 26.8726C20.7295 26.9542 20.6171 27 20.4998 27C20.3826 27 20.2701 26.9542 20.1874 26.8726L14.217 20.9895C12.5943 19.3907 12.5943 16.799 14.217 15.2001C15.8404 13.6004 18.473 13.6004 20.0964 15.2001L20.4998 15.5976L20.9033 15.2001Z" fill="transparent" />
+																</svg>
+															</div>
+															<div class="game-card__image image-ibg">
+																<picture>
+																	<source srcset="images/town/games-widget/game-img-2@2x.webp" type="image/webp">
+																	<img src="images/town/games-widget/game-img-2@2x.jpg" alt="Алуштинский Мультипарк">
+																</picture>
+															</div>
+														</div>
+														<div class="game-card__content">
+															<div class="game-card__caption default-text default-text--semibold title-underline">Алуштинский Мультипарк</div>
+															<div class="game-card__text default-text--small">Голубицкая, ул.&nbsp;Красная, д.&nbsp;178</div>
+														</div>
+													</a>
+													<a class="game-card" href="#">
+														<div class="game-card__image-wrap">
+															<div class="favorite-button">
+																<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+																	<rect width="40" height="40" rx="20" fill="white" />
+																	<path fill-rule="evenodd" clip-rule="evenodd" d="M20.9033 15.2001C21.6826 14.4319 22.74 14 23.843 14C24.946 14 26.0034 14.4319 26.7828 15.2002C27.5623 15.968 28 17.0093 28 18.0948C28 19.1804 27.5622 20.2218 26.7826 20.9896L20.8123 26.8726C20.7295 26.9542 20.6171 27 20.4998 27C20.3826 27 20.2701 26.9542 20.1874 26.8726L14.217 20.9895C12.5943 19.3907 12.5943 16.799 14.217 15.2001C15.8404 13.6004 18.473 13.6004 20.0964 15.2001L20.4998 15.5976L20.9033 15.2001Z" fill="transparent" />
+																</svg>
+															</div>
+															<div class="game-card__image image-ibg">
+																<picture>
+																	<source srcset="images/town/games-widget/game-img-3@2x.webp" type="image/webp">
+																	<img src="images/town/games-widget/game-img-3@2x.jpg" alt="Алуштинский Мультипарк">
+																</picture>
+															</div>
+														</div>
+														<div class="game-card__content">
+															<div class="game-card__caption default-text default-text--semibold title-underline">Алуштинский Мультипарк</div>
+															<div class="game-card__text default-text--small">Голубицкая, ул.&nbsp;Красная, д.&nbsp;178</div>
+														</div>
+													</a>
+													<a class="game-card" href="#">
+														<div class="game-card__image-wrap">
+															<div class="favorite-button">
+																<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+																	<rect width="40" height="40" rx="20" fill="white" />
+																	<path fill-rule="evenodd" clip-rule="evenodd" d="M20.9033 15.2001C21.6826 14.4319 22.74 14 23.843 14C24.946 14 26.0034 14.4319 26.7828 15.2002C27.5623 15.968 28 17.0093 28 18.0948C28 19.1804 27.5622 20.2218 26.7826 20.9896L20.8123 26.8726C20.7295 26.9542 20.6171 27 20.4998 27C20.3826 27 20.2701 26.9542 20.1874 26.8726L14.217 20.9895C12.5943 19.3907 12.5943 16.799 14.217 15.2001C15.8404 13.6004 18.473 13.6004 20.0964 15.2001L20.4998 15.5976L20.9033 15.2001Z" fill="transparent" />
+																</svg>
+															</div>
+															<div class="game-card__image image-ibg">
+																<picture>
+																	<source srcset="images/town/games-widget/game-img-4@2x.webp" type="image/webp">
+																	<img src="images/town/games-widget/game-img-4@2x.jpg" alt="Алуштинский Мультипарк">
+																</picture>
+															</div>
+														</div>
+														<div class="game-card__content">
+															<div class="game-card__caption default-text default-text--semibold title-underline">Алуштинский Мультипарк</div>
+															<div class="game-card__text default-text--small">Голубицкая, ул.&nbsp;Красная, д.&nbsp;178</div>
+														</div>
+													</a>
+													<a class="game-card" href="#">
+														<div class="game-card__image-wrap">
+															<div class="favorite-button">
+																<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+																	<rect width="40" height="40" rx="20" fill="white" />
+																	<path fill-rule="evenodd" clip-rule="evenodd" d="M20.9033 15.2001C21.6826 14.4319 22.74 14 23.843 14C24.946 14 26.0034 14.4319 26.7828 15.2002C27.5623 15.968 28 17.0093 28 18.0948C28 19.1804 27.5622 20.2218 26.7826 20.9896L20.8123 26.8726C20.7295 26.9542 20.6171 27 20.4998 27C20.3826 27 20.2701 26.9542 20.1874 26.8726L14.217 20.9895C12.5943 19.3907 12.5943 16.799 14.217 15.2001C15.8404 13.6004 18.473 13.6004 20.0964 15.2001L20.4998 15.5976L20.9033 15.2001Z" fill="transparent" />
+																</svg>
+															</div>
+															<div class="game-card__image image-ibg">
+																<picture>
+																	<source srcset="images/town/games-widget/game-img-5@2x.webp" type="image/webp">
+																	<img src="images/town/games-widget/game-img-5@2x.jpg" alt="Алуштинский Мультипарк">
+																</picture>
+															</div>
+														</div>
+														<div class="game-card__content">
+															<div class="game-card__caption default-text default-text--semibold title-underline">Алуштинский Мультипарк</div>
+															<div class="game-card__text default-text--small">Голубицкая, ул.&nbsp;Красная, д.&nbsp;178</div>
+														</div>
+													</a>
+													<a class="game-card" href="#">
+														<div class="game-card__image-wrap">
+															<div class="favorite-button">
+																<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+																	<rect width="40" height="40" rx="20" fill="white" />
+																	<path fill-rule="evenodd" clip-rule="evenodd" d="M20.9033 15.2001C21.6826 14.4319 22.74 14 23.843 14C24.946 14 26.0034 14.4319 26.7828 15.2002C27.5623 15.968 28 17.0093 28 18.0948C28 19.1804 27.5622 20.2218 26.7826 20.9896L20.8123 26.8726C20.7295 26.9542 20.6171 27 20.4998 27C20.3826 27 20.2701 26.9542 20.1874 26.8726L14.217 20.9895C12.5943 19.3907 12.5943 16.799 14.217 15.2001C15.8404 13.6004 18.473 13.6004 20.0964 15.2001L20.4998 15.5976L20.9033 15.2001Z" fill="transparent" />
+																</svg>
+															</div>
+															<div class="game-card__image image-ibg">
+																<picture>
+																	<source srcset="images/town/games-widget/game-img-6@2x.webp" type="image/webp">
+																	<img src="images/town/games-widget/game-img-6@2x.jpg" alt="Алуштинский Мультипарк">
+																</picture>
+															</div>
+														</div>
+														<div class="game-card__content">
+															<div class="game-card__caption default-text default-text--semibold title-underline">Алуштинский Мультипарк</div>
+															<div class="game-card__text default-text--small">Голубицкая, ул.&nbsp;Красная, д.&nbsp;178</div>
+														</div>
+													</a>
+												</div>
+												<div class="badges">
+													<ul class="badges__list">
+														<li class="badges__item">
+															<a class="badges__link default-text--small" href="#">Отель</a>
+														</li>
+														<li class="badges__item">
+															<a class="badges__link default-text--small" href="#">Гостиница</a>
+														</li>
+														<li class="badges__item">
+															<a class="badges__link default-text--small" href="#">Пансионат</a>
+														</li>
+														<li class="badges__item">
+															<a class="badges__link default-text--small" href="#">Гостевой дом</a>
+														</li>
+														<li class="badges__item">
+															<a class="badges__link default-text--small" href="#">Мини-отель</a>
+														</li>
+														<li class="badges__item">
+															<a class="badges__link default-text--small" href="#">Вилла</a>
+														</li>
+														<li class="badges__item">
+															<a class="badges__link default-text--small" href="#">Апартаменты</a>
+														</li>
+														<li class="badges__item">
+															<a class="badges__link default-text--small" href="#">Хостел</a>
+														</li>
+														<li class="badges__item">
+															<a class="badges__link default-text--small" href="#">Туристический комплекс</a>
+														</li>
+														<li class="badges__item">
+															<a class="badges__link default-text--small" href="#">База отдыха</a>
+														</li>
+														<li class="badges__item">
+															<a class="badges__link default-text--small" href="#">Частный сектор</a>
+														</li>
+														<li class="badges__item">
+															<a class="badges__link default-text--small" href="#">Апарт отель</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+											<p>Наверное, каждому знакомо фото горы Демерджи или Чатыр-Даг, которые манят туристов, отдыхающий по всему приморскому берегу. Для отдыхающих с ребенком в 2024 году особенно интересным будет посещение Алуштинского аквариума, парка миниатюр и дельфинария «Акварель». Также в непосредственной близости от города, в поселке Партенит, есть прекрасный парк «Айвазовское» и «поющие фонтаны», расположенные под открытым небом. Прекрасная возможность привести домой потрясающие фотографии!</p>
+											<p>Еще одним популярным развлечением является музей катастроф на водах - сюда приезжают, в основном взрослые, которые интересуются историей или морским делом. Любителям природных достопримечательностей рекомендуем посетить долину приведений - скалистая местность, где любое фото выглядит незаурядно.</p>
+										</div>
+									</div>
+									<div class="town-section town-section--beaches">
+										<div class="content">
+											<h4>Пляжи в Алуште</h4>
+											<p>Сама природа подарила этому городку потрясающие пляжи. Здесь они в основном, галечные, что очень удобно и полезно для здоровья. В отличие от песка, галька не очень сильно нагревается на солнце, а это значит, что по ней легко и удобно ходить. Кроме того, песок в ветреную погоду разносится воздушным порывами, попадает в глаза и рот, что особенно проблематично на отдыхе с ребенком у моря. Впрочем, в окрестностях Алушты есть и пляжи с песком.</p>
+											<p>Темный сланцевый песок делает здешние пляжи уникальными. Всем, у кого слабые места − дыхательная, нервная и сердечно-сосудистая система – врачи рекомендуют посетить Алушту с ее целебным воздухом. Тем более что большой выбор санаториев, их насчитывается около 78, удовлетворит любой вкус.</p>
+											<div class="images-widget images2-widget">
+												<div class="images-widget__image image-ibg">
+													<picture>
+														<source srcset="images/town/images-widget/img-8@2x.webp" type="image/webp">
+														<img src="images/town/images-widget/img-8@2x.jpg" alt="изображение">
+													</picture>
+												</div>
+												<div class="images-widget__image image-ibg">
+													<picture>
+														<source srcset="images/town/images-widget/img-9@2x.webp" type="image/webp">
+														<img src="images/town/images-widget/img-9@2x.jpg" alt="изображение">
+													</picture>
+												</div>
+											</div>
+											<p>В Алуште пляжи считаются самыми доступными: в городе и его ближайших окраинах есть много «городских», т.е. бесплатных пляжей. Некоторые из них оборудованы навесами, можно взять на день шезлонг, арендная стоимость которого составит около 100-150 руб.</p>
+											<p>Поскольку курорт очень популярный, количество отдыхающей на пляжах немаленькое. И, конечно же, чем дальше пляж находится от черты города или от центра, тем меньше людей его посещают.</p>
+										</div>
+									</div>
+									<div class="town-section town-section--weather">
+										<div class="content">
+											<h4>Климат</h4>
+											<p>Климат Алушты - это отдельная его достопримечательность. Температура очень комфортна здесь в течение всего года, и даже летом здесь совсем не жарко. В июле и августе, в среднем, градусники показывают около 30, а в сентябре и июне - около 25. Поэтому сезон здесь официально открыт с конца апреля по начало октября. Осенью, в основном, приезжают пары: отдых на двоих получается дешевле, а комфорта больше - свободные пляжи, тишина, недорого стоят номера с питанием.</p>
+											<p>Летом дожди бывают редко, в основном осадки выпадают в январе и феврале. Хотя кто сказал, что в Алушту нельзя приезжать зимой? Заснеженные кипарисы - зрелище на удивление красивое, а город живет своей размеренной, спокойной жизнью.</p>
+											<p>Температура воды в море наиболее пригодна для купания с июня по октябрь. В эти месяцы оно прогревается до 25-26 градусов. В мае море еще достаточно холодное, вода едва ли нагревается до 18 градусов. Поэтому пляжный отдых в Алуште в основном приходится на летние месяцы и начало осени - в это время в городе бушует жизнь, на пляжах нежатся отдыхающие, а по достопримечательностям прогуливаются туристы.</p>
+											<div class="weather-widget">
+												<div class="card-weather">
+													<div class="card-weather__header">
+														<div class="card-weather__main">
+															<div class="card-weather__image">
+																<img src="images/town/weather-widget/weather-1.svg" alt="Погода">
+															</div>
+															<div class="card-weather__degrees">
+																<div class="card-weather__value">19</div>
+																<div class="card-weather__sup-value default-text">°C / °F</div>
+															</div>
+															<div class="card-weather__info default-text--small">
+																<span>Вероятность осадков: 0%</span>
+																<span>Влажность: 79%</span>
+																<span>Ветер: 4 м/с</span>
+															</div>
+														</div>
+														<div class="card-weather__today today-weather">
+															<div class="today-weather__title default-text--bold text-h5">Погода сегодня</div>
+															<div class="today-weather__values default-text--small">
+																<div class="today-weather__value">Понедельник 15:00</div>
+																<div class="today-weather__value">Облачно</div>
+															</div>
+														</div>
+													</div>
+													<div class="card-weather__week-wrap">
+														<div class="card-weather__week">
+															<div class="card-weather__item default-text--small active">
+																<div class="card-weather__caption">ПН</div>
+																<div class="card-weather__image">
+																	<img src="images/town/weather-widget/weather-1.svg" alt="ПН">
+																</div>
+																<div class="card-weather__temp temp-weather">
+																	<div class="temp-weather__value">19°</div>
+																	<div class="temp-weather__value">14°</div>
+																</div>
+															</div>
+															<div class="card-weather__item default-text--small">
+																<div class="card-weather__caption">ВТ</div>
+																<div class="card-weather__image">
+																	<img src="images/town/weather-widget/weather-2.svg" alt="ВТ">
+																</div>
+																<div class="card-weather__temp temp-weather">
+																	<div class="temp-weather__value">19°</div>
+																	<div class="temp-weather__value">14°</div>
+																</div>
+															</div>
+															<div class="card-weather__item default-text--small">
+																<div class="card-weather__caption">СР</div>
+																<div class="card-weather__image">
+																	<img src="images/town/weather-widget/weather-3.svg" alt="СР">
+																</div>
+																<div class="card-weather__temp temp-weather">
+																	<div class="temp-weather__value">19°</div>
+																	<div class="temp-weather__value">14°</div>
+																</div>
+															</div>
+															<div class="card-weather__item default-text--small">
+																<div class="card-weather__caption">ЧТ</div>
+																<div class="card-weather__image">
+																	<img src="images/town/weather-widget/weather-4.svg" alt="ЧТ">
+																</div>
+																<div class="card-weather__temp temp-weather">
+																	<div class="temp-weather__value">19°</div>
+																	<div class="temp-weather__value">14°</div>
+																</div>
+															</div>
+															<div class="card-weather__item default-text--small">
+																<div class="card-weather__caption">ПТ</div>
+																<div class="card-weather__image">
+																	<img src="images/town/weather-widget/weather-5.svg" alt="ПТ">
+																</div>
+																<div class="card-weather__temp temp-weather">
+																	<div class="temp-weather__value">19°</div>
+																	<div class="temp-weather__value">14°</div>
+																</div>
+															</div>
+															<div class="card-weather__item default-text--small">
+																<div class="card-weather__caption">СБ</div>
+																<div class="card-weather__image">
+																	<img src="images/town/weather-widget/weather-6.svg" alt="СБ">
+																</div>
+																<div class="card-weather__temp temp-weather">
+																	<div class="temp-weather__value">19°</div>
+																	<div class="temp-weather__value">14°</div>
+																</div>
+															</div>
+															<div class="card-weather__item default-text--small">
+																<div class="card-weather__caption">ВС</div>
+																<div class="card-weather__image">
+																	<img src="images/town/weather-widget/weather-7.svg" alt="ВС">
+																</div>
+																<div class="card-weather__temp temp-weather">
+																	<div class="temp-weather__value">19°</div>
+																	<div class="temp-weather__value">14°</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="testimonials-section testimonials-section--offset-lg" data-da=".default-grid-wrapper__main, 1024, 1">
+							<div class="testimonials-section__title title-h2">Последние отзывы на отели Алушты</div>
+							<button class="btn btn--gray" type="button">Все отзывы</button>
+							<div class="testimonials-slider">
+								<div class="swiper">
+									<div class="swiper-wrapper">
+										<div class="testimonials-card testimonials-card-vertical swiper-slide">
+											<div class="testimonials-card__body">
+												<div class="testimonials-card__image image-ibg">
+													<picture>
+														<source srcset="images/testimonials/img-small-1@2x.webp" type="image/webp">
+														<img src="images/testimonials/img-small-1@2x.jpg" alt="фото">
+													</picture>
+												</div>
+												<div class="testimonials-card__place">
+													<div class="testimonials-card__place-name text-h4">Гостиница “Южный Берег”</div>
+													<address class="testimonials-card__place-address default-text--small">Голубицкая, ул.&nbsp;Красная, д.&nbsp;178</address>
+												</div>
+												<div class="rating">
+													<div class="rating-value">
+														<div class="rating-value__count">
+															<div class="rating-value__img">
+																<img src="images/icons/big-star.svg" alt="рейтинг">
+															</div>
+															<div class="rating-value__number text-h5">5,0</div>
+														</div>
+														<div class="rating-value__author text-h5 default-text--bold">Марина</div>
+													</div>
+													<div class="date default-text--small">12 августа 2024</div>
+												</div>
+												<div class="testimonials-card__content">
+													<ul class="testimonials-card__list">
+														<li class="testimonials-card__list-item">
+															<span class="default-text--semibold">Достоинства:</span>
+															<span>Расположен в центре, качественное питание</span>
+														</li>
+														<li class="testimonials-card__list-item">
+															<span class="default-text--semibold">Недостатки:</span>
+															<span>Долгое оформление</span>
+														</li>
+													</ul>
+													<div class="testimonials-card__text">
+														<p>Отличное место, новый дом, идеальное состояние квартиры, полное обеспечение бытовой техникой. В квартире всё предусмотрено для комфортного проживания - уютно, тихо, спокойно. Очень гостеприимный и приятный в общении хозяин. Настоятельно...</p>
+														<a class="link-underline link-underline--color-blue" href="#">Подробнее</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="testimonials-card testimonials-card-vertical swiper-slide">
+											<div class="testimonials-card__body">
+												<div class="testimonials-card__image image-ibg">
+													<picture>
+														<source srcset="images/testimonials/img-small-2@2x.webp" type="image/webp">
+														<img src="images/testimonials/img-small-2@2x.jpg" alt="фото">
+													</picture>
+												</div>
+												<div class="testimonials-card__place">
+													<div class="testimonials-card__place-name text-h4">Гостиница “Южный Берег”</div>
+													<address class="testimonials-card__place-address default-text--small">Голубицкая, ул.&nbsp;Красная, д.&nbsp;178</address>
+												</div>
+												<div class="rating">
+													<div class="rating-value">
+														<div class="rating-value__count">
+															<div class="rating-value__img">
+																<img src="images/icons/big-star.svg" alt="рейтинг">
+															</div>
+															<div class="rating-value__number text-h5">4,9</div>
+														</div>
+														<div class="rating-value__author text-h5 default-text--bold">Светлана</div>
+													</div>
+													<div class="date default-text--small">12 августа 2024</div>
+												</div>
+												<div class="testimonials-card__content">
+													<ul class="testimonials-card__list">
+														<li class="testimonials-card__list-item">
+															<span class="default-text--semibold">Достоинства:</span>
+															<span>Расположен в центре, качественное питание</span>
+														</li>
+														<li class="testimonials-card__list-item">
+															<span class="default-text--semibold">Недостатки:</span>
+															<span>Долгое оформление</span>
+														</li>
+													</ul>
+													<div class="testimonials-card__text">
+														<p>Отличное место, новый дом, идеальное состояние квартиры, полное обеспечение бытовой техникой. В квартире всё предусмотрено для комфортного проживания - уютно, тихо, спокойно. Очень гостеприимный и приятный в общении хозяин. Настоятельно...</p>
+														<a class="link-underline link-underline--color-blue" href="#">Подробнее</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="testimonials-card testimonials-card-vertical swiper-slide">
+											<div class="testimonials-card__body">
+												<div class="testimonials-card__image image-ibg">
+													<picture>
+														<source srcset="images/testimonials/img-small-3@2x.webp" type="image/webp">
+														<img src="images/testimonials/img-small-3@2x.jpg" alt="фото">
+													</picture>
+												</div>
+												<div class="testimonials-card__place">
+													<div class="testimonials-card__place-name text-h4">Гостиница “Южный Берег”</div>
+													<address class="testimonials-card__place-address default-text--small">Голубицкая, ул.&nbsp;Красная, д.&nbsp;178</address>
+												</div>
+												<div class="rating">
+													<div class="rating-value">
+														<div class="rating-value__count">
+															<div class="rating-value__img">
+																<img src="images/icons/big-star.svg" alt="рейтинг">
+															</div>
+															<div class="rating-value__number text-h5">4,5</div>
+														</div>
+														<div class="rating-value__author text-h5 default-text--bold">Анна</div>
+													</div>
+													<div class="date default-text--small">12 августа 2024</div>
+												</div>
+												<div class="testimonials-card__content">
+													<ul class="testimonials-card__list">
+														<li class="testimonials-card__list-item">
+															<span class="default-text--semibold">Достоинства:</span>
+															<span>Расположен в центре, качественное питание</span>
+														</li>
+														<li class="testimonials-card__list-item">
+															<span class="default-text--semibold">Недостатки:</span>
+															<span>Долгое оформление</span>
+														</li>
+													</ul>
+													<div class="testimonials-card__text">
+														<p>Отличное место, новый дом, идеальное состояние квартиры, полное обеспечение бытовой техникой. В квартире всё предусмотрено для комфортного проживания - уютно, тихо, спокойно. Очень гостеприимный и приятный в общении хозяин. Настоятельно...</p>
+														<a class="link-underline link-underline--color-blue" href="#">Подробнее</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="testimonials-card testimonials-card-vertical swiper-slide">
+											<div class="testimonials-card__body">
+												<div class="testimonials-card__image image-ibg">
+													<picture>
+														<source srcset="images/testimonials/img-small-1@2x.webp" type="image/webp">
+														<img src="images/testimonials/img-small-1@2x.jpg" alt="фото">
+													</picture>
+												</div>
+												<div class="testimonials-card__place">
+													<div class="testimonials-card__place-name text-h4">Гостиница “Южный Берег”</div>
+													<address class="testimonials-card__place-address default-text--small">Голубицкая, ул.&nbsp;Красная, д.&nbsp;178</address>
+												</div>
+												<div class="rating">
+													<div class="rating-value">
+														<div class="rating-value__count">
+															<div class="rating-value__img">
+																<img src="images/icons/big-star.svg" alt="рейтинг">
+															</div>
+															<div class="rating-value__number text-h5">5,0</div>
+														</div>
+														<div class="rating-value__author text-h5 default-text--bold">Марина</div>
+													</div>
+													<div class="date default-text--small">12 августа 2024</div>
+												</div>
+												<div class="testimonials-card__content">
+													<ul class="testimonials-card__list">
+														<li class="testimonials-card__list-item">
+															<span class="default-text--semibold">Достоинства:</span>
+															<span>Расположен в центре, качественное питание</span>
+														</li>
+														<li class="testimonials-card__list-item">
+															<span class="default-text--semibold">Недостатки:</span>
+															<span>Долгое оформление</span>
+														</li>
+													</ul>
+													<div class="testimonials-card__text">
+														<p>Отличное место, новый дом, идеальное состояние квартиры, полное обеспечение бытовой техникой. В квартире всё предусмотрено для комфортного проживания - уютно, тихо, спокойно. Очень гостеприимный и приятный в общении хозяин. Настоятельно...</p>
+														<a class="link-underline link-underline--color-blue" href="#">Подробнее</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-scrollbar"></div>
+								</div>
+								<div class="slider-controls">
+									<button class="slider-button slider-button-prev" type="button"> </button>
+									<button class="slider-button slider-button-next" type="button"> </button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="container">
+				<div class="footer__body">
+					<div class="footer__info info-footer default-text--small">
+						<a class="footer__logo" href="#">
+							<img class="logo-black" src="images/logo.svg" alt="логотип">
+							<img class="logo-white" src="images/logo-white.svg" alt="логотип">
+						</a>
+						<div class="info-footer__copyright">©TipTopTrip, <span id="year"></span>
+						</div>
+						<a class="info-footer__politic link-underline" href="#" target="_blank">Политика конфиденциальности</a>
+						<div class="info-footer__text default-text--small">Мы не предоставляем услуги бронирования. Всю информацию Вы можете найти на странице заинтресовавшего Вас обьекта Пишите, мы обязательно ответим</div>
+					</div>
+					<div class="footer__main main-footer">
+						<nav class="main-footer__menu menu-footer">
+							<div class="menu-footer__caption default-text default-text--bold">Информация</div>
+							<ul class="menu-footer__list">
+								<li class="menu-footer__item">
+									<a class="menu-footer__link default-text" href="#">О компании</a>
+								</li>
+								<li class="menu-footer__item">
+									<a class="menu-footer__link default-text" href="#">Соглашение</a>
+								</li>
+								<li class="menu-footer__item">
+									<a class="menu-footer__link default-text" href="#">Тарифы</a>
+								</li>
+								<li class="menu-footer__item">
+									<a class="menu-footer__link default-text" href="#">Работа</a>
+								</li>
+								<li class="menu-footer__item">
+									<a class="menu-footer__link default-text" href="#">FAQ</a>
+								</li>
+								<li class="menu-footer__item">
+									<a class="menu-footer__link default-text" href="#">Статистика</a>
+								</li>
+								<li class="menu-footer__item">
+									<a class="menu-footer__link default-text" href="#">Контакты</a>
+								</li>
+								<li class="menu-footer__item">
+									<a class="menu-footer__link default-text" href="#">Карта сайта</a>
+								</li>
+							</ul>
+						</nav>
+						<div class="main-footer__actions">
+							<a class="site-phone text-h4" href="tel:+79788029014">+7 (978) 802 90 14</a>
+							<a class="site-email default-text--m" href="mailto:info@tiptoptrip.ru">info@tiptoptrip.ru</a>
+							<button class="btn btn--border btn-append" type="button">Добавить проект</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<div class="popup popup-map" id="popup-map" data-popup>
+		<div class="popup__window">
+			<button class="popup__close" type="button" data-popup-close></button>
+			<div class="map" id="map-popup"></div>
+		</div>
+	</div>
+	<div class="popup popup-request" id="popup-request" data-popup>
+		<div class="popup__window">
+			<button class="popup__close" type="button" data-popup-close></button>
+			<form class="popup-form" action="#" method="post">
+				<div class="popup-form__image image-ibg">
+					<picture>
+						<source srcset="images/dev/popup-img@2x.webp" type="image/webp">
+						<img src="images/dev/popup-img@2x.jpg" alt="Изображение">
+					</picture>
+				</div>
+				<div class="popup-form__body">
+					<div class="popup-form__title title-h3">Подать заявку на разработку сайта по готовому шаблону</div>
+					<div class="popup-form__items">
+						<div class="form-item">
+							<div class="form-item__field">
+								<input class="form-input" type="text" name="request_name" id="request_name" placeholder="Имя">
+								<label class="form-label" for="request_name">Имя</label>
+							</div>
+						</div>
+						<div class="form-item">
+							<div class="form-item__field">
+								<input class="form-input" type="email" name="request_email" id="request_email" placeholder="Email">
+								<label class="form-label" for="request_email">Email</label>
+							</div>
+						</div>
+						<div class="form-item">
+							<div class="form-item__field form-item__field-phone">
+								<input class="form-input" type="tel" name="request_phone" placeholder="+7-900-000-00-00">
+							</div>
+						</div>
+						<div class="form-item">
+							<div class="form-item__caption default-text--small-s">Месяц проживания</div>
+							<div class="custom-select">
+								<button class="custom-select__btn" type="button">Выбрать тип</button>
+								<ul class="custom-select__list select-list">
+									<li class="select-list__item" data-value="Демо №1">Демо №1</li>
+									<li class="select-list__item" data-value="Демо №2">Демо №2</li>
+									<li class="select-list__item" data-value="Демо №3">Демо №3</li>
+									<li class="select-list__item" data-value="Демо №4">Демо №4</li>
+								</ul>
+								<input class="custom-select__input" type="hidden" name="request_type" value="">
+							</div>
+							<div class="form-item form-item-textarea">
+								<div class="form-item__field">
+									<textarea class="form-input form-textarea" name="request_message" id="request_message" placeholder="Комментарий"></textarea>
+									<label class="form-label" for="request_message">Комментарий </label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="popup-form__actions">
+						<button class="btn btn--primary" type="submit">Отправить</button>
+						<div class="form-text default-text--small">Нажимая на кнопку “Отправить” вы автоматически соглашаетесь на обработку персональных данных в соответствии с <a href="#">Политикой конфиденциальности</a> и принимаете условия <a href="#">Пользовательского соглашения</a>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="popup popup-apartment" id="popup-apartment" data-popup>
+		<div class="popup__window">
+			<button class="popup__close" type="button" data-popup-close></button>
+			<div class="popup-apartment__body">
+				<div class="popup-apartment__slider slider-apartment">
+					<div class="slider-apartment__thumbs swiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<div class="slider-apartment__image image-ibg">
+									<picture>
+										<source srcset="images/main-card/apartment-img-1@2x.webp" type="image/webp">
+										<img src="images/main-card/apartment-img-1@2x.jpg" alt="фото">
+									</picture>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="slider-apartment__main swiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<a class="slider-apartment__image image-ibg" href="images/main-card/apartment-img-1@2x.jpg" data-fancybox="apartment-gallery">
+									<picture>
+										<source srcset="images/main-card/apartment-img-1@2x.webp" type="image/webp">
+										<img src="images/main-card/apartment-img-1@2x.jpg" alt="фото">
+									</picture>
+								</a>
+							</div>
+						</div>
+						<div class="slider-pagination swiper-pagination"></div>
+						<div class="slider-controls">
+							<button class="slider-button slider-button-prev" type="button"> </button>
+							<button class="slider-button slider-button-next" type="button"> </button>
+						</div>
+					</div>
+				</div>
+				<div class="popup-apartment__main-contents">
+					<div class="popup-apartment__main-content">
+						<div class="popup-apartment__main-content-caption title-h5">Описание</div>
+						<div class="content">
+							<p>Макс. 3+1 чел. ​Однокомнатный, двуспальная кровать 200х200 см + раскладная софа 70х180 см + доп. кровать 100х180 см или 2 двуспальные кровати 160х200 см + доп. кровать 100х180 см. Балкон или терраса. В номере ванна и душ.</p>
+						</div>
+					</div>
+					<div class="popup-apartment__main-content">
+						<div class="popup-apartment__main-content-caption title-h5">Характеристики</div>
+						<div class="content">
+							<p>Площадь: 45м²</p>
+							<p>Вид из номера: на бассейн</p>
+							<p>Максимальное размещение: 4</p>
+						</div>
+					</div>
+				</div>
+				<div class="popup-apartment__main-content content-bottom">
+					<div class="popup-apartment__main-content-caption title-h5">Описание отеля</div>
+					<ul class="features-list">
+						<li class="default-text--small features-item features-item--building">Центр города</li>
+						<li class="default-text--small features-item features-item--wifi">Бесплатный WiFi</li>
+						<li class="default-text--small features-item features-item--transfer">Трансфер</li>
+						<li class="default-text--small features-item features-item--building">Центр города</li>
+						<li class="default-text--small features-item features-item--wifi">Бесплатный WiFi</li>
+						<li class="default-text--small features-item features-item--transfer">Трансфер</li>
+						<li class="default-text--small features-item features-item--kitchen">Кухня</li>
+						<li class="default-text--small features-item features-item--breakfast">Завтрак</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="scripts/main.min.js?_v=20260209113223" defer></script>
+</body>
+
+</html>
